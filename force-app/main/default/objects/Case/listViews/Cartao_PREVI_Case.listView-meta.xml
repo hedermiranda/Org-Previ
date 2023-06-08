@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cartao_PREVI_Case</fullName>
+    <columns>Reiteracao__c</columns>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>CASES.CREATED_DATE</columns>
+    <columns>Sinalizacao__c</columns>
+    <columns>NAME</columns>
+    <columns>Registration__c</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>Producty__c</columns>
+    <columns>CASES.TYPE</columns>
+    <columns>CASES.STATUS</columns>
+    <filterScope>Queue</filterScope>
+    <label>Cartão PREVI</label>
+    <queue>Cartao_PREVI</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

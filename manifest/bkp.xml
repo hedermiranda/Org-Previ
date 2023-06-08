@@ -1,0 +1,201 @@
+<types>
+		<members>Case.Occupation_area__c</members>
+		<members>Case.Producty__c</members>
+		<members>Case.Service__c</members>
+		<members>Case.Sub_Service__c</members>
+		<members>Case.Type</members>
+		<name>CustomField</name>
+	</types>
+	<types>
+		<members>Case.Atendimento</members>
+		<members>Case.Fale_Conosco</members>
+		<members>Case.SubCaso</members>
+		<name>RecordType</name>
+	</types>
+	<types>
+		<members>CaseType</members>
+		<name>StandardValueSet</name>
+	</types>
+
+	<types>
+		<members>Monitoramento__c.Layout_Compacto_Monitoramento</members>
+		<members>Monitoramento__c.Monitoramento_Atendimento</members>
+		<name>CompactLayout</name>
+	</types>
+	<types>
+		<members>Monitoramento__c.Hist_rico_analisado__c</members>
+		<members>Monitoramento__c.Informa_es_corretas__c</members>
+		<members>Monitoramento__c.Reposicionamento__c</members>
+		<members>Monitoramento__c.Resposta_coesa__c</members>
+		<members>Monitoramento__c.Resposta_completa__c</members>
+		<members>Monitoramento__c.Resposta_objetiva__c</members>
+		<members>Monitoramento__c.Resposta_precisa__c</members>
+		<members>Monitoramento__c.Resultado_do_monitoramento__c</members>
+		<name>CustomField</name>
+	</types>
+	<types>
+		<members>Case_Record_Page2</members>
+		<members>Case_Record_Page_Atendimento</members>
+		<members>Conta_Pagina_registro_Atendimento</members>
+		<members>Conta_Pagina_registro_Ouvidoria</members>
+		<members>Monitoramento_Atendimento_P_gina_de_registro11</members>
+		<members>Monitoramento_Ouvidoria_P_gina_de_registro1</members>
+		<members>Previ_Atendimento_Din_mico</members>
+		<name>FlexiPage</name>
+	</types>
+	<types>
+		<members>Monitoramento__c-Layout de Monitoramento Atendimento</members>
+		<members>Monitoramento__c-Layout de Monitoramento Ouvidoria</members>
+		<name>Layout</name>
+	</types>
+	<types>
+		<members>Case.Casos_sem_Monitoramento</members>
+		<name>ListView</name>
+	</types>
+	<types>
+		<members>Analista</members>
+		<members>Atendente</members>
+		<members>Atendente Fale Conosco</members>
+		<members>Atendente PREVI Atendimento</members>
+		<members>Gerente</members>
+		<name>Profile</name>
+	</types>
+	<types>
+		<members>Monitoramento__c.Atualizar_Monitoramento_Atendimento</members>
+		<members>Monitoramento__c.Atualizar_Monitoramento_Ouvidoria</members>
+		<members>Novo_Monitoramento_de_Atendimento</members>
+		<name>QuickAction</name>
+	</types>
+	<types>
+		<members>Monitoramento/Monitoramento_Atendimento_jDu</members>
+		<members>Ouvidoria/MonitoramentoOuvidoria</members>
+		<name>Report</name>
+
+
+		<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>Case.Occupation_area__c</members>
+		<name>CustomField</name>
+	</types>
+	<types>
+		<members>Occupation_area</members>
+		<name>GlobalValueSet</name>
+	</types>
+	<types>
+		<members>Case.SubCaso</members>
+		<name>RecordType</name>
+	</types>
+	<version>55.0</version>
+</Package>
+
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>Case.Aprovadores_Conin_Case</members>
+		<members>Case.Aprovadores_Diseg_Case</members>
+		<members>Case.Aprovadores_Gabin_Case</members>
+		<members>Case.Aprovadores_Geben_Case</members>
+		<members>Case.Aprovadores_Gecat_Case</members>
+		<members>Case.Aprovadores_Gecon_Case</members>
+		<members>Case.Aprovadores_Gecot_Case</members>
+		<members>Case.Aprovadores_Gepab_Case</members>
+		<members>Case.Aprovadores_Gepar_Case</members>
+		<members>Case.Aprovadores_Gepoc_Case</members>
+		<members>Case.Aprovadores_Gerat_Case</members>
+		<members>Case.Aprovadores_Gesop_Case</members>
+		<members>Case.Aprovadores_Gevar_Case</members>
+		<members>Case.Aposentadoria_Case</members>
+		<members>Case.Cadastro_Case</members>
+		<members>Case.Canais_de_Relacionamento_Case</members>
+		<members>Case.Cartao_PREVI_Case</members>
+		<members>Case.Emprestimo_Simples_Case</members>
+		<members>Case.Financiamento_Imobiliario_Case</members>
+		<members>Case.Folha_de_Pagamento_Case</members>
+		<members>Case.Outros_Case</members>
+		<members>Case.Peculio_Case</members>
+		<members>Case.Pensao_Case</members>
+		<members>Case.Previ_Familia_Case</members>
+		<members>Case.Reservas_Contribuicao_Case</members>
+		<members>Case.Senha_Case</members>
+		<members>Case.Atendimento_Conin_Case</members>
+		<members>Case.Atendimento_DIseg_Case</members>
+		<members>Case.Atendimento_Dipar_Case</members>
+		<members>Case.Atendimento_Dirin_Case</members>
+		<members>Case.Atendimento_Gabin_Case</members>
+		<members>Case.Atendimento_Geben_Case</members>
+		<members>Case.Atendimento_Gecap_Case</members>
+		<members>Case.Atendimento_Gecat_Case</members>
+		<members>Case.Atendimento_Gecon_Case</members>
+		<members>Case.Atendimento_Gecot_Case</members>
+		<members>Case.Atendimento_Gepab_Case</members>
+		<members>Case.Atendimento_Gepar_Case</members>
+		<members>Case.Atendimento_Gepoc_Case</members>
+		<members>Case.Atendimento_Gerai_Case</members>
+		<members>Case.Atendimento_Gerat_Case</members>
+		<members>Case.Atendimento_Gesop_Case</members>
+		<members>Case.Atendimento_Gevar_Case</members>
+		<members>Case.Retorno_GERAT_Case</members>
+		<members>Case.Devolucoes_GERAT_Case</members>
+		<members>Case.AllOpenCases</members>
+		<name>ListView</name>
+	</types>
+	<version>55.0</version>
+</Package>
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>Case.Aprovadores_Conin_Case</members>
+		<members>Case.Aprovadores_Diseg_Case</members>
+		<members>Case.Aprovadores_Gabin_Case</members>
+		<members>Case.Aprovadores_Geben_Case</members>
+		<members>Case.Aprovadores_Gecat_Case</members>
+		<members>Case.Aprovadores_Gecon_Case</members>
+		<members>Case.Aprovadores_Gecot_Case</members>
+		<members>Case.Aprovadores_Gepab_Case</members>
+		<members>Case.Aprovadores_Gepar_Case</members>
+		<members>Case.Aprovadores_Gepoc_Case</members>
+		<members>Case.Aprovadores_Gerat_Case</members>
+		<members>Case.Aprovadores_Gesop_Case</members>
+		<members>Case.Aprovadores_Gevar_Case</members>
+		<members>Case.Aposentadoria_Case</members>
+		<members>Case.Cadastro_Case</members>
+		<members>Case.Canais_de_Relacionamento_Case</members>
+		<members>Case.Cartao_PREVI_Case</members>
+		<members>Case.Emprestimo_Simples_Case</members>
+		<members>Case.Financiamento_Imobiliario_Case</members>
+		<members>Case.Folha_de_Pagamento_Case</members>
+		<members>Case.Outros_Case</members>
+		<members>Case.Peculio_Case</members>
+		<members>Case.Pensao_Case</members>
+		<members>Case.Previ_Familia_Case</members>
+		<members>Case.Reservas_Contribuicao_Case</members>
+		<members>Case.Senha_Case</members>
+		<members>Case.Atendimento_Conin_Case</members>
+		<members>Case.Atendimento_DIseg_Case</members>
+		<members>Case.Atendimento_Dipar_Case</members>
+		<members>Case.Atendimento_Dirin_Case</members>
+		<members>Case.Atendimento_Gabin_Case</members>
+		<members>Case.Atendimento_Geben_Case</members>
+		<members>Case.Atendimento_Gecap_Case</members>
+		<members>Case.Atendimento_Gecat_Case</members>
+		<members>Case.Atendimento_Gecon_Case</members>
+		<members>Case.Atendimento_Gecot_Case</members>
+		<members>Case.Atendimento_Gepab_Case</members>
+		<members>Case.Atendimento_Gepar_Case</members>
+		<members>Case.Atendimento_Gepoc_Case</members>
+		<members>Case.Atendimento_Gerai_Case</members>
+		<members>Case.Atendimento_Gerat_Case</members>
+		<members>Case.Atendimento_Gesop_Case</members>
+		<members>Case.Atendimento_Gevar_Case</members>
+		<members>Case.Retorno_GERAT_Case</members>
+		<members>Case.Devolucoes_GERAT_Case</members>
+		<members>Case.AllOpenCases</members>
+		<name>ListView</name>
+	</types>
+	<version>55.0</version>
+</Package>

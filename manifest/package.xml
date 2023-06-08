@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+<types>
+		<members>Case.Occupation_area__c</members>
+		<members>Case.Producty__c</members>
+		<members>Case.Service__c</members>
+		<members>Case.Sub_Service__c</members>
+		<members>Case.Type</members>
+		<name>CustomField</name>
+	</types>
+	<types>
+		<members>Occupation_area</members>
+		<name>GlobalValueSet</name>
+	</types>
+	<types>
+		<members>Case.Atendimento</members>
+		<members>Case.Fale_Conosco</members>
+		<members>Case.SubCaso</members>
+		<name>RecordType</name>
+	</types>
+	<version>55.0</version>
+</Package>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>true</sorted>
+    <standardValue>
+        <fullName>Assessoria Previdenciária</fullName>
+        <default>false</default>
+        <label>Assessoria Previdenciária</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Comunicado</fullName>
+        <default>false</default>
+        <label>Comunicado</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Denunciation</fullName>
+        <default>false</default>
+        <label>Denúncia</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Elogio</fullName>
+        <default>false</default>
+        <label>Elogio</label>
+    </standardValue>
+    <standardValue>
+        <fullName>N/A</fullName>
+        <default>false</default>
+        <label>N/A</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Pós-Atendimento</fullName>
+        <default>false</default>
+        <label>Pós-Atendimento</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Reclamação</fullName>
+        <default>false</default>
+        <label>Reclamação</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Complaint</fullName>
+        <default>false</default>
+        <label>Reclamação de 2ª Instância</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Retenção</fullName>
+        <default>false</default>
+        <label>Retenção</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Solicitação</fullName>
+        <default>false</default>
+        <label>Solicitação</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Solicitacao</fullName>
+        <default>false</default>
+        <label>Solicitação 2° Instância</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sugestão</fullName>
+        <default>false</default>
+        <label>Sugestão</label>
+    </standardValue>
+</StandardValueSet>

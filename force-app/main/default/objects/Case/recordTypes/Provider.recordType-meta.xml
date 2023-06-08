@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Provider</fullName>
+    <active>true</active>
+    <businessProcess>Ouvidoria Caso Aberto</businessProcess>
+    <compactLayoutAssignment>PreviEmployee</compactLayoutAssignment>
+    <description>Processo para criação de Casos de Fornecedor.</description>
+    <label>Fornecedores</label>
+    <picklistValues>
+        <picklist>Origin</picklist>
+        <values>
+            <fullName>Complaint_Channel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Correspondence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mailbox_Listen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority</picklist>
+        <values>
+            <fullName>Critical</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Medium</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason</picklist>
+        <values>
+            <fullName>Aposentadoria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Atendimento de 1ª instância</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cadastro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Canais de Relacionamento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cartão PREVI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Empréstimo Simples</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financiamento Imobiliário</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Folha de Pagamento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indícios de Corrupção</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indícios de Desvio de Conduta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indícios de Discriminação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indícios de Fraude</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indícios de Quebra de Dados%2FInformações</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indícios de Violação de Normas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insatisfação com as regras%2Fpolíticas da Previ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pecúlio</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pensão</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Previ Família</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Questões comportamentais</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reclamatória Trabalhista</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Registration_Update</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reservas%2FContribuição</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Senha</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Complaint</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Denunciation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Solicitacao</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

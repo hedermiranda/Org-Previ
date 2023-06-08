@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Layout_Compacto_Monitoramento</fullName>
+    <fields>Name</fields>
+    <fields>NotaTotal__c</fields>
+    <fields>Data_da_Avalia_o__c</fields>
+    <fields>CompreensaoRegistro__c</fields>
+    <fields>ConducaoTratamento__c</fields>
+    <fields>Qualidade_Analise__c</fields>
+    <fields>QualidadeResposta__c</fields>
+    <fields>Escrita__c</fields>
+    <label>Layout Compacto Monitoramento</label>
+</CompactLayout>

@@ -1,0 +1,1569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Atendimento</fullName>
+    <active>true</active>
+    <businessProcess>Atendimento Caso Aberto</businessProcess>
+    <compactLayoutAssignment>Historico_de_Casos</compactLayoutAssignment>
+    <description>Processo de abertura de Caso para Atendimento Geral</description>
+    <label>Atendimento</label>
+    <picklistValues>
+        <picklist>Occupation_area__c</picklist>
+        <values>
+            <fullName>Conin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gabin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Geben</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gecat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gecon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gepar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gerai</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gerat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gesop</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Origin</picklist>
+        <values>
+            <fullName>Ativo Telefônico</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Carta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consultoria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E-mail Manual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Evento Externo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Presencial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Redes Sociais</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supervisão</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Telefone 0800</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Telefone Ramal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority</picklist>
+        <values>
+            <fullName>Critical</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Medium</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Producty__c</picklist>
+        <values>
+            <fullName>Aposentadoria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cadastro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Canais de Relacionamento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cartão PREVI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Documentos e Formulários</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Empréstimo Simples</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financiamento Imobiliário</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Folha de Pagamentos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pecúlio</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pensão</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Previ Família</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reclamatória Trabalhista</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reservas%2FContribuição</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Senha</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason</picklist>
+        <values>
+            <fullName>Aposentadoria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Atendimento de 1ª instância</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cadastro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Canais de Relacionamento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cartão PREVI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Empréstimo Simples</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financiamento Imobiliário</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Folha de Pagamento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indícios de Corrupção</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indícios de Desvio de Conduta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indícios de Discriminação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indícios de Fraude</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indícios de Quebra de Dados%2FInformações</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indícios de Violação de Normas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insatisfação com as regras%2Fpolíticas da Previ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pecúlio</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pensão</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Previ Família</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Questões comportamentais</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reclamatória Trabalhista</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Registration_Update</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reservas%2FContribuição</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Senha</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Service__c</picklist>
+        <values>
+            <fullName>2ª via</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acesso%2FNavegação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acordo BB%2FPrevi %E2%80%93 Grupo de 67</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ascensão Profissional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Assédio Moral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Assédio Sexual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Atualização Cadastral de Pensionistas %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Atualização Dados Participante %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Benefícios</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bolsa de Estudo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cadastro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Canais%2FSenha</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Capec - Regulamento %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Clima organizacional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Clima organizacional - Q%2FC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Clube de Benefícios</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Comunicação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Concessão</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Concessão Pensão</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contestação das Cláusulas Contratuais</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contribuições</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cultura</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DR - Comprovante IR %28A Partir de 99%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DR - Comprovante IR %28Antes de 99%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dados</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Declaração Cancelamento - Previ Futuro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Definição%2FPrévia opção%2FSaldo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demonstrativo IR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dificuldade na Comunicação%2F Relacionamento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Documentos Microfilmados</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dr - Pl1 Memória Cálculo %28a partir de 99%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dr - Pl1 Memória Cálculo %28antes de 99%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dr - Previ Futuro - Memória Cálculo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Empréstimo Simples - Extrato %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Empréstimo Simples - Normativo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Empréstimo Simples - Reingresso - Kit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Empréstimo Simples - Solicitação e Contratação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Espelho</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Estatuto %28especificar qual%29 %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Etário</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Extrato Renda Certa%2FRenda Mensal Temp%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Extrato das Verbas com Incidência Previ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Extrato de Contribuição Plano 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Extrato de Contribuições %28Externo%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Extrato de Contribuições Plano 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Favorecimento de Fornecedores</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Favorecimento em Processos de Seleção</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financ%2E Imob%2E - Extrato %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financ%2E Imob%2E 2ª Via Carta Convocação %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Folha de Pagamento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fopag</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fopag - Autorização B%2EU%2E %2F B%2ES%2E I%2ER%2E %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fopag - Demonst%2E Contrib%2E 89%2F95 IN 1343</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fopag - Inscrição Dependentes I%2ER%2E %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fopag - Pensão Aliment%2E - Dados Dem%2E IR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fopag - Pensão Aliment%2E - Ofício</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fopag - Pensão Aliment%2E - Planilha Cálc%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fraude financeira</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fraude operacional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gestão</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gênero</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Histórico de Benefícios Pagos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Imposto de Renda</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Informações%2FServiços CAPEC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Informações%2FServiços ES</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Informações%2FServiços FI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inscrição Participante - P%2E Futuro %28M%29%40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Institucional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Institutos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investimentos e Participações</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LGPD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manutenção</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manutenção Pensão</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mem%2E Calc%2E Compl%2E Apose Invalidez Plano 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mem%2E Cálc%2E Benef%2E Previ Início 1988 Plano 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Movimento de Lateralidade</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Notícias e Publicações</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Obtenção de vantagens indevidas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Orientação sexual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros F%2FP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros O</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros P%2FF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros R%2FC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros S</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pagamento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pagamentos ou Recebimentos Impróprios</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pecúlio - Cancelamento Parcial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pecúlio - Cancelamento Total</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pecúlio - Certificado Mantença</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pecúlio - Certificado Morte</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pecúlio - Formulário Débito c%2Fc %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pecúlio - Plano Especial %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pecúlio - Plano Invalidez %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pecúlio - Plano Mantença %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pecúlio - Plano Morte %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pecúlio - Requerimento %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pecúlio - Tabela De Valores %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pensão Alimentícia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Portabilidade</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Preservação Nível de Contribuição</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Previ Familia Termo Suspensão Contrib%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Processo de Seleção</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Protocolo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Qualidade do Atendimento de 1ª instância</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quebra de Dados%2FInformações Confidenciais</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quebra de Dados%2FInformações Interna</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Questões Comportamentais</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Racial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recadastramento de Benefícios</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reclamatória Trabalhista</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Regulamento Carim %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Regulamento Plano 1 %40 %28especificar qual%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Regulamento Plano 2 %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reingresso Plano Previ Futuro %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Relacionamento Interpessoal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Relacionamentos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renda Mensal Antecipada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renda Mensal Vitalícia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renda Mensal de Aposentadoria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renda Vesting Plano 1 %28Requerimento%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Requerimento de Pensão Plano 1 %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Requerimento de Pensão Previ Futuro %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Requerimento de Revisão De Benefício</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Resgate solicitado%2Fpago</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Roubo ou Furto de Insumos e Equipamentos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Solicitação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Solicitação Inclusão INSS-Previ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Termo De Opção - Tabela Regressiva %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Termo De Opção Plano 1 %28Modelo%29 %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Termo De Opção Plano 2 %28Modelo%29 %40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Termo de Desmembramento %E2%80%93 Inss</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Termo de Desmembramento %E2%80%93 Previ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Treinamento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Utilização da Marca Previ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Utilização de Bens e Recursos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Utilização de Informações Privilegiadas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vale Refeição%2FAlimentação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vale Transporte</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vinculação ao Plano</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vinculação ao Plano - P%2FF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Violação de Leis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Violação de Políticas internas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Violação de Regulamentos</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sub_Service__c</picklist>
+        <values>
+            <fullName>-</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>--</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>---</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>----</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>13º salário</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>13º salário - P%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>13º salário -M%2FP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2ª via</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agendamento Assessoria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agência%2FConta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agência%2FConta Corrente</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Altera Cadastro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aplicativo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aplicativo - A%2FN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aplicativo - N%2FP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Assessoria - Esclarecimentos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Atendimento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Autoadesão</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Autoatendimento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Autoatendimento - A%2FN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Autoatendimento - P</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Autorização p%2Fcadastrar URA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Baixa de Hipoteca</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Beneficiários</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Beneficiários C%2FPV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Benefício Temporário</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelamento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelamento -  I%2FS ES</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelamento -  V%2FP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelamento - I%2FS CAPEC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelamento - P%2FN%2FC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Central de Vendas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Comunicação de óbito</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Comunicação de óbito - M%2FP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Concessão</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Concessão%2FRenovação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Condições e Pagamento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Condições e cálculo 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Condições e cálculo 1 -C%2FP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Condições e cálculo 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Condições e cálculo 2 -C%2FP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Confirma crédito</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consignação de Entidades</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contrato - I%2FS ES</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contrato - I%2FS FI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contribuições</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Convênio INSS - Exclusão</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Convênio INSS - Exclusão - M%2FP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Convênio INSS - Inclusão</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Convênio INSS - Inclusão - M%2FP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Convênio INSS - Outros</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Convênio INSS - Outros -M%2FP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Crédito</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cálculo - I%2FR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cálculo P-A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dados Previ%2FBB%2FOutros</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Declaração</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Declaração - M%2FP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demonstrativo IR -  I%2FS FI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demonstrativo IR - I%2FS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demonstrativo IR - I%2FS ES</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demonstrativo IR - P%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demonstrativo IR - Remessa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demonstrativo IR - V%2FP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demonstrativo IR - Valores</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dependentes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dependentes Previ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Débito%2Fcrédito conta corrente</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dívidas%2FInformações</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dívidas%2FLiquidação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ES-FINIMOB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Encaminhamento%2FEsclarecimentos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Endereço</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Endereço%2FPessoais</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Entrada de Recursos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Esclarecimentos - 2Via</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Esclarecimentos - C%2FB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Esclarecimentos - E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Esclarecimentos - P%2FN%2FC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Esclarecimentos - POR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Esclarecimentos%2FValores 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Esclarecimentos%2FValores 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Extrato</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FGTS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fale Conosco</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fora do Convênio</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Governança Previ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IR-Opção Tabela Regressiva</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Identificação p%2Fcadastrar  URA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Imposto de Renda</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inadimplência%2FJurídico  - I%2FS FI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inadimplência%2FJurídico - I%2FS ES</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Informação%2F2ª via</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inscrição</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inscrição - I%2FS CAPEC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inscrição - V%2FP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investimentos e Participações</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Isenção</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Liquidação%2FAmortização</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Liquidação%2FAmortização - F%2FI FI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Liquidação%2FAmortização - I%2FS ES</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meu benefício</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Modalidades</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros D%2FC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros I%2FPF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros IS%2FES</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros IS%2FFI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros IS%2FP CAPEC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros M%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros M%2FP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros O%2FF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros O%2FO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros O%2FPF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros O%2FRC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros O%2FS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros R%2FR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outros VP%2FPF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pagamento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pagamento - processo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pagamento - requerimento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pagamento Prestações - Boleto</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Perfil de Investimentos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Perfis de Investimento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pessoais</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Planos%2FValores</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Portabilidade de Entrada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Portabilidade de Saída</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prestação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Processo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Processo Eleitoral Previ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reajuste</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reajuste - M%2FP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recadastramento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recadastramento - M%2FP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recadastramento - P%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recebimento do Ofício</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Regimes de Tributação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reingresso</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Relatório Anual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remessa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renda Certa%2FRenda Mensal Temp%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rendas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repactuação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Requisição de cópias</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Resenha Previ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reservas%2FContribuições</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Resgate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Resgate Parcial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Revisão</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Revisão - C%2FP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Revisão do Benefício</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Saldo Individual BET</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Saída de Recursos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Seleção de Conselheiros</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Senha</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Site</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Site - A%2FN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Site - N%2FP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Situação do Processo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Situação do Processo C%2FP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Solicitação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Substituição de Garantia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suspensão</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tempo de INSS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tempo de Previ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Termo de Adesão</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transferência Bancos x Previ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transferência Previ x Previ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>URA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>URA -A%2FN</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Comunicado</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Elogio</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pós-Atendimento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reclamação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Solicitação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sugestão</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>
