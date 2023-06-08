@@ -1,0 +1,204 @@
+<template>
+    <template if:true={loading}>
+        <lightning-spinner alternative-text="Carregando"></lightning-spinner>
+    </template>
+
+    <template if:false={loading}>
+        <div class="slds-scrollable slds-m-around_medium">    
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Tipo do Benefício">Tipo do Benefício</div>
+                        </th>
+                    </tr>
+                </thead>
+                <template for:each={listConcessaoINSS} for:item="item" for:index="index">
+                    <tbody key={item.tipoBenef}>
+                        <tr>
+                            <td scope="row">{item.tipoBenef}</td>
+                        </tr>
+                    </tbody>
+                </template>
+            </table>
+        </div>
+        <div style="padding-bottom: 12px;">
+            <div class="slds-scrollable slds-m-around_medium">    
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Espécie">Espécie</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Número do Benefício">Número do Benefício</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="DIB">DIB</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <template for:each={listConcessaoINSS} for:item="item" for:index="index">
+                        <tbody key={item.fopag}>
+                            <tr>
+                                <td scope="row">{item.especieNb}</td>
+                                <td scope="row">{item.num_beneficio}</td>
+                                <td scope="row">{item.dib}</td>
+                            </tr>
+                        </tbody>
+                    </template>
+                </table>
+            </div>
+        </div>
+        <h2 class="slds-text-heading_medium slds-m-bottom_xx-small">Requerente</h2>
+        <div style="padding-bottom: 12px;">
+            <div class="slds-scrollable slds-m-around_medium">    
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Nome">Nome</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="CPF">CPF</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="DV">DV</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Vínculo">Vínculo</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Sexo">Sexo</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Data de Nascimento">Data de Nascimento</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Titular">Titular</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Inválido">Inválido</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Responsável Legal">Responsável Legal</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <template for:each={listConcessaoINSS} for:item="item" for:index="index">
+                        <tbody key={item.cpf}>
+                            <tr>
+                                <td scope="row">{item.nome}</td>
+                                <td scope="row">{item.cpf}</td>
+                                <td scope="row">{item.dv}</td>
+                                <td scope="row">{item.vinculo}</td>
+                                <td scope="row">{item.sexo}</td>
+                                <td scope="row">{item.dataNasc}</td>
+                                <td scope="row">{item.tit}</td>
+                                <td scope="row">{item.inv}</td>
+                                <td scope="row">{item.rl}</td>
+                            </tr>
+                        </tbody>
+                    </template>
+                </table>
+            </div>
+        </div>
+        <div style="padding-bottom: 12px;">
+            <div class="slds-scrollable slds-m-around_medium">    
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Endereço">Endereço</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Número">Número</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Complemento">Complemento</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Bairro">Bairro</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Município">Município</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="CEP">CEP</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="UF">UF</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <template for:each={listConcessaoINSS} for:item="item" for:index="index">
+                        <tbody key={item.cep}>
+                            <tr>
+                                <td scope="row">{item.endereco}</td>
+                                <td scope="row">{item.numero}</td>
+                                <td scope="row">{item.complemento}</td>
+                                <td scope="row">{item.bairro}</td>
+                                <td scope="row">{item.municipio}</td>
+                                <td scope="row">{item.cep}</td>
+                                <td scope="row">{item.uf}</td>
+                            </tr>
+                        </tbody>
+                    </template>
+                </table>
+            </div>
+        </div>
+        <div style="padding-bottom: 12px;">
+            <div class="slds-scrollable slds-m-around_medium">    
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="DDD">DDD</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Telefone">Telefone</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="E-mail">E-mail</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <template for:each={listConcessaoINSS} for:item="item" for:index="index">
+                        <tbody key={item.tel}>
+                            <tr>
+                                <td scope="row">{item.ddd}</td>
+                                <td scope="row">{item.tel}</td>
+                                <td scope="row">{item.email}</td>
+                            </tr>
+                        </tbody>
+                    </template>
+                </table>
+            </div>
+        </div>
+        <h2 class="slds-text-heading_medium slds-m-bottom_xx-small">Histórico de Habilitação</h2>
+        <div style="padding-bottom: 12px;">
+            <div class="slds-scrollable slds-m-around_medium">    
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Data">Data</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Descrição">Descrição</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <template for:each={listConcessaoINSSPrisma} for:item="item" for:index="index">
+                        <tbody key={item.data}>
+                            <tr>
+                                <td scope="row">{item.data}</td>
+                                <td scope="row">{item.descricao}</td>
+                            </tr>
+                        </tbody>
+                    </template>
+                </table>
+            </div>
+        </div>
+    </template>  
+</template>

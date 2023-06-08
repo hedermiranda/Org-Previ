@@ -497,6 +497,79 @@ public with sharing class IntegrationUtils {
     }
     //End - Pensoes
     
+    public static HTTPResponse getDadosGerais(String idParticipante){
+        return IntegrationServices.syncCallout(
+            'AposentadoriaGet',
+            new List<String> {'participantes', idParticipante, 'dados-gerais'},
+            null,
+            new Map<String,String> { 'Content-Type' => 'application/json','X-IBM-Client-Secret' => dadosCadastrais.ClientSecret__c, 'X-IBM-Client-Id' => dadosCadastrais.ClientId__c },
+            null);
+    }
+    //String parameterCalloutKey, List<String> pathParams, Map<String,String> queryParams, Map<String,String> headers, String body
+    //erro
+    public static HTTPResponse getHistoricoManutencao(String idParticipante ){
+        return IntegrationServices.syncCallout(
+            'AposentadoriaGet',
+            new List<String> {'participantes', idParticipante , 'historico-manutencoes'},
+            null,
+            new Map<String,String> { 'Content-Type' => 'application/json','X-IBM-Client-Secret' => dadosCadastrais.ClientSecret__c, 'X-IBM-Client-Id' => dadosCadastrais.ClientId__c },
+            null);
+    }
+    //erro
+    public static HTTPResponse getSuspensoes (String idParticipante ){
+        return IntegrationServices.syncCallout(
+            'AposentadoriaGet',
+            new List<String> {'participantes', idParticipante , 'suspensoes'},
+            null,
+            new Map<String,String> { 'Content-Type' => 'application/json','X-IBM-Client-Secret' => dadosCadastrais.ClientSecret__c, 'X-IBM-Client-Id' => dadosCadastrais.ClientId__c },
+            null);
+    }
+    //pegou
+    public static HTTPResponse getInformacoesRenda (String idParticipante ){
+        return IntegrationServices.syncCallout(
+            'AposentadoriaGet',
+            new List<String> {'participantes', idParticipante , 'informacoes-renda'},
+            null,
+            new Map<String,String> { 'Content-Type' => 'application/json','X-IBM-Client-Secret' => dadosCadastrais.ClientSecret__c, 'X-IBM-Client-Id' => dadosCadastrais.ClientId__c },
+            null);
+    }
+    //pegou
+    public static HTTPResponse getBeneficiariosApos (String idParticipante ){
+        return IntegrationServices.syncCallout(
+            'AposentadoriaGet',
+            new List<String> {'participantes', idParticipante , 'beneficiarios'},
+            null,
+            new Map<String,String> { 'Content-Type' => 'application/json','X-IBM-Client-Secret' => dadosCadastrais.ClientSecret__c, 'X-IBM-Client-Id' => dadosCadastrais.ClientId__c },
+            null);
+    }
+    //pegou
+    public static HTTPResponse getBaseRenda (String idParticipante ){
+        return IntegrationServices.syncCallout(
+            'AposentadoriaGet',
+            new List<String> {'participantes', idParticipante , 'base-renda'},
+            null,
+            new Map<String,String> { 'Content-Type' => 'application/json','X-IBM-Client-Secret' => dadosCadastrais.ClientSecret__c, 'X-IBM-Client-Id' => dadosCadastrais.ClientId__c },
+            null);
+    }
+    //pegou
+    public static HTTPResponse getExigencias  (String idParticipante ){
+        return IntegrationServices.syncCallout(
+            'AposentadoriaGet',
+            new List<String> {'participantes', idParticipante , 'exigencias '},
+            null,
+            new Map<String,String> { 'Content-Type' => 'application/json','X-IBM-Client-Secret' => dadosCadastrais.ClientSecret__c, 'X-IBM-Client-Id' => dadosCadastrais.ClientId__c },
+            null);
+    }
+    //pegou
+    public static HTTPResponse getHistoricoSituacoes (String idParticipante ){
+        return IntegrationServices.syncCallout(
+            'AposentadoriaGet',
+            new List<String> {'participantes', idParticipante , 'historico-situacoes'},
+            null,
+            new Map<String,String> { 'Content-Type' => 'application/json','X-IBM-Client-Secret' => dadosCadastrais.ClientSecret__c, 'X-IBM-Client-Id' => dadosCadastrais.ClientId__c },
+            null);
+    }
+    
     /* Autoatendimento - Matriculas */
     public static HTTPResponse calloutMatriculas(String cpf){
         

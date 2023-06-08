@@ -1,0 +1,70 @@
+<template>
+    <template if:true={loading}>
+        <lightning-spinner alternative-text="Carregando"></lightning-spinner>
+    </template>
+
+    <template if:false={loading}>
+        <div class="slds-scrollable slds-m-around_medium" style="height: 70px;">    
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="FOPAG">FOPAG</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Valor Espelho">Valor Espelho</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Data Crédito">Data Crédito</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Valor Previ">Valor Previ</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Valor INSS">Valor INSS</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Lançamento confirmado">Lançamento confirmado</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Tipo Benefício">Tipo Benefício</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Nome">Nome</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Agência">Agência</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Conta-corrente">Conta-corrente</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Valor Previ Líquido">Valor Previ Líquido</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Valor INSS Líquido">Valor INSS Líquido</div>
+                        </th>
+                    </tr>
+                </thead>
+                <template for:each={listAdiantamentos} for:item="item" for:index="index">
+                    <tbody key={item.fopag}>
+                        <tr>
+                            <td scope="row">{item.fopag}</td>
+                            <td scope="row">{item.valorEspelho}</td>
+                            <td scope="row">{item.dtCredito}</td>
+                            <td scope="row">{item.valorPrevi}</td>
+                            <td scope="row">{item.valorInss}</td>
+                            <td scope="row">{item.lancConfirmado}</td>
+                            <td scope="row">{item.tipoBeneficio}</td>
+                            <td scope="row">{item.nome}</td>
+                            <td scope="row">{item.agencia}</td>
+                            <td scope="row">{item.contaCorrente}</td>
+                            <td scope="row">{item.valPreviLiq}</td>
+                            <td scope="row">{item.valInssLiq}</td>
+                        </tr>
+                    </tbody>
+                </template>
+            </table>
+        </div>
+    </template>  
+</template>
