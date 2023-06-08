@@ -1,0 +1,155 @@
+<template>
+    <template if:true={loaded}>
+        <div class="slds-scrollable slds-m-around_medium">    
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="" scope="col">
+                            <div class="slds-truncate"></div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Opportunity Name">Data da última alteração</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Account Name">Descrição</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">
+                            <lightning-button-icon class="slds-m-right_small"
+                                icon-name="action:preview" variant="bare" onclick={handleDetailsFromHistoric}>
+                            </lightning-button-icon>
+                        </td>
+                        <td scope="row">{ultDataFim}</td>
+                        <td scope="row">{ultMotivo}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <template if:true={areDetailsVisible}>
+            <tr>
+                <td colspan="9">
+                <h2 class="slds-text-heading_medium slds-m-bottom_xx-small">Histórico de Senha</h2>
+                    <div style="padding-bottom: 12px;">
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                            <thead>
+                                <tr class="slds-line-height_reset">
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="Data Início">Data Início</div>
+                                    </th>
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="Data Fim">Data Fim</div>
+                                    </th>
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="Motivo">Motivo</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <template for:each={senhaHistoricos} for:item="item" for:index="index">
+                                <tbody key={item.dataFim}>
+                                    <tr>
+                                        <td scope="row">{item.dataInicio}</td>
+                                        <td scope="row">{item.dataFim}</td>
+                                        <td scope="row">{item.motivo}</td>
+                                    </tr>
+                                </tbody>
+                            </template>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </template>
+        <lightning-card>
+            <br></br>
+            <div class="slds-text-align_center">
+                <lightning-button label="Alterar senha via URA" class="slds-m-right_small" size="medium" icon-name="action:view_relationship" onclick={openModalAlterarSenha}></lightning-button>
+                <lightning-button label="Consultar alterações via URA" class="slds-m-right_small" size="medium" icon-name="action:view_relationship" onclick={openModalConsultarAlteracoes}></lightning-button>
+            </div>
+        </lightning-card>
+        <!--Modal Alterar Senha-->
+        <template if:true={isModalAlterarSenha}>
+            <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open slds-fade-in-open slds-modal_large">
+                <div class="slds-modal__container">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close"
+                            alternative-text="close"
+                            variant="inverse"
+                                ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <div class="slds-modal__header">
+                        <b><h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Alterar senha via URA</h1></b>
+                    </div>
+                    <div class="slds-modal__content" id="modal-content-id-1">
+                        <div class="slds-m-around_medium"> 
+                            <lightning-input class="slds-p-left_xx-large" type="checkbox" label="Identificado" onchange={handleChange} ></lightning-input>
+                        </div>
+                        <div class="slds-m-around_medium"> 
+                            <lightning-input class="slds-p-left_xx-large" type="checkbox" label="Autorizado" onchange={handleChange} ></lightning-input>
+                        </div>
+                    </div>
+                    <template if:false={loadedAlterarSenha}>
+                        <lightning-spinner alternative-text="Loading"></lightning-spinner>
+                    </template>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+        </template>
+
+        <!--Modal Consultar Alteracoes-->
+        <template if:true={isModalConsultarAlteracoes}>
+            <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-02" class="slds-modal slds-fade-in-open slds-fade-in-open slds-modal_large">
+                <div class="slds-modal__container">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close"
+                            alternative-text="close"
+                            variant="inverse"
+                                ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <div class="slds-modal__header">
+                        <b><h1 id="modal-heading-02" class="slds-modal__title slds-hyphenate">Consultar alterações via URA</h1></b>
+                    </div>
+                    <div class="slds-modal__content" id="modal-content-id-2">
+                        <div class="slds-scrollable slds-m-around_medium">    
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Data autorização">Data autorização</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Identificador">Identificador</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Autorizador">Autorizador</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Senha alterada">Senha alterada</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <template for:each={senhaSolicitacoesTroca} for:item="item" for:index="index">
+                                    <tbody key={item.dataAutorizacao}>
+                                        <tr>
+                                            <td scope="row">{item.dataAutorizacao}</td>
+                                            <td scope="row">{item.nomeUsuarioInclusao}</td>
+                                            <td scope="row">{item.nomeUsuarioAutorizacao}</td>
+                                            <td scope="row">{item.indAlteracaoConcluida}</td>
+                                        </tr>
+                                    </tbody>
+                                </template>
+                            </table>
+                        </div>
+                    </div>
+                    <template if:false={loadedConsultarAlteracoes}>
+                        <lightning-spinner alternative-text="Loading"></lightning-spinner>
+                    </template>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+        </template>
+    </template>
+</template>

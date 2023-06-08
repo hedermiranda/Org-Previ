@@ -1,0 +1,26 @@
+<template>
+    <template if:true={loading}>
+        <lightning-spinner alternative-text="Carregando"></lightning-spinner>
+    </template>
+
+    <template if:false={loading}>
+        <div>
+            <lightning-datatable
+                key-field="id"
+                columns={columns}
+                data={listEnderecos}
+                hide-checkbox-column
+                default-sort-direction={defaultSortDirection}
+                sorted-direction={sortDirection}
+                sorted-by={sortedBy}
+                onsort={onHandleSort}>
+            </lightning-datatable>
+        </div>
+        <template if:true={texto}>
+            <div class="slds-align_absolute-center">
+                <br>
+                <p>{texto}</p>
+            </div>
+        </template>
+    </template>  
+</template>

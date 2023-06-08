@@ -1,0 +1,23 @@
+.sectionBackground {
+    --sds-c-accordion-summary-color-background: var(--slds-g-color-neutral-base-95, var(--lwc-colorBackground, rgb(243, 243, 243)));
+    --slds-c-accordion-heading-font-size: 16px;
+    --slds-c-accordion-heading-line-height: 14px;
+    --slds-c-accordion-section-spacing-block-end: -0.50rem; 
+    --slds-c-accordion-section-spacing-block-start: -0.50rem;
+    --slds-c-accordion-sizing-radius-border: 1px;
+    --slds-c-accordion-heading-text-color: rgb(5, 4, 3);
+}
+
+:host{
+    --sds-c-accordion-heading-text-color-hover:black;
+    --sds-c-button-text-decoration: none;
+}
+
+.corText {
+    font-size: 14px;
+    color: rgb(1, 68, 134);
+}
+
+.slds-gutters .slds-col {
+     padding-left: 0px; 
+}

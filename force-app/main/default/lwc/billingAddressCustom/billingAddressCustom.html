@@ -1,0 +1,77 @@
+<template>
+
+	<lightning-card>
+		<template if:true={spinner}>
+			<lightning-spinner alternative-text="Loading" variant="brand" size="large" style="position: absolute;">
+			</lightning-spinner>
+		</template>
+
+		<lightning-accordion allow-multiple-sections-open active-section-name={activeSections} class="sectionBackground ">
+			<lightning-accordion-section name="endereco" label="Address Information" >
+                <br></br>
+				<template if:true={isEdit}>
+					<div class="slds-grid slds-gutters">
+						<div class="slds-col slds-size_1-of-2">
+							<lightning-input-address 
+                                address-label="Endereço de cobrança" 
+                                street-label="Rua de cobrança"
+								city-label="Cidade de cobrança" 
+                                country-label="País de cobrança"
+								province-label="Estado/Província de cobrança" 
+                                postal-code-label="CEP de cobrança" 
+                                city={billingCity}
+								street ={billingStreet} 
+                                country={billingCountry} 
+                                province={billingState} 
+                                postal-code={billingPostalCode}
+								required onchange={genericInputChange} 
+                                address-lookup-placeholder="Digite nome da rua e número..."
+								show-address-lookup>
+							</lightning-input-address>
+							<lightning-input type="text" data-id="Bairro" label="Bairro" value={district} required=true> </lightning-input>
+							<lightning-input type="text" data-id="Complemento" label="Complemento" value={complemento}></lightning-input>
+							<br></br>
+						</div>
+					</div>
+
+					<div class="slds-modal__footer slds-align_absolute-center">
+						<button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick={handleCancel}>Cancel</button>
+						<button class="slds-button slds-button_brand" onclick={save} disabled={desativeSalvar}>Save</button>
+					</div>
+				</template>
+
+				<template if:true={isDetail}>
+					<ul class="slds-has-dividers_bottom-space slds-grid slds-gutters">
+						<li class="slds-item slds-dl_horizontal"></li>
+						<li class="slds-size_1-of-2">
+							<dl class="slds-dl_horizontal ">
+								<dt class="slds-dl_horizontal__label slds-col slds-size_2-of-6">
+									<p class="slds-truncate">Endereço de cobrança</p>
+								</dt>
+								<dd class="slds-size_4-of-7">
+									<lightning-formatted-address 
+                                        street={billingStreet} 
+                                        city={billingCity} 
+                                        country={billingCountry}
+                                        province={billingState} 
+                                        postal-code={billingPostalCode} 
+                                        show-static-map>
+									</lightning-formatted-address>
+
+									<p class="slds-truncate corText">{district} </p>
+									<p class="slds-truncate corText">{complemento}</p>
+
+								</dd>
+								<dd>
+									<lightning-button-icon icon-name="utility:edit" variant="container" onclick={isEditTemplate}
+										alternative-text="Edit: Billing Address" title="Edit" size="x-small"></lightning-button-icon>
+								</dd>
+							</dl>
+						</li>
+					</ul>
+				</template>
+			</lightning-accordion-section>
+		</lightning-accordion>
+	</lightning-card>
+
+</template>

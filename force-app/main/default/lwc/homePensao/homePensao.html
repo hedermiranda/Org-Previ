@@ -1,0 +1,1326 @@
+<template>
+    <template if:true={loaded}>
+        <lightning-tabset variant="scoped">
+            <lightning-tab label="Concessão">
+                <lightning-tabset >
+                    <!--Plano 1-->
+                    <lightning-tab style="font-size: 13px;" label="Plano 1">
+                        <div class="slds-card slds-box">
+                            <div class="slds-section slds-is-close" data-id="1">
+                                <!--section header-->
+                                <div class="slds-theme_shade">
+                                    <h1 class="slds-section__title">
+                                        <button type="button" aria-controls="1" class="slds-button slds-section__title-action" data-buttonid="1"
+                                            onclick={toggleSection}>
+                                            <lightning-icon icon-name="utility:switch" alternative-text="button icon" size="x-small"
+                                                class="slds-section__title-action-icon slds-button__icon_left"></lightning-icon>
+                                            <span class="slds-truncate" title="Concessão geral">Concessão geral</span>
+                                        </button>
+                                    </h1>
+                                </div>
+                                <!--section body-->
+                                <div class="slds-section__content">
+                                    <div class="slds-scrollable slds-m-around_medium">
+                                        <lightning-datatable
+                                            key-field="id"
+                                            columns={columns}
+                                            data={listPensaoCabecalho}
+                                            hide-checkbox-column
+                                            default-sort-direction={defaultSortDirection}
+                                            sorted-direction={sortDirection}
+                                            sorted-by={sortedBy}>
+                                        </lightning-datatable>
+                                    </div>
+                                    <h2 class="slds-text-heading_medium slds-m-bottom_xx-small">Previ</h2>
+                                    <div class="slds-scrollable slds-m-around_medium">    
+                                        <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                            <thead>
+                                                <tr class="slds-line-height_reset">
+                                                    <th class="" scope="col">
+                                                    <div class="slds-truncate" title="Opportunity Name">Espécie Pensão Previ</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                    <div class="slds-truncate" title="Account Name">DIB Previ</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                    <div class="slds-truncate" title="Close Date">Complemento Previ</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Close Date">Compl. Adic. BB</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Close Date">Espécie Reajuste</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Close Date">Cesta Alimentação</div>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <template for:each={listPrevi} for:item="item" for:index="index">
+                                                <tbody key={item.especiePrevi}>
+                                                    <tr>
+                                                        <td scope="row">{item.especiePrevi}</td>
+                                                        <td scope="row">{item.dibPrevi}</td>
+                                                        <td scope="row">{item.complPrevi}</td>
+                                                        <td scope="row">{item.complAdicBb}</td>
+                                                        <td scope="row">{item.espec}</td>
+                                                        <td scope="row">{item.cAlimen}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </template>
+                                        </table>
+                                        </br></br>
+                                        <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                            <thead>
+                                                <th class="" scope="col">
+                                                    <div class="slds-truncate" title="Close Date">Situação Pensão Previ</div>
+                                                </th>
+                                                <th class="" scope="col">
+                                                    <div class="slds-truncate" title="Close Date">Data Situação Pensão Previ</div>
+                                                </th>
+                                                <th class="" scope="col">
+                                                    <div class="slds-truncate" title="Close Date">% PREVI</div>
+                                                </th>
+                                            </thead>
+                                            <template for:each={listPrevi} for:item="item" for:index="index">
+                                                <tbody key={item.especiePrevi}>
+                                                    <tr>
+                                                        <td scope="row">{item.situacao}</td>
+                                                        <td scope="row">{item.dtSituac}</td>
+                                                        <td scope="row">{item.percPrevi}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </template>
+                                        </table>
+                                        </br></br>
+                                        <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                            <thead>
+                                                <th class="" scope="col">
+                                                    <div class="slds-truncate" title="Close Date">Enc. Benef.</div>
+                                                </th>
+                                                <th class="" scope="col">
+                                                    <div class="slds-truncate" title="Close Date">Enc.13</div>
+                                                </th>
+                                            </thead>
+                                            <template for:each={listPrevi} for:item="item" for:index="index">
+                                                <tbody key={item.especiePrevi}>
+                                                    <tr>
+                                                        <td scope="row">{item.encBenef}</td>
+                                                        <td scope="row">{item.enc13}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </template>
+                                        </table>
+                                        </br></br>
+                                    </div>
+                                    <h2 class="slds-text-heading_medium slds-m-bottom_xx-small">INSS</h2>
+                                    <div class="slds-scrollable slds-m-around_medium">    
+                                        <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                            <thead>
+                                                <tr class="slds-line-height_reset">
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Opportunity Name">Espécie INSS</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Account Name">DIB INSS</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Close Date">Beneficio INSS - RMI</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Close Date">%INSS</div>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <template for:each={listINSS} for:item="item" for:index="index">
+                                                <tbody key={item.especieInss}>
+                                                    <tr>
+                                                        <td scope="row">{item.especieInss}</td>
+                                                        <td scope="row">{item.dibInss}</td>
+                                                        <td scope="row">{item.rmi}</td>
+                                                        <td scope="row">{item.percInss}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </template>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-section slds-is-open" data-id="2">
+                                <!--section header-->
+                                <div class="slds-theme_shade">
+                                    <h1 class="slds-section__title">
+                                        <button type="button" aria-controls="2" class="slds-button slds-section__title-action" data-buttonid="2"
+                                            onclick={toggleSection}>
+                                            <lightning-icon icon-name="utility:switch" alternative-text="button icon" size="x-small"
+                                                class="slds-section__title-action-icon slds-button__icon_left"></lightning-icon>
+                                            <span class="slds-truncate" title="Pensionistas">Pensionistas</span>
+                                        </button>
+                                    </h1>
+                                </div>
+
+                                <!--section body-->
+                                <div class="slds-section__content">
+                                    <div class="slds-scrollable slds-m-around_medium">    
+                                        <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                            <thead>
+                                                <tr class="slds-line-height_reset">
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate"></div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Nome">Nome</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Vinculo">Vínculo</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Situação">Situação</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Data Situação">Data Situação</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Grupo">Grupo</div>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <template for:each={listPensionistaCabecalho} for:item="item" for:index="index">
+                                                <tbody key={item.id}>
+                                                    <tr>
+                                                        <td scope="row">
+                                                            <!--section header-->
+                                                            <lightning-button-icon aria-controls={item.id} class="slds-m-right_small" access-key={index}
+                                                                key={item.id} data-index={index}
+                                                                icon-name="action:preview" variant="bare" data-buttonid={item.id} onclick={handleDetailsFromPensioner}>
+                                                            </lightning-button-icon>
+                                                        </td>
+                                                        <!--<td scope="row"><lightning-button-icon class="slds-m-right_small" access-key={index} icon-name="action:preview" variant="bare"></lightning-button-icon>{item.idPensionista}</td>-->      
+                                                        <td scope="row">{item.nome}</td>
+                                                        <td scope="row">{item.vinculo}</td>
+                                                        <td scope="row">{item.situacao}</td>
+                                                        <td scope="row">{item.dtSituacao}</td>
+                                                        <td scope="row">{item.grupo}</td>
+                                                    </tr>
+                                                    <template if:true={item.areDetailsVisible}>
+                                                        <tr>
+                                                            <td colspan="9">
+                                                            <h2 class="slds-text-heading_medium slds-m-bottom_xx-small">Grupo Familiar</h2>
+                                                                <div style="padding-bottom: 12px;">
+                                                                    <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                                        <thead>
+                                                                            <tr class="slds-line-height_reset" key={item.id}>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Grupo">Grupo</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Data Início">Data Início</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Data Requerimento">Data Requerimento</div>
+                                                                                </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td scope="row">{item.grupo}</td>
+                                                                                <td scope="row">{item.dtInic}</td>
+                                                                                <td scope="row">{item.dtRequer}</td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                <div style="padding-bottom: 12px;">
+                                                                    <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                                        <thead>
+                                                                            <tr class="slds-line-height_reset" key={item.id}>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Situação">Situação</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Data Situação">Data Situação</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Observação">Observação</div>
+                                                                                </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td scope="row">{item.situac}</td>
+                                                                                <td scope="row">{item.dtSituac}</td>
+                                                                                <td scope="row">{item.observacao}</td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                <div style="padding-bottom: 12px;">
+                                                                    <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                                        <thead>
+                                                                            <tr class="slds-line-height_reset" key={item.id}>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Número Benefício INSS">Número Benefício INSS</div>
+                                                                                </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td scope="row">{item.numInss}</td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            <h2 class="slds-text-heading_medium slds-m-bottom_xx-small">Pensionistas</h2>
+                                                                <div style="padding-bottom: 12px;">
+                                                                    <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                                        <thead>
+                                                                            <tr class="slds-line-height_reset" key={item.id}>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Nome">Nome</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Vínculo">Vinculo</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Data Nascimento">Data Nascimento</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="CPF">CPF</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Sexo">Sexo</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Estado Civil">Estado Civil</div>
+                                                                                </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td scope="row">{item.nome}</td>
+                                                                                <td scope="row">{item.vinculo}</td>
+                                                                                <td scope="row">{item.dtNasc}</td>
+                                                                                <td scope="row">{item.cpf}</td>
+                                                                                <td scope="row">{item.sexo}</td>
+                                                                                <td scope="row">{item.estCiv}</td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                <div style="padding-bottom: 12px;">
+                                                                    <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                                        <thead>
+                                                                            <tr class="slds-line-height_reset" key={item.id}>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Invalido">Inválido(a)?</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Titular">Titular?</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Representante Legal">Representante Legal</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title=""></div>
+                                                                                </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td scope="row">{item.invalidez}</td>
+                                                                                <td scope="row">{item.titular}</td>
+                                                                                <td scope="row">{item.represLegal}</td>
+                                                                                <td scope="row"><lightning-button label="Dados do Representante Legal" class="slds-m-right_small" size="medium" icon-name="action:view_relationship" onclick={openModalLegalRepresentative}></lightning-button></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                <div style="padding-bottom: 12px;">
+                                                                    <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                                        <thead>
+                                                                            <tr class="slds-line-height_reset" key={item.id}>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Data Início Previ">Data Início Previ</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Data Início INSS">Data Início INSS</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Data Início CASSI">Data Início CASSI</div>
+                                                                                </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td scope="row">{item.dtInicPrevi}</td>
+                                                                                <td scope="row">{item.dtInicInss}</td>
+                                                                                <td scope="row">{item.dtInicInss}</td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                <div style="padding-bottom: 12px;">
+                                                                    <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                                        <thead>
+                                                                            <tr class="slds-line-height_reset" key={item.id}>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Situação">Situação Negrito</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Data Situação">Data Situação</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Motivo Situação">Motivo Situação</div>
+                                                                                </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td scope="row">{item.situacao}</td>
+                                                                                <td scope="row">{item.dtSituacao}</td>
+                                                                                <td scope="row">{item.motivoSituac}</td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                <div style="padding-bottom: 12px;">
+                                                                    <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                                        <thead>
+                                                                            <tr class="slds-line-height_reset" key={item.id}>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Previ">% Previ</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="INSS">% INSS</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Fonte Pagamento">Fonte Pagamento</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title=""></div>
+                                                                                </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td scope="row">{item.percPrevi}</td>
+                                                                                <td scope="row">{item.percInss}</td>
+                                                                                <td scope="row">{item.fontePgtoPrevi}</td>
+                                                                                <td scope="row"><lightning-button label="Histórico de Percentual de Pensão" class="slds-m-right_small" size="medium" icon-name="action:view_relationship" onclick={openModalHistoric}></lightning-button></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                <div style="padding-bottom: 12px;">
+                                                                    <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                                        <thead>
+                                                                            <tr class="slds-line-height_reset" key={item.id}>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Suspensão - Data Previ">Suspensão - Data Previ</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Suspensão - OBS Previ">Suspensão - OBS Previ</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Suspensão - Data INSS">Suspensão - Data INSS</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Suspensão - Data INSS">Suspensão - OBS INSS</div>
+                                                                                </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td scope="row">{item.suspensaoDataPrevi}</td>
+                                                                                <td scope="row"></td>
+                                                                                <td scope="row"></td>
+                                                                                <td scope="row"></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                <div style="padding-bottom: 12px;">
+                                                                    <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                                        <thead>
+                                                                            <tr class="slds-line-height_reset" key={item.id}>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Cota Resguardada - Previ">Cota Resguardada - Previ</div>
+                                                                                </th>
+                                                                                <th class="" scope="col">
+                                                                                    <div class="slds-truncate" title="Cota Resguardada - INSS">Cota Resguardada - INSS</div>
+                                                                                </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td scope="row">{item.cotaResguardadaPrevi}</td>
+                                                                                <td scope="row">{item.cotaResguardadaInss}</td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </template>
+                                                </tbody>
+                                            </template>
+                                        </table>
+                                        <template if:false={loadedPensioner}>
+                                            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </lightning-tab>
+                    <!--Previ Futuro-->
+                    <lightning-tab style="font-size: 13px;" label="Previ Futuro">
+                        <lightning-tabset>
+                            <lightning-tab style="font-size: 13px;" label="Parte Risco">
+                                <div class="slds-card slds-box">
+                                    <div class="slds-section slds-is-close" data-id="3">
+                                        <!--section header-->
+                                        <div class="slds-theme_shade">
+                                            <h1 class="slds-section__title">
+                                                <button type="button" aria-controls="3" class="slds-button slds-section__title-action" data-buttonid="3"
+                                                    onclick={toggleSection}>
+                                                    <lightning-icon icon-name="utility:switch" alternative-text="button icon" size="x-small"
+                                                        class="slds-section__title-action-icon slds-button__icon_left"></lightning-icon>
+                                                    <span class="slds-truncate" title="Concessão geral">Concessão geral</span>
+                                                </button>
+                                            </h1>
+                                        </div>
+                                        <!--section body-->
+                                        <div class="slds-section__content">
+                                            <div class="slds-scrollable slds-m-around_medium ">
+                                                <lightning-datatable
+                                                    key-field="id"
+                                                    columns={columns}
+                                                    data={listComplePensaoCabecalho}
+                                                    hide-checkbox-column
+                                                    default-sort-direction={defaultSortDirection}
+                                                    sorted-direction={sortDirection}
+                                                    sorted-by={sortedBy}>
+                                                </lightning-datatable>
+                                            </div>
+                                            <h2 class="slds-text-heading_medium slds-m-bottom_xx-small">Previ</h2>
+                                            <div class="slds-scrollable slds-m-around_medium">    
+                                                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                    <thead>
+                                                        <tr class="slds-line-height_reset">
+                                                            <th class="" scope="col">
+                                                            <div class="slds-truncate" title="Opportunity Name">Espécie Pensão Previ</div>
+                                                            </th>
+                                                            <th class="" scope="col">
+                                                            <div class="slds-truncate" title="Account Name">DIB Previ</div>
+                                                            </th>
+                                                            <th class="" scope="col">
+                                                            <div class="slds-truncate" title="Close Date">Complemento Previ</div>
+                                                            </th>
+                                                            <th class="" scope="col">
+                                                                <div class="slds-truncate" title="Close Date">Compl. Adic. BB</div>
+                                                            </th>
+                                                            <th class="" scope="col">
+                                                                <div class="slds-truncate" title="Close Date">Espécie Reajuste</div>
+                                                            </th>
+                                                            <th class="" scope="col">
+                                                                <div class="slds-truncate" title="Close Date">Cesta Alimentação</div>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <template for:each={listPreviFuturo} for:item="item" for:index="index">
+                                                        <tbody key={item.especiePrevi}>
+                                                            <tr>
+                                                                <td scope="row">{item.especiePrevi}</td>
+                                                                <td scope="row">{item.dibPrevi}</td>
+                                                                <td scope="row">{item.complPrevi}</td>
+                                                                <td scope="row">{item.complAdicBb}</td>
+                                                                <td scope="row">{item.espec}</td>
+                                                                <td scope="row">{item.cAlimen}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </template>
+                                                </table>
+                                                </br></br>
+                                                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                    <thead>
+                                                        <th class="" scope="col">
+                                                            <div class="slds-truncate" title="Close Date">Situação Pensão Previ</div>
+                                                        </th>
+                                                        <th class="" scope="col">
+                                                            <div class="slds-truncate" title="Close Date">Data Situação Pensão Previ</div>
+                                                        </th>
+                                                        <th class="" scope="col">
+                                                            <div class="slds-truncate" title="Close Date">% PREVI</div>
+                                                        </th>
+                                                    </thead>
+                                                    <template for:each={listPreviFuturo} for:item="item" for:index="index">
+                                                        <tbody key={item.especiePrevi}>
+                                                            <tr>
+                                                                <td scope="row">{item.situacao}</td>
+                                                                <td scope="row">{item.dtSituac}</td>
+                                                                <td scope="row">{item.percPrevi}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </template>
+                                                </table>
+                                                </br></br>
+                                                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                    <thead>
+                                                        <th class="" scope="col">
+                                                            <div class="slds-truncate" title="Close Date">Enc. Benef.</div>
+                                                        </th>
+                                                        <th class="" scope="col">
+                                                            <div class="slds-truncate" title="Close Date">Enc.13</div>
+                                                        </th>
+                                                    </thead>
+                                                    <template for:each={listPreviFuturo} for:item="item" for:index="index">
+                                                        <tbody key={item.especiePrevi}>
+                                                            <tr>
+                                                                <td scope="row">{item.encBenef}</td>
+                                                                <td scope="row">{item.enc13}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </template>
+                                                </table>
+                                                </br></br>
+                                            </div>
+                                            <h2 class="slds-text-heading_medium slds-m-bottom_xx-small">INSS</h2>
+                                            <div class="slds-scrollable slds-m-around_medium">    
+                                                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                    <thead>
+                                                        <tr class="slds-line-height_reset">
+                                                            <th class="" scope="col">
+                                                                <div class="slds-truncate" title="Opportunity Name">Espécie INSS</div>
+                                                            </th>
+                                                            <th class="" scope="col">
+                                                                <div class="slds-truncate" title="Account Name">DIB INSS</div>
+                                                            </th>
+                                                            <th class="" scope="col">
+                                                                <div class="slds-truncate" title="Close Date">Beneficio INSS - RMI</div>
+                                                            </th>
+                                                            <th class="" scope="col">
+                                                                <div class="slds-truncate" title="Close Date">%INSS</div>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <template for:each={listINSSFuturo} for:item="item" for:index="index">
+                                                        <tbody key={item.especieInss}>
+                                                            <tr>
+                                                                <td scope="row">{item.especieInss}</td>
+                                                                <td scope="row">{item.dibInss}</td>
+                                                                <td scope="row">{item.rmi}</td>
+                                                                <td scope="row">{item.percInss}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </template>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-section slds-is-open" data-id="4">
+                                        <!--section header-->
+                                        <div class="slds-theme_shade">
+                                            <h1 class="slds-section__title">
+                                                <button type="button" aria-controls="4" class="slds-button slds-section__title-action" data-buttonid="4"
+                                                    onclick={toggleSection}>
+                                                    <lightning-icon icon-name="utility:switch" alternative-text="button icon" size="x-small"
+                                                        class="slds-section__title-action-icon slds-button__icon_left"></lightning-icon>
+                                                    <span class="slds-truncate" title="Pensionistas">Pensionistas</span>
+                                                </button>
+                                            </h1>
+                                        </div>
+        
+                                        <!--section body-->
+                                        <div class="slds-section__content">
+                                            <div class="slds-scrollable slds-m-around_medium">    
+                                                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                    <thead>
+                                                        <tr class="slds-line-height_reset">
+                                                            <th class="" scope="col">
+                                                                <div class="slds-truncate"></div>
+                                                            </th>
+                                                            <th class="" scope="col">
+                                                                <div class="slds-truncate" title="Grupo">Grupo</div>
+                                                            </th>
+                                                            <th class="" scope="col">
+                                                                <div class="slds-truncate" title="Nome">Nome</div>
+                                                            </th>
+                                                            <th class="" scope="col">
+                                                                <div class="slds-truncate" title="Vinculo">Vínculo</div>
+                                                            </th>
+                                                            <th class="" scope="col">
+                                                                <div class="slds-truncate" title="Data Nascimento">Data Nascimento</div>
+                                                            </th>
+                                                            <th class="" scope="col">
+                                                                <div class="slds-truncate" title="Situação">Situação</div>
+                                                            </th>
+                                                            <th class="" scope="col">
+                                                                <div class="slds-truncate" title="Data Situação">Data Situação</div>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <template for:each={listPensionistaCabecalho} for:item="item" for:index="index">
+                                                        <tbody key={item.id}>
+                                                            <tr>
+                                                                <td scope="row">
+                                                                    <!--section header-->
+                                                                    <lightning-button-icon aria-controls={item.id} class="slds-m-right_small" access-key={index}
+                                                                        key={item.id} data-index={index}
+                                                                        icon-name="action:preview" variant="bare" data-buttonid={item.id} onclick={handleDetailsFromPensioner}>
+                                                                    </lightning-button-icon>
+                                                                </td>
+                                                                <!--<td scope="row"><lightning-button-icon class="slds-m-right_small" access-key={index} icon-name="action:preview" variant="bare"></lightning-button-icon>{item.idPensionista}</td>-->      
+                                                                <td scope="row">{item.grupo}</td>
+                                                                <td scope="row">{item.nome}</td>
+                                                                <td scope="row">{item.vinculo}</td>
+                                                                <td scope="row">{item.dtNasc}</td>
+                                                                <td scope="row">{item.situac}</td>
+                                                                <td scope="row">{item.dtSituac}</td>
+                                                            </tr>
+                                                            <template if:true={item.areDetailsVisible}>
+                                                                <tr>
+                                                                    <td colspan="9">
+                                                                    <h2 class="slds-text-heading_medium slds-m-bottom_xx-small">Grupo Familiar</h2>
+                                                                        <div style="padding-bottom: 12px;">
+                                                                            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                                                <thead>
+                                                                                    <tr class="slds-line-height_reset" key={item.id}>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Grupo">Grupo</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Data Início">Data Início</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Data Requerimento">Data Requerimento</div>
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td scope="row">{item.grupo}</td>
+                                                                                        <td scope="row">{item.dtInic}</td>
+                                                                                        <td scope="row">{item.dtRequer}</td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                        <div style="padding-bottom: 12px;">
+                                                                            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                                                <thead>
+                                                                                    <tr class="slds-line-height_reset" key={item.id}>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Situação">Situação</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Data Situação">Data Situação</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Observação">Observação</div>
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td scope="row">{item.situac}</td>
+                                                                                        <td scope="row">{item.dtSituac}</td>
+                                                                                        <td scope="row">{item.observacao}</td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                        <div style="padding-bottom: 12px;">
+                                                                            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                                                <thead>
+                                                                                    <tr class="slds-line-height_reset" key={item.id}>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Número Benefício INSS">Número Benefício INSS</div>
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td scope="row">{item.numInss}</td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    <h2 class="slds-text-heading_medium slds-m-bottom_xx-small">Pensionistas</h2>
+                                                                        <div style="padding-bottom: 12px;">
+                                                                            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                                                <thead>
+                                                                                    <tr class="slds-line-height_reset" key={item.id}>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Nome">Nome</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Vínculo">Vinculo</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Data Nascimento">Data Nascimento</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="CPF">CPF</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Sexo">Sexo</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Estado Civil">Estado Civil</div>
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td scope="row">{item.nome}</td>
+                                                                                        <td scope="row">{item.vinculo}</td>
+                                                                                        <td scope="row">{item.dtNasc}</td>
+                                                                                        <td scope="row">{item.cpf}</td>
+                                                                                        <td scope="row">{item.sexo}</td>
+                                                                                        <td scope="row">{item.estCiv}</td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                        <div style="padding-bottom: 12px;">
+                                                                            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                                                <thead>
+                                                                                    <tr class="slds-line-height_reset" key={item.id}>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Invalido">Inválido(a)?</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Titular">Titular?</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Representante Legal">Representante Legal</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title=""></div>
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td scope="row">{item.invalidez}</td>
+                                                                                        <td scope="row">{item.titular}</td>
+                                                                                        <td scope="row">{item.represLegal}</td>
+                                                                                        <td scope="row"><lightning-button label="Dados do Representante Legal" class="slds-m-right_small" size="medium" icon-name="action:view_relationship" onclick={openModalLegalRepresentative}></lightning-button></td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                        <div style="padding-bottom: 12px;">
+                                                                            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                                                <thead>
+                                                                                    <tr class="slds-line-height_reset" key={item.id}>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Data Início Previ">Data Início Previ</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Data Início INSS">Data Início INSS</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Data Início CASSI">Data Início CASSI</div>
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td scope="row">{item.dtInicPrevi}</td>
+                                                                                        <td scope="row">{item.dtInicInss}</td>
+                                                                                        <td scope="row">{item.dtInicInss}</td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                        <div style="padding-bottom: 12px;">
+                                                                            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                                                <thead>
+                                                                                    <tr class="slds-line-height_reset" key={item.id}>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Situação">Situação Negrito</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Data Situação">Data Situação</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Motivo Situação">Motivo Situação</div>
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td scope="row">{item.situacao}</td>
+                                                                                        <td scope="row">{item.dtSituacao}</td>
+                                                                                        <td scope="row">{item.motivoSituac}</td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                        <div style="padding-bottom: 12px;">
+                                                                            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                                                <thead>
+                                                                                    <tr class="slds-line-height_reset" key={item.id}>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Previ">% Previ</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="INSS">% INSS</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Fonte Pagamento">Fonte Pagamento</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title=""></div>
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td scope="row">{item.percPrevi}</td>
+                                                                                        <td scope="row">{item.percInss}</td>
+                                                                                        <td scope="row">{item.fontePgtoPrevi}</td>
+                                                                                        <td scope="row"><lightning-button label="Histórico de Percentual de Pensão" class="slds-m-right_small" size="medium" icon-name="action:view_relationship" onclick={openModalHistoric}></lightning-button></td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                        <div style="padding-bottom: 12px;">
+                                                                            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                                                <thead>
+                                                                                    <tr class="slds-line-height_reset" key={item.id}>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Suspensão - Data Previ">Suspensão - Data Previ</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Suspensão - OBS Previ">Suspensão - OBS Previ</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Suspensão - Data INSS">Suspensão - Data INSS</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Suspensão - Data INSS">Suspensão - OBS INSS</div>
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td scope="row">{item.suspensaoDataPrevi}</td>
+                                                                                        <td scope="row"></td>
+                                                                                        <td scope="row"></td>
+                                                                                        <td scope="row"></td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                        <div style="padding-bottom: 12px;">
+                                                                            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                                                                <thead>
+                                                                                    <tr class="slds-line-height_reset" key={item.id}>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Cota Resguardada - Previ">Cota Resguardada - Previ</div>
+                                                                                        </th>
+                                                                                        <th class="" scope="col">
+                                                                                            <div class="slds-truncate" title="Cota Resguardada - INSS">Cota Resguardada - INSS</div>
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td scope="row">{item.cotaResguardadaPrevi}</td>
+                                                                                        <td scope="row">{item.cotaResguardadaInss}</td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </template>
+                                                        </tbody>
+                                                    </template>
+                                                </table>
+                                                <template if:false={loadedPensioner}>
+                                                    <lightning-spinner alternative-text="Loading"></lightning-spinner>
+                                                </template>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </lightning-tab>
+                            <lightning-tab style="font-size: 13px;" label="Parte Programada">
+                        
+                            </lightning-tab>
+                        </lightning-tabset>
+                    </lightning-tab>
+                </lightning-tabset>
+            </lightning-tab>
+            <lightning-tab label="Pendência de Documentos">
+                <c-pen-pendencia-doc matricula={matricula} pensionista-list={pensionistaList}></c-pen-pendencia-doc>
+            </lightning-tab>
+            <lightning-tab label="Recadastramento">
+                <c-pen-recadastramento matricula={matricula}></c-pen-recadastramento>
+            </lightning-tab>
+            <lightning-tab label="Concessão INSS via Prisma">
+                <c-pen-concessao-i-n-s-s matricula={matricula}></c-pen-concessao-i-n-s-s>
+            </lightning-tab>
+            <lightning-tab label="Adiantamentos">
+                <c-pen-adiantamentos matricula={matricula}></c-pen-adiantamentos>
+            </lightning-tab>
+        </lightning-tabset>
+    </template>
+    <template if:false={loaded}>
+            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+    </template>
+    <lightning-card>
+        <br></br>
+        <div class="slds-text-align_center">
+            <lightning-button label="Informações Complementares" class="slds-m-right_small" size="medium" icon-name="action:view_relationship" onclick={openModalTicketHistory}></lightning-button>
+            <lightning-button label="Histórico de Base" class="slds-m-right_small" size="medium" icon-name="action:view_relationship" onclick={openModalBaseHistory}></lightning-button>
+        </div>
+    </lightning-card>
+
+    <template if:true={isModalOpen}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open slds-fade-in-open slds-modal_large">
+            <div class="slds-modal__container">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                    <lightning-icon icon-name="utility:close"
+                        alternative-text="close"
+                        variant="inverse"
+                            ></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <div class="slds-modal__header">
+                    <b><h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Pensões</h1></b>
+                </div>
+                <div class="slds-modal__content" id="modal-content-id-1">
+                    <!--<c-emprestimo-simples propost-list={propostList} matricula={matricula}></c-emprestimo-simples>-->
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+
+    <!--Modal Representante legal-->
+    <template if:true={isModalLegalRepresentative}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-02" class="slds-modal slds-fade-in-open slds-fade-in-open slds-modal_large">
+            <div class="slds-modal__container">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                    <lightning-icon icon-name="utility:close"
+                        alternative-text="close"
+                        variant="inverse"
+                            ></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <div class="slds-modal__header">
+                    <b><h1 id="modal-heading-02" class="slds-modal__title slds-hyphenate">Dados do Representante Legal</h1></b>
+                </div>
+                <div class="slds-modal__content" id="modal-content-id-2">
+                    <div style="padding-bottom: 12px;">
+                        <div class="slds-scrollable slds-m-around_medium">    
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Nome">Nome</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="CPF">CPF</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Endereço">Endereço</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="CEP">CEP</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Bairro">Bairro</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Municipio">Municipio</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="UF">UF</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <template for:each={listRepresentanteLegal} for:item="item" for:index="index">
+                                    <tbody key={item.cpf}>
+                                        <tr>
+                                            <td scope="row">{item.nome}</td>
+                                            <td scope="row">{item.cpf}</td>
+                                            <td scope="row">{item.endereco}</td>
+                                            <td scope="row">{item.cep}</td>
+                                            <td scope="row">{item.bairro}</td>
+                                            <td scope="row">{item.municipio}</td>
+                                            <td scope="row">{item.uf}</td>
+                                        </tr>
+                                    </tbody>
+                                </template>
+                            </table>
+                        </div>
+                    </div>
+                    <div style="padding-bottom: 12px;">
+                        <div class="slds-scrollable slds-m-around_medium">    
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="E-mail">E-mail</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Celular">Celular</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="DDD">DDD</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Telefone">Telefone</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <template for:each={listRepresentanteLegal} for:item="item" for:index="index">
+                                    <tbody key={item.cpf}>
+                                        <tr>
+                                            <td scope="row">{item.email}</td>
+                                            <td scope="row">{item.celular}</td>
+                                            <td scope="row">{item.ddd}</td>
+                                            <td scope="row">{item.telefone}</td>
+                                        </tr>
+                                    </tbody>
+                                </template>
+                            </table>
+                        </div>
+                    </div>
+                    <div style="padding-bottom: 12px;">
+                        <div class="slds-scrollable slds-m-around_medium">    
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Capacidade Civil">Capacidade Civil</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Tipo Doc">Tipo Doc</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Vigência Início">Vigência Início</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Vigência Fim">Vigência Fim</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="BOTAO">BOTAO</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <template for:each={listRepresentanteLegal} for:item="item" for:index="index">
+                                    <tbody key={item.cpf}>
+                                        <tr>
+                                            <td scope="row">{item.capacCivil}</td>
+                                            <td scope="row">{item.tipoDoc}</td>
+                                            <td scope="row">{item.vigenciaIni}</td>
+                                            <td scope="row">{item.vigenciaFim}</td>
+                                            <td scope="row"></td>
+                                        </tr>
+                                    </tbody>
+                                </template>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+
+    <!--Modal Historico-->
+    <template if:true={isModalHistoric}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-03" class="slds-modal slds-fade-in-open slds-fade-in-open slds-modal_large">
+            <div class="slds-modal__container">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                    <lightning-icon icon-name="utility:close"
+                        alternative-text="close"
+                        variant="inverse"
+                            ></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <div class="slds-modal__header">
+                    <b><h1 id="modal-heading-03" class="slds-modal__title slds-hyphenate">Histórico de Percentual de Pensão</h1></b>
+                </div>
+                <div class="slds-modal__content" id="modal-content-id-3">
+                    <div style="padding-bottom: 12px;">
+                        <div class="slds-scrollable slds-m-around_medium">    
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Data Início">Data Início</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Data Fim">Data Fim</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="INSS %">INSS %</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="PREVI %">PREVI %</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="BB">BB</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="INSS">INSS</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="PREVI">PREVI</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <template for:each={listHistorico} for:item="item" for:index="index">
+                                    <tbody key={item.dataInicio}>
+                                        <tr>
+                                            <td scope="row">{item.dataInicio}</td>
+                                            <td scope="row">{item.dataFim}</td>
+                                            <td scope="row">{item.inssPercent}</td>
+                                            <td scope="row">{item.previPercent}</td>
+                                            <td scope="row">{item.bb}</td>
+                                            <td scope="row">{item.inss}</td>
+                                            <td scope="row">{item.previ}</td>
+                                        </tr>
+                                    </tbody>
+                                </template>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+
+    <!--Modal Historico Bilhetes-->
+    <template if:true={isModalTicketHistory}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-03" class="slds-modal slds-fade-in-open slds-fade-in-open slds-modal_large">
+            <div class="slds-modal__container">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                    <lightning-icon icon-name="utility:close"
+                        alternative-text="close"
+                        variant="inverse"
+                            ></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <div class="slds-modal__header">
+                    <b><h1 id="modal-heading-04" class="slds-modal__title slds-hyphenate">Informações Complementares</h1></b>
+                </div>
+                <div class="slds-modal__content" id="modal-content-id-4">
+                    <div class="slds-m-around_medium"> 
+                        <h2 class="header">Anteriores a 19/11/2008</h2>
+                        <lightning-textarea name="ant19112008" disabled value={historicoBilhetesAnt19112008}></lightning-textarea>
+                    </div>
+                    <div style="padding-bottom: 12px;">
+                        <div class="slds-scrollable slds-m-around_medium">    
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Tipo">Tipo</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Data Fopag">Data Fopag</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Data Recálculo">Data Recálculo</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Descrição">Descrição</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <template for:each={listHistoricoBilhetes} for:item="item" for:index="index">
+                                    <tbody key={item.dataFopag}>
+                                        <tr>
+                                            <td scope="row">{item.tipo}</td>
+                                            <td scope="row">{item.dataFopag}</td>
+                                            <td scope="row">{item.dataRecalculo}</td>
+                                            <td scope="row">{item.descricao}</td>
+                                        </tr>
+                                    </tbody>
+                                </template>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <template if:false={loadedTicketHistory}>
+                    <lightning-spinner alternative-text="Loading"></lightning-spinner>
+                </template>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+
+    <!--Modal Historico Bases-->
+    <template if:true={isModalBaseHistory}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-03" class="slds-modal slds-fade-in-open slds-fade-in-open slds-modal_large">
+            <div class="slds-modal__container">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                    <lightning-icon icon-name="utility:close"
+                        alternative-text="close"
+                        variant="inverse"
+                            ></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <div class="slds-modal__header">
+                    <b><h1 id="modal-heading-05" class="slds-modal__title slds-hyphenate">Histórico de Base</h1></b>
+                </div>
+                <div class="slds-modal__content" id="modal-content-id-5">
+                    <div style="padding-bottom: 12px;">
+                        <div class="slds-scrollable slds-m-around_medium">    
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Data Competência">Data Competência</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Data Fopag">Data Fopag</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Valor Benefício INSS">Valor Benefício INSS</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Valor Complemento Previ">Valor Complemento Previ</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Valor Complemento BB">Valor Complemento BB</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Total">Total</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <template for:each={listHistoricoBases} for:item="item" for:index="index">
+                                    <tbody key={item.dataFopag}>
+                                        <tr>
+                                            <td scope="row">{item.dataCompetencia}</td>
+                                            <td scope="row">{item.dataFopag}</td>
+                                            <td scope="row">{item.valorInss}</td>
+                                            <td scope="row">{item.complPrevi}</td>
+                                            <td scope="row"></td>
+                                            <td scope="row">{item.total}</td>
+                                        </tr>
+                                    </tbody>
+                                </template>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <template if:false={loadedBaseHistory}>
+                    <lightning-spinner alternative-text="Loading"></lightning-spinner>
+                </template>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+</template>

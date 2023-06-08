@@ -1,0 +1,80 @@
+<template>
+    <template if:true={loading}>
+        <lightning-spinner alternative-text="Carregando"></lightning-spinner>
+    </template>
+
+    <template if:false={loading}>
+        <div style="padding-bottom: 12px;">
+            <div class="slds-size_1-of-5">
+                <lightning-combobox
+                    name="Recadastramento"
+                    label="Ano do Recadastramento"
+                    value={valueYear}
+                    placeholder="Ano do Recadastramento"
+                    options={options}
+                    onchange={handleChange} >
+                </lightning-combobox>
+            </div>
+        </div>
+        <div style="padding-bottom: 12px;">
+            <div class="slds-scrollable slds-m-around_medium">    
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th scope="col">
+                                <div class="slds-truncate" title="Descrição">Descrição</div>
+                            </th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">{listRecadastramento.descricao}</td>
+                            </tr>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+        <div style="padding-bottom: 12px;">
+            <div class="slds-scrollable slds-m-around_medium">    
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th width="50%" scope="col">
+                                <div class="slds-truncate" title="Limite Primeira Carta">Limite Primeira Carta</div>
+                            </th>
+                            <th width="50%" scope="col">
+                                <div class="slds-truncate" title="Limite Segunda Carta">Limite Segunda Carta</div>
+                            </th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">{listRecadastramento.limitePrimeiraCarta}</td>
+                                <td scope="row">{listRecadastramento.limiteSegundaCarta}</td>
+                            </tr>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="slds-scrollable slds-m-around_medium">    
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th width="50%" scope="col">
+                            <div class="slds-truncate" title="Observações da área">Observações da área</div>
+                        </th>
+                        <th width="50%" scope="col">
+                            <div class="slds-truncate" title="Data Retorno">Data Retorno</div>
+                        </th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row">{listRecadastramento.observacoes}</td>
+                            <td scope="row">{listRecadastramento.dataRetorno}</td>
+                        </tr>
+                    </tbody>
+            </table>
+        </div>
+    </template>  
+</template>

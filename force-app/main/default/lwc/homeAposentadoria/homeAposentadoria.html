@@ -1,0 +1,38 @@
+<template>
+    <br></br>
+
+    <div class="header-column slds-align_absolute-center" style="background: rgb(243 243 243);height:20%;align-items: center;border-radius: 10px;">
+    <b><text class="slds-text-align_left" style="padding:21px;font-size:14px;color: #445e8a;"> Espécie Complemento e DIB Previ :</text></b>
+    <br></br>
+    <div class="slds-p-bottom_medium" style="width: 500px;padding-bottom: 10px;">
+        <lightning-combobox
+                    name="espComplemento"
+                    value={value}
+                    placeholder="--Select--"
+                    options={listEspComplemento}
+                   
+                    required>
+        </lightning-combobox>
+    </div>
+    </div>
+    <br></br>
+
+
+        <lightning-tabset variant="scoped">
+            <lightning-tab label="Concessão">
+
+            </lightning-tab>
+
+            <lightning-tab label="Recadastramento">
+                <c-tab-apos-recadastramento matricula={matricula}></c-tab-apos-recadastramento>
+            </lightning-tab>
+            <lightning-tab label="Concessão INSS via Prisma">
+                <c-pen-concessao-i-n-s-s matricula={matricula}></c-pen-concessao-i-n-s-s>
+            </lightning-tab>
+            <lightning-tab label="Adiantamentos">
+                <c-pen-adiantamentos matricula={matricula}></c-pen-adiantamentos>
+            </lightning-tab>
+            
+        </lightning-tabset>
+
+</template>

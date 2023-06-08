@@ -1,0 +1,30 @@
+<template>
+    <template if:true={loading}>
+        <lightning-spinner alternative-text="Carregando"></lightning-spinner>
+    </template>
+
+    <template if:false={loading}>
+        <div class="slds-scrollable slds-m-around_medium">    
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="" scope="col">
+                        <div class="slds-truncate" title="Descrição do Documento">Descrição do Documento</div>
+                        </th>
+                        <th class="" scope="col">
+                        <div class="slds-truncate" title="Data do Cadastramento">Data do Cadastramento</div>
+                        </th>
+                    </tr>
+                </thead>
+                <template for:each={listPendencias} for:item="item" for:index="index">
+                    <tbody key={item.data_cadastro}>
+                        <tr>
+                            <td scope="row">{item.descricao_doc}</td>
+                            <td scope="row">{item.data_cadastro}</td>
+                        </tr>
+                    </tbody>
+                </template>
+            </table>
+        </div>
+    </template>  
+</template>

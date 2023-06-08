@@ -1,0 +1,59 @@
+<template>
+    <lightning-tabset variant="scoped">
+        <lightning-tab label="Protocolos">
+            <template if:true={loading}>
+                <lightning-spinner alternative-text="Carregando"></lightning-spinner>
+            </template>
+        
+            <template if:false={loading}>
+                <div>
+                    <lightning-datatable
+                        key-field="id"
+                        columns={columns}
+                        data={listProtocolos}
+                        hide-checkbox-column
+                        default-sort-direction={defaultSortDirection}
+                        sorted-direction={sortDirection}
+                        sorted-by={sortedBy}
+                        onsort={onHandleSort}>
+                    </lightning-datatable>
+                </div>
+                <template if:true={texto}>
+                    <div class="slds-align_absolute-center">
+                        <br>
+                        <p>{texto}</p>
+                    </div>
+                </template>
+            </template>            
+
+        </lightning-tab>
+
+        <lightning-tab label="Telefones">     
+            <c-hist-telefones matricula={matricula}></c-hist-telefones>        
+        </lightning-tab>
+
+        <lightning-tab label="Emails">
+            <c-hist-emails matricula={matricula}></c-hist-emails>           
+        </lightning-tab>
+
+        <lightning-tab label="Endereços">   
+            <c-hist-enderecos matricula={matricula}></c-hist-enderecos>          
+        </lightning-tab>
+
+        <lightning-tab label="Situações Funcionais">    
+            <c-hist-situ-funcionais matricula={matricula}></c-hist-situ-funcionais>        
+        </lightning-tab>
+
+        <lightning-tab label="Funções">  
+            <c-hist-funcoes matricula={matricula}></c-hist-funcoes>                   
+        </lightning-tab>
+
+        <lightning-tab label="Licenças Interesses">
+            <c-hist-licencas-interesses matricula={matricula}></c-hist-licencas-interesses>            
+        </lightning-tab>
+
+        <lightning-tab label="Representantes Legais">     
+            <c-hist-repre-legais matricula={matricula}></c-hist-repre-legais>          
+        </lightning-tab>
+    </lightning-tabset>
+</template>
