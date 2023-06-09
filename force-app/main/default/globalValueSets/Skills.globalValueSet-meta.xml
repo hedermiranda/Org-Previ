@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>.NET</fullName>
+        <default>false</default>
+        <label>.NET</label>
+    </customValue>
+    <customValue>
+        <fullName>.NET Core</fullName>
+        <default>false</default>
+        <label>.NET Core</label>
+    </customValue>
+    <customValue>
+        <fullName>Accounting</fullName>
+        <default>false</default>
+        <label>Accounting</label>
+    </customValue>
+    <customValue>
+        <fullName>Amazon API Gateway</fullName>
+        <default>false</default>
+        <label>Amazon API Gateway</label>
+    </customValue>
+    <customValue>
+        <fullName>Android</fullName>
+        <default>false</default>
+        <label>Android</label>
+    </customValue>
+    <customValue>
+        <fullName>Angular</fullName>
+        <default>false</default>
+        <label>Angular</label>
+    </customValue>
+    <customValue>
+        <fullName>AngularJS</fullName>
+        <default>false</default>
+        <label>AngularJS</label>
+    </customValue>
+    <customValue>
+        <fullName>Ansible</fullName>
+        <default>false</default>
+        <label>Ansible</label>
+    </customValue>
+    <customValue>
+        <fullName>Apache Kafka</fullName>
+        <default>false</default>
+        <label>Apache Kafka</label>
+    </customValue>
+    <customValue>
+        <fullName>Apache Spark</fullName>
+        <default>false</default>
+        <label>Apache Spark</label>
+    </customValue>
+    <customValue>
+        <fullName>Apache Tomcat</fullName>
+        <default>false</default>
+        <label>Apache Tomcat</label>
+    </customValue>
+    <customValue>
+        <fullName>Apex</fullName>
+        <default>false</default>
+        <label>Apex</label>
+    </customValue>
+    <customValue>
+        <fullName>API First</fullName>
+        <default>false</default>
+        <label>API First</label>
+    </customValue>
+    <customValue>
+        <fullName>Automação de Marketing</fullName>
+        <default>false</default>
+        <label>Automação de Marketing</label>
+    </customValue>
+    <customValue>
+        <fullName>AWS</fullName>
+        <default>false</default>
+        <label>AWS</label>
+    </customValue>
+    <customValue>
+        <fullName>AWS(Salesforce)</fullName>
+        <default>false</default>
+        <label>AWS(Salesforce)</label>
+    </customValue>
+    <customValue>
+        <fullName>AWS Lambda</fullName>
+        <default>false</default>
+        <label>AWS Lambda</label>
+    </customValue>
+    <customValue>
+        <fullName>AWS RDS</fullName>
+        <default>false</default>
+        <label>AWS RDS</label>
+    </customValue>
+    <customValue>
+        <fullName>BI</fullName>
+        <default>false</default>
+        <label>BI</label>
+    </customValue>
+    <customValue>
+        <fullName>Bigdata</fullName>
+        <default>false</default>
+        <label>Bigdata</label>
+    </customValue>
+    <customValue>
+        <fullName>Bitrise</fullName>
+        <default>false</default>
+        <label>Bitrise</label>
+    </customValue>
+    <customValue>
+        <fullName>Branding</fullName>
+        <default>false</default>
+        <label>Branding</label>
+    </customValue>
+    <customValue>
+        <fullName>Budgeting</fullName>
+        <default>false</default>
+        <label>Budgeting</label>
+    </customValue>
+    <customValue>
+        <fullName>Business Analyst</fullName>
+        <default>false</default>
+        <label>Business Analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>C#</fullName>
+        <default>false</default>
+        <label>C#</label>
+    </customValue>
+    <customValue>
+        <fullName>C++</fullName>
+        <default>false</default>
+        <label>C++</label>
+    </customValue>
+    <customValue>
+        <fullName>Candidate Experience</fullName>
+        <default>false</default>
+        <label>Candidate Experience</label>
+    </customValue>
+    <customValue>
+        <fullName>Cfengine</fullName>
+        <default>false</default>
+        <label>Cfengine</label>
+    </customValue>
+    <customValue>
+        <fullName>Cloudera</fullName>
+        <default>false</default>
+        <label>Cloudera</label>
+    </customValue>
+    <customValue>
+        <fullName>Cobol</fullName>
+        <default>false</default>
+        <label>Cobol</label>
+    </customValue>
+    <customValue>
+        <fullName>Controlling</fullName>
+        <default>false</default>
+        <label>Controlling</label>
+    </customValue>
+    <customValue>
+        <fullName>Copywiriting</fullName>
+        <default>false</default>
+        <label>Copywiriting</label>
+    </customValue>
+    <customValue>
+        <fullName>Cost Analyst</fullName>
+        <default>false</default>
+        <label>Cost Analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>CRM</fullName>
+        <default>false</default>
+        <label>CRM</label>
+    </customValue>
+    <customValue>
+        <fullName>Django</fullName>
+        <default>false</default>
+        <label>Django</label>
+    </customValue>
+    <customValue>
+        <fullName>Docker</fullName>
+        <default>false</default>
+        <label>Docker</label>
+    </customValue>
+    <customValue>
+        <fullName>Einstein</fullName>
+        <default>false</default>
+        <label>Einstein</label>
+    </customValue>
+    <customValue>
+        <fullName>Einstein Bot</fullName>
+        <default>false</default>
+        <label>Einstein Bot</label>
+    </customValue>
+    <customValue>
+        <fullName>ElasticSearch</fullName>
+        <default>false</default>
+        <label>ElasticSearch</label>
+    </customValue>
+    <customValue>
+        <fullName>ELT</fullName>
+        <default>false</default>
+        <label>ELT</label>
+    </customValue>
+    <customValue>
+        <fullName>E-mail Marketing</fullName>
+        <default>false</default>
+        <label>E-mail Marketing</label>
+    </customValue>
+    <customValue>
+        <fullName>Employee Onboarding</fullName>
+        <default>false</default>
+        <label>Employee Onboarding</label>
+    </customValue>
+    <customValue>
+        <fullName>Employer Branding</fullName>
+        <default>false</default>
+        <label>Employer Branding</label>
+    </customValue>
+    <customValue>
+        <fullName>English Speaker</fullName>
+        <default>false</default>
+        <label>English Speaker</label>
+    </customValue>
+    <customValue>
+        <fullName>Financial Analyst</fullName>
+        <default>false</default>
+        <label>Financial Analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>Financial Planning and Analyst</fullName>
+        <default>false</default>
+        <label>Financial Planning and Analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>Financial Service</fullName>
+        <default>false</default>
+        <label>Financial Service</label>
+    </customValue>
+    <customValue>
+        <fullName>Flutter</fullName>
+        <default>false</default>
+        <label>Flutter</label>
+    </customValue>
+    <customValue>
+        <fullName>GitHub</fullName>
+        <default>false</default>
+        <label>GitHub</label>
+    </customValue>
+    <customValue>
+        <fullName>GitLab</fullName>
+        <default>false</default>
+        <label>GitLab</label>
+    </customValue>
+    <customValue>
+        <fullName>Google Analytics</fullName>
+        <default>false</default>
+        <label>Google Analytics</label>
+    </customValue>
+    <customValue>
+        <fullName>Grafana</fullName>
+        <default>false</default>
+        <label>Grafana</label>
+    </customValue>
+    <customValue>
+        <fullName>Hadoop</fullName>
+        <default>false</default>
+        <label>Hadoop</label>
+    </customValue>
+    <customValue>
+        <fullName>HBase</fullName>
+        <default>false</default>
+        <label>HBase</label>
+    </customValue>
+    <customValue>
+        <fullName>Health Cloud</fullName>
+        <default>false</default>
+        <label>Health Cloud</label>
+    </customValue>
+    <customValue>
+        <fullName>Hive</fullName>
+        <default>false</default>
+        <label>Hive</label>
+    </customValue>
+    <customValue>
+        <fullName>IBM InfoSphere</fullName>
+        <default>false</default>
+        <label>IBM InfoSphere</label>
+    </customValue>
+    <customValue>
+        <fullName>Inbound Marketing</fullName>
+        <default>false</default>
+        <label>Inbound Marketing</label>
+    </customValue>
+    <customValue>
+        <fullName>Internal Auditor</fullName>
+        <default>false</default>
+        <label>Internal Auditor</label>
+    </customValue>
+    <customValue>
+        <fullName>Internet Information Services (IIS)</fullName>
+        <default>false</default>
+        <label>Internet Information Services (IIS)</label>
+    </customValue>
+    <customValue>
+        <fullName>InVisionApp</fullName>
+        <default>false</default>
+        <label>InVisionApp</label>
+    </customValue>
+    <customValue>
+        <fullName>iOS</fullName>
+        <default>false</default>
+        <label>iOS</label>
+    </customValue>
+    <customValue>
+        <fullName>Java</fullName>
+        <default>false</default>
+        <label>Java</label>
+    </customValue>
+    <customValue>
+        <fullName>JavaScript</fullName>
+        <default>false</default>
+        <label>JavaScript</label>
+    </customValue>
+    <customValue>
+        <fullName>Jenkins</fullName>
+        <default>false</default>
+        <label>Jenkins</label>
+    </customValue>
+    <customValue>
+        <fullName>Kotlin</fullName>
+        <default>false</default>
+        <label>Kotlin</label>
+    </customValue>
+    <customValue>
+        <fullName>Kubernetes</fullName>
+        <default>false</default>
+        <label>Kubernetes</label>
+    </customValue>
+    <customValue>
+        <fullName>Leadership Development</fullName>
+        <default>false</default>
+        <label>Leadership Development</label>
+    </customValue>
+    <customValue>
+        <fullName>MapReduce</fullName>
+        <default>false</default>
+        <label>MapReduce</label>
+    </customValue>
+    <customValue>
+        <fullName>MariaDB</fullName>
+        <default>false</default>
+        <label>MariaDB</label>
+    </customValue>
+    <customValue>
+        <fullName>Marketing Cloud</fullName>
+        <default>false</default>
+        <label>Marketing Cloud</label>
+    </customValue>
+    <customValue>
+        <fullName>Marketing de Contéudo</fullName>
+        <default>false</default>
+        <label>Marketing de Contéudo</label>
+    </customValue>
+    <customValue>
+        <fullName>Microservices</fullName>
+        <default>false</default>
+        <label>Microservices</label>
+    </customValue>
+    <customValue>
+        <fullName>Microsoft IIS</fullName>
+        <default>false</default>
+        <label>Microsoft IIS</label>
+    </customValue>
+    <customValue>
+        <fullName>Microsoft SQL Server</fullName>
+        <default>false</default>
+        <label>Microsoft SQL Server</label>
+    </customValue>
+    <customValue>
+        <fullName>MongoDB</fullName>
+        <default>false</default>
+        <label>MongoDB</label>
+    </customValue>
+    <customValue>
+        <fullName>Mulesoft</fullName>
+        <default>false</default>
+        <label>Mulesoft</label>
+    </customValue>
+    <customValue>
+        <fullName>MySQL</fullName>
+        <default>false</default>
+        <label>MySQL</label>
+    </customValue>
+    <customValue>
+        <fullName>Nagios</fullName>
+        <default>false</default>
+        <label>Nagios</label>
+    </customValue>
+    <customValue>
+        <fullName>New Relic</fullName>
+        <default>false</default>
+        <label>New Relic</label>
+    </customValue>
+    <customValue>
+        <fullName>Nginx</fullName>
+        <default>false</default>
+        <label>Nginx</label>
+    </customValue>
+    <customValue>
+        <fullName>Nodejs</fullName>
+        <default>false</default>
+        <label>Nodejs</label>
+    </customValue>
+    <customValue>
+        <fullName>Oracle Database</fullName>
+        <default>false</default>
+        <label>Oracle Database</label>
+    </customValue>
+    <customValue>
+        <fullName>Payroll and Bennefits</fullName>
+        <default>false</default>
+        <label>Payroll and Bennefits</label>
+    </customValue>
+    <customValue>
+        <fullName>People Analytics</fullName>
+        <default>false</default>
+        <label>People Analytics</label>
+    </customValue>
+    <customValue>
+        <fullName>People Development</fullName>
+        <default>false</default>
+        <label>People Development</label>
+    </customValue>
+    <customValue>
+        <fullName>People Experience</fullName>
+        <default>false</default>
+        <label>People Experience</label>
+    </customValue>
+    <customValue>
+        <fullName>PHP</fullName>
+        <default>false</default>
+        <label>PHP</label>
+    </customValue>
+    <customValue>
+        <fullName>PMP</fullName>
+        <default>false</default>
+        <label>PMP</label>
+    </customValue>
+    <customValue>
+        <fullName>PostgreSQL</fullName>
+        <default>false</default>
+        <label>PostgreSQL</label>
+    </customValue>
+    <customValue>
+        <fullName>Postman</fullName>
+        <default>false</default>
+        <label>Postman</label>
+    </customValue>
+    <customValue>
+        <fullName>Process Builder</fullName>
+        <default>false</default>
+        <label>Process Builder</label>
+    </customValue>
+    <customValue>
+        <fullName>Puppet</fullName>
+        <default>false</default>
+        <label>Puppet</label>
+    </customValue>
+    <customValue>
+        <fullName>Python</fullName>
+        <default>false</default>
+        <label>Python</label>
+    </customValue>
+    <customValue>
+        <fullName>RD station</fullName>
+        <default>false</default>
+        <label>RD station</label>
+    </customValue>
+    <customValue>
+        <fullName>Reactjs</fullName>
+        <default>false</default>
+        <label>Reactjs</label>
+    </customValue>
+    <customValue>
+        <fullName>React Native</fullName>
+        <default>false</default>
+        <label>React Native</label>
+    </customValue>
+    <customValue>
+        <fullName>Recruitment</fullName>
+        <default>false</default>
+        <label>Recruitment</label>
+    </customValue>
+    <customValue>
+        <fullName>Redação</fullName>
+        <default>false</default>
+        <label>Redação</label>
+    </customValue>
+    <customValue>
+        <fullName>Redux</fullName>
+        <default>false</default>
+        <label>Redux</label>
+    </customValue>
+    <customValue>
+        <fullName>Retrofit</fullName>
+        <default>false</default>
+        <label>Retrofit</label>
+    </customValue>
+    <customValue>
+        <fullName>Risk Analyst</fullName>
+        <default>false</default>
+        <label>Risk Analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>Robolectric</fullName>
+        <default>false</default>
+        <label>Robolectric</label>
+    </customValue>
+    <customValue>
+        <fullName>Ruby on Rails</fullName>
+        <default>false</default>
+        <label>Ruby on Rails</label>
+    </customValue>
+    <customValue>
+        <fullName>Sales Cloud</fullName>
+        <default>false</default>
+        <label>Sales Cloud</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce Flow</fullName>
+        <default>false</default>
+        <label>Salesforce Flow</label>
+    </customValue>
+    <customValue>
+        <fullName>Scala</fullName>
+        <default>false</default>
+        <label>Scala</label>
+    </customValue>
+    <customValue>
+        <fullName>Scrum</fullName>
+        <default>false</default>
+        <label>Scrum</label>
+    </customValue>
+    <customValue>
+        <fullName>Sensedia API Platform</fullName>
+        <default>false</default>
+        <label>Sensedia API Platform</label>
+    </customValue>
+    <customValue>
+        <fullName>SEO</fullName>
+        <default>false</default>
+        <label>SEO</label>
+    </customValue>
+    <customValue>
+        <fullName>Service Cloud</fullName>
+        <default>false</default>
+        <label>Service Cloud</label>
+    </customValue>
+    <customValue>
+        <fullName>Sketch</fullName>
+        <default>false</default>
+        <label>Sketch</label>
+    </customValue>
+    <customValue>
+        <fullName>SOA</fullName>
+        <default>false</default>
+        <label>SOA</label>
+    </customValue>
+    <customValue>
+        <fullName>Social Media</fullName>
+        <default>false</default>
+        <label>Social Media</label>
+    </customValue>
+    <customValue>
+        <fullName>Spacy</fullName>
+        <default>false</default>
+        <label>Spacy</label>
+    </customValue>
+    <customValue>
+        <fullName>Spring Boot</fullName>
+        <default>false</default>
+        <label>Spring Boot</label>
+    </customValue>
+    <customValue>
+        <fullName>SQL</fullName>
+        <default>false</default>
+        <label>SQL</label>
+    </customValue>
+    <customValue>
+        <fullName>Swagger</fullName>
+        <default>false</default>
+        <label>Swagger</label>
+    </customValue>
+    <customValue>
+        <fullName>Swift</fullName>
+        <default>false</default>
+        <label>Swift</label>
+    </customValue>
+    <customValue>
+        <fullName>Talent Acquisition</fullName>
+        <default>false</default>
+        <label>Talent Acquisition</label>
+    </customValue>
+    <customValue>
+        <fullName>Talent Attraction</fullName>
+        <default>false</default>
+        <label>Talent Attraction</label>
+    </customValue>
+    <customValue>
+        <fullName>Talent Sourcing</fullName>
+        <default>false</default>
+        <label>Talent Sourcing</label>
+    </customValue>
+    <customValue>
+        <fullName>Tech Recruitment</fullName>
+        <default>false</default>
+        <label>Tech Recruitment</label>
+    </customValue>
+    <customValue>
+        <fullName>Terraform</fullName>
+        <default>false</default>
+        <label>Terraform</label>
+    </customValue>
+    <customValue>
+        <fullName>Treasury</fullName>
+        <default>false</default>
+        <label>Treasury</label>
+    </customValue>
+    <customValue>
+        <fullName>Visualforce</fullName>
+        <default>false</default>
+        <label>Visualforce</label>
+    </customValue>
+    <customValue>
+        <fullName>VueJS</fullName>
+        <default>false</default>
+        <label>VueJS</label>
+    </customValue>
+    <customValue>
+        <fullName>Websphere</fullName>
+        <default>false</default>
+        <label>Websphere</label>
+    </customValue>
+    <customValue>
+        <fullName>Whatsapp Feature (Salesforce)</fullName>
+        <default>false</default>
+        <label>Whatsapp Feature (Salesforce)</label>
+    </customValue>
+    <customValue>
+        <fullName>WordPress</fullName>
+        <default>false</default>
+        <label>WordPress</label>
+    </customValue>
+    <customValue>
+        <fullName>Zabbix</fullName>
+        <default>false</default>
+        <label>Zabbix</label>
+    </customValue>
+    <description>habilidades,certificações</description>
+    <masterLabel>Skills</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

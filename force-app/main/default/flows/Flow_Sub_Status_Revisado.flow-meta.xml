@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Envio_Email_Resposta</name>
+        <label>Envio Email Resposta</label>
+        <locationX>50</locationX>
+        <locationY>638</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Encerrar_o_Caso</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>html</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>Get_Caso_Atual.Contact.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Resposta ao cliente</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>57.0</apiVersion>
+    <choices>
+        <name>EnviarAgora</name>
+        <choiceText>Enviar agora e encerrar o Caso</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Enviar agora e encerrar o Caso</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>RetornaParaGerat</name>
+        <choiceText>Retorna para Gerat</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Retorna</stringValue>
+        </value>
+    </choices>
+    <decisions>
+        <name>Qual_Acao</name>
+        <label>Qual Ação?</label>
+        <locationX>314</locationX>
+        <locationY>518</locationY>
+        <defaultConnectorLabel>Default</defaultConnectorLabel>
+        <rules>
+            <name>Enviar</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Choice_1</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>EnviarAgora</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Envio_Email_Resposta</targetReference>
+            </connector>
+            <label>Enviar</label>
+        </rules>
+        <rules>
+            <name>Retorna</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Choice_1</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>RetornaParaGerat</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Id_Retorno_Gerat</targetReference>
+            </connector>
+            <label>Retorna</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Sub_Status_Revisado</name>
+        <label>Sub-Status Revisado?</label>
+        <locationX>578</locationX>
+        <locationY>278</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Revisado</name>
+            <conditionLogic>(1 OR 2) AND 3 AND 4</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Caso_Atual.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Atendimento</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Caso_Atual.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Fale_Conosco</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Caso_Atual.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Aguardando 2° nível</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Caso_Atual.Sub_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Revisado</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Resposta</targetReference>
+            </connector>
+            <label>Revisado</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Tratamento da resposta {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Sub-Status Revisado</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>Get_Caso_Atual</name>
+        <label>Get Caso Atual</label>
+        <locationX>578</locationX>
+        <locationY>158</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Sub_Status_Revisado</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Id_Retorno_Gerat</name>
+        <label>Get Id Retorno Gerat</label>
+        <locationX>314</locationX>
+        <locationY>638</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Retorno_Gerat</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Type</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Queue</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Retorno_GERAT</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Group</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Encerrar_o_Caso</name>
+        <label>Encerrar o Caso</label>
+        <locationX>50</locationX>
+        <locationY>758</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Caso_Atual.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Fechado</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Retorno_Gerat</name>
+        <label>Retorno Gerat</label>
+        <locationX>314</locationX>
+        <locationY>758</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Caso_Atual.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>Get_Id_Retorno_Gerat.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Aguardando Retorno</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <screens>
+        <name>Resposta</name>
+        <label>Resposta</label>
+        <locationX>314</locationX>
+        <locationY>398</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Qual_Acao</targetReference>
+        </connector>
+        <fields>
+            <name>Choice_1</name>
+            <choiceReferences>EnviarAgora</choiceReferences>
+            <choiceReferences>RetornaParaGerat</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>A resposta será enviada agora ou retorna para Gerat?</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>452</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Caso_Atual</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>html</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+      ReadMsgBody{ width: 100%;}
+      .ExternalClass {width: 100%;}
+      .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+      body {-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;margin:0 !important;}
+      p { margin: 1em 0;}
+      table td { border-collapse: collapse;}
+      img {outline:0;}
+      a img {border:none;}
+      @-ms-viewport{ width: device-width;}
+    &lt;/style&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+      @media only screen and (max-width: 480px) {
+        .container {width: 100% !important;}
+        .footer { width:auto !important; margin-left:0; }
+        .mobile-hidden { display:none !important; }
+        .logo { display:block !important; padding:0 !important; }
+        img { max-width:100% !important; height:auto !important; max-height:auto !important;}
+        .header img{max-width:100% !important;height:auto !important; max-height:auto !important;}
+        .photo img { width:100% !important; max-width:100% !important; height:auto !important;}
+        .drop { display:block !important; width: 100% !important; float:left; clear:both;}
+        .footerlogo { display:block !important; width: 100% !important; padding-top:15px; float:left; clear:both;}
+        .nav4, .nav5, .nav6 { display: none !important; }
+        .tableBlock {width:100% !important;}
+        .responsive-td {width:100% !important; display:block !important; padding:0 !important; }
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        /* MOBILE GLOBAL STYLES - DO NOT CHANGE */
+        body { padding: 0px !important; font-size: 16px !important; line-height: 150% !important;}
+        h1 { font-size: 22px !important; line-height: normal !important;}
+        h2 { font-size: 20px !important; line-height: normal !important;}
+        h3 { font-size: 18px !important; line-height: normal !important;}
+        .buttonstyles {
+          font-family:arial,helvetica,sans-serif !important;
+          font-size: 16px !important;
+          color: #FFFFFF !important;
+          padding: 10px !important;
+        }
+        /* END OF MOBILE GLOBAL STYLES - DO NOT CHANGE */
+      }
+      @media only screen and (max-width: 640px) {
+        .container { width:100% !important; }
+        .mobile-hidden { display:none !important; }
+        .logo { display:block !important; padding:0 !important; }
+        .photo img { width:100% !important; height:auto !important;}
+        .nav5, .nav6 { display: none !important;}
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+      }
+    &lt;/style&gt;
+    &lt;!--[if mso]&gt;
+      &lt;style type=&quot;text/css&quot;&gt;
+          /* Begin Outlook Font Fix */
+              body, table, td {
+                 font-family : Arial, helvetica, sans-serif;
+                 line-height : 100%;
+                 font-size : 16px;
+                 color : #000000;
+              }
+          /* End Outlook Font Fix */
+      &lt;/style&gt;
+    &lt;![endif]--&gt;
+  &lt;/head&gt;
+  &lt;body bgcolor=&quot;#FFFFFF&quot; text=&quot;#000000&quot; style=&quot;-webkit-text-size-adjust:none;background-color : #FFFFFF; font-family : Arial, helvetica, sans-serif; line-height : 100%; font-size : 16px; color : #000000; padding : 0px; &quot;&gt;
+    &lt;div style=&quot;font-size:0; line-height:0;&quot;&gt;&lt;custom name=&quot;opencounter&quot; type=&quot;tracking&quot;&gt;&lt;custom name=&quot;usermatch&quot; type=&quot;tracking&quot; /&gt;&lt;/div&gt;
+    &lt;table width=&quot;100%&quot; border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; align=&quot;center&quot;&gt;
+      &lt;tr&gt;
+        &lt;td align=&quot;center&quot; valign=&quot;top&quot;&gt;
+          &lt;custom type=&quot;header&quot;/&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td align=&quot;center&quot;&gt;
+          &lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; width=&quot;600&quot; class=&quot;container&quot; align=&quot;center&quot;&gt;
+            &lt;tr&gt;
+              &lt;td&gt;
+                &lt;table class=&quot;tb_properties border_style&quot; style=&quot;font-size : 16px; font-family : Arial, helvetica, sans-serif; color : #000000;background-color : transparent; border : 0px; line-height : 100%; &quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; bgcolor=&quot;transparent&quot; width=&quot;100%&quot;&gt;
+                  &lt;tr&gt;
+                    &lt;td align=&quot;center&quot; valign=&quot;top&quot;&gt;
+                      &lt;table align=&quot;left&quot; border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+                        &lt;tr&gt;
+                          &lt;!-- added padding here --&gt;
+                          &lt;td class=&quot;content_padding&quot; style=&quot;padding : 0px 0px 0px 0px; &quot;&gt;
+                            &lt;!-- end of comment --&gt;
+                            &lt;table border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+                              &lt;tr&gt; &lt;!-- top slot --&gt;
+                                &lt;td align=&quot;center&quot; class=&quot;header&quot; valign=&quot;top&quot;&gt;
+                                  &lt;table align=&quot;left&quot; border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+                                    &lt;tbody&gt;
+                                        &lt;tr&gt;
+                                          &lt;td align=&quot;left&quot; valign=&quot;top&quot;&gt;
+                                            &lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+                                              &lt;tbody&gt;
+                                              &lt;tr&gt;
+                                                &lt;td class=&quot;responsive-td&quot; valign=&quot;top&quot; style=&quot;width: 100%;&quot;&gt;
+                                                  &lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;!--
+
+%%[
+
+ VAR @DATA, @DATA_DISPARO, @ID_DISPARO, @expirationDate, @EXPIRA, @DATA_EXPIRA, @MATRICULA, @NOME
+
+set @email = [email]
+set @MATRICULA = [matricula]
+set @data = [data]
+set @data = Concat(Format(@data,&quot;dd/MM/yyyy&quot;))
+set @assunto = [assunto]
+set @tipo = [tipo]
+set @mensagem = [mensagem]
+ 
+set @protocolo = [caso]
+set @NOME = CONCAT(ProperCase([Primeiro_nome]),&apos;,&apos;)
+
+set @id = [ContactId]
+set @caseNumber = [caso]
+set @origem = [origin]
+
+if IsNull(@nome) or @nome == &quot;&quot; then
+ set @saudacao = &apos;Prezado(a),&apos;
+else
+ set @saudacao = Concat(&apos;Prezado(a) &apos;, @nome, &apos;,&apos;)
+endif
+
+if empty(@origem) then
+  set @msg = &apos;origem nula&apos;
+else @origem == &quot;E-mail&quot;
+  set @msg = &apos;origem preenchida&apos;
+endif
+
+
+
+ 
+set  @DATA = FormatDate(Now(),&quot;MM/dd/yyyy&quot;)
+
+set @expirationDate = DateAdd(@DATA, &quot;5&quot;, &quot;D&quot;)
+set  @expirationDate = FormatDate(@expirationDate,&quot;MM/dd/yyyy&quot;)
+set @DATA_EXPIRA =  FormatDate(@expirationDate,&quot;dd/MM/yyyy&quot;)
+ ]%% --&gt;
+
+&lt;br&gt;&lt;br&gt;
+&lt;!-- %%=v(@msg)=%% --&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: transparent; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 0px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot; style=&quot;width: 100%;&quot;&gt;&lt;tr&gt;&lt;td&gt;&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot; style=&quot;width: 100%;&quot;&gt;&lt;tr&gt;&lt;td valign=&quot;top&quot; class=&quot;responsive-td&quot; style=&quot;width: 100%; padding-bottom: 3px;&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: transparent; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 0px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;div style=&quot;text-align: center;&quot;&gt;
+ &lt;span style=&quot;font-size:12px;&quot;&gt;&lt;span style=&quot;color:#999999;&quot;&gt;Caso n&amp;atilde;o esteja visualizando corretamente esta mensagem, &lt;/span&gt;&lt;a href=&quot;%%view_email_url%%&quot;&gt;&lt;span style=&quot;color:#999999;&quot;&gt;&lt;u&gt;acesse este link&lt;/u&gt;.&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot; style=&quot;width: 100%;&quot;&gt;&lt;tr&gt;&lt;td valign=&quot;top&quot; class=&quot;responsive-td&quot; style=&quot;width: 100%; padding-top: 3px;&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot;&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;img data-assetid=&quot;3007&quot; src=&quot;https://image.relacionamento.previ.com.br/lib/fe31117371640478771c73/m/1/31bee5dd-1981-4029-835b-0fe6e569e284.png&quot; alt=&quot;&quot; width=&quot;600&quot; style=&quot;display: block; padding: 0px; text-align: center; border: 0px solid transparent; height: auto; width: 100%;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;style&gt;
+  a:link{
+    text-decoration: none;}
+  .borda {
+    border:none;
+  }
+&lt;/style&gt;
+
+&lt;div style=&quot;margin-left:10px;  overflow:auto;&quot;&gt;
+  &lt;p&gt;
+    Protocolo: {!Get_Caso_Atual.CaseNumber}
+  &lt;/p&gt;
+  &lt;p&gt;
+    E-mail:&amp;nbsp;{!Get_Caso_Atual.ContactEmail}
+  &lt;/p&gt;
+  &lt;p&gt;
+  Matrícula: {!Get_Caso_Atual.MatriculaFormula__c}
+  &lt;/p&gt;
+ &lt;p&gt;
+  {!Get_Caso_Atual.Account.Name},
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    {!Get_Caso_Atual.Resposta__c}
+  &lt;/p&gt;
+
+
+&lt;div&gt;
+    &lt;!--%%[
+    var @page, @id, @caso
+    set @page=&quot;264&quot; 
+    set @id = [ContactId]
+    set @caso = [caso]
+    ]%%=&quot;&quot; --&gt;
+  
+  
+ 
+&lt;p&gt;
+  Gerência de Atendimento &lt;br&gt; Previ
+  &lt;/p&gt;
+
+ &lt;!-- (Se a origem for fale conosco – web to case – OU e-mail to case, incluir:) --&gt;
+  
+    &lt;!-- %%[
+   IF [origin] == &quot;Web&quot; or [origin] == &quot;E-mail&quot; or [origin] == &quot;Email&quot; THEN
+  ]%% --&gt;
+  &lt;hr&gt;
+&lt;p&gt;
+  Data: {!Get_Caso_Atual.CreatedDate}&amp;nbsp;
+  &lt;/p&gt;
+&lt;p&gt;
+  Assunto: {!Get_Caso_Atual.Subject}
+  &lt;/p&gt;
+&lt;p&gt;
+  Tipo: {!Get_Caso_Atual.Type}
+  &lt;/p&gt;
+  &lt;div style=&quot;text-align: justify;
+  text-justify: inter-word;&quot;&gt;
+    &lt;p&gt;
+  Mensagem: {!Get_Caso_Atual.Description}
+  &lt;/p&gt;
+  &lt;/div&gt;
+
+  
+    &lt;!-- %%[
+  ENDIF
+  ]%% --&gt;
+
+&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: #F3F3F3; min-width: 100%; border-top: 2px solid #C3DAD7; border-right: 0px; border-bottom: 2px solid #C3DAD7; border-left: 0px; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 0px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot; style=&quot;width: 100%;&quot;&gt;&lt;tr&gt;&lt;td&gt;&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot; style=&quot;width: 100%;&quot;&gt;&lt;tr&gt;&lt;td valign=&quot;top&quot; style=&quot;width: 50%; padding-right: 3px;&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: transparent; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 15px 20px 15px 15px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot;&gt;&lt;tr&gt;&lt;td align=&quot;right&quot;&gt;&lt;a href=&quot;https://apps.apple.com/br/app/previ/id1196343450&quot; title=&quot;&quot; alias=&quot;&quot; conversion=&quot;false&quot; data-linkto=&quot;https://&quot;&gt;&lt;img data-assetid=&quot;3602&quot; src=&quot;https://image.relacionamento.previ.com.br/lib/fe31117371640478771c73/m/1/aea3db42-e4a4-4e89-8f3e-3ebf0eda0712.png&quot; alt=&quot;&quot; height=&quot;47&quot; width=&quot;159&quot; style=&quot;display: block; padding: 0px; text-align: right; height: 47px; width: 159px; border: 0px;&quot;&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;td valign=&quot;top&quot; style=&quot;width: 50%; padding-left: 3px;&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: transparent; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 15px 15px 15px 20px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot;&gt;&lt;tr&gt;&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=br.com.previ.v1&amp;hl=pt_BR&amp;gl=US&amp;pli=1&quot; title=&quot;&quot; alias=&quot;&quot; conversion=&quot;false&quot; data-linkto=&quot;https://&quot;&gt;&lt;img data-assetid=&quot;3604&quot; src=&quot;https://image.relacionamento.previ.com.br/lib/fe31117371640478771c73/m/1/99c7129c-ce5f-444d-933f-4cfe0636f685.png&quot; alt=&quot;&quot; height=&quot;48&quot; width=&quot;159&quot; style=&quot;display: block; padding: 0px; text-align: left; height: 48px; width: 159px; border: 0px;&quot;&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: #F3F3F3; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 15px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;div style=&quot;text-align: center;&quot;&gt;
+ &lt;span style=&quot;font-size:18px;&quot;&gt;&lt;span style=&quot;font-size: 18px; color: #009594;&quot;&gt;&lt;b&gt;SIGA NOSSAS REDES SOCIAIS&lt;/b&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: #F3F3F3; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 0px 30px 10px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot; style=&quot;width: 100%;&quot;&gt;&lt;tr&gt;&lt;td&gt;&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot; style=&quot;width: 100%;&quot;&gt;&lt;tr&gt;&lt;td valign=&quot;top&quot; style=&quot;width: 20%; padding-right: 0px;&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot;&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://www.previ.com.br/portal-previ/&quot; title=&quot;&quot; alias=&quot;&quot; conversion=&quot;false&quot; data-linkto=&quot;https://&quot;&gt;&lt;img data-assetid=&quot;3599&quot; src=&quot;https://image.relacionamento.previ.com.br/lib/fe31117371640478771c73/m/1/4a46563e-e92b-427a-9e9f-58c92b95cfc2.png&quot; alt=&quot;&quot; height=&quot;48&quot; width=&quot;58&quot; style=&quot;display: block; padding: 0px; text-align: center; height: 48px; width: 58px; border: 0px;&quot;&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;td valign=&quot;top&quot; style=&quot;width: 20%; padding-left: 0px; padding-right: 0px;&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: transparent; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 3px 0px 0px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot;&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://www.facebook.com/previoficial/&quot; title=&quot;&quot; alias=&quot;&quot; conversion=&quot;false&quot; data-linkto=&quot;https://&quot;&gt;&lt;img data-assetid=&quot;3603&quot; src=&quot;https://image.relacionamento.previ.com.br/lib/fe31117371640478771c73/m/1/6212c3d2-677b-4020-b2b4-436037827602.png&quot; alt=&quot;&quot; height=&quot;45&quot; width=&quot;44&quot; style=&quot;display: block; padding: 0px; text-align: center; height: 45px; width: 44px; border: 0px;&quot;&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;td valign=&quot;top&quot; style=&quot;width: 20%; padding-left: 0px; padding-right: 0px;&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: transparent; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 3px 0px 0px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot;&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://www.instagram.com/previoficial/&quot; title=&quot;&quot; alias=&quot;&quot; conversion=&quot;false&quot; data-linkto=&quot;https://&quot;&gt;&lt;img data-assetid=&quot;3595&quot; src=&quot;https://image.relacionamento.previ.com.br/lib/fe31117371640478771c73/m/1/8cf206e6-ebc8-449c-9de1-9067993634a7.png&quot; alt=&quot;&quot; height=&quot;45&quot; width=&quot;48&quot; style=&quot;display: block; padding: 0px; text-align: center; height: 45px; width: 48px; border: 0px;&quot;&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;td valign=&quot;top&quot; style=&quot;width: 20%; padding-left: 0px; padding-right: 0px;&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: transparent; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 3px 0px 0px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot;&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://www.youtube.com/channel/UCexvvMO729kfBlwFCyicqHg&quot; title=&quot;&quot; alias=&quot;&quot; conversion=&quot;false&quot; data-linkto=&quot;https://&quot;&gt;&lt;img data-assetid=&quot;3601&quot; src=&quot;https://image.relacionamento.previ.com.br/lib/fe31117371640478771c73/m/1/fd228a53-ac5d-42b9-b80f-a32c091c1762.png&quot; alt=&quot;&quot; height=&quot;47&quot; width=&quot;39&quot; style=&quot;display: block; padding: 0px; text-align: center; height: 47px; width: 39px; border: 0px;&quot;&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;td valign=&quot;top&quot; style=&quot;width: 20%; padding-left: 0px;&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: transparent; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 3px 0px 0px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot;&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;a href=&quot;https://www.linkedin.com/company/previoficial/&quot; title=&quot;&quot; alias=&quot;&quot; conversion=&quot;false&quot; data-linkto=&quot;https://&quot;&gt;&lt;img data-assetid=&quot;3596&quot; src=&quot;https://image.relacionamento.previ.com.br/lib/fe31117371640478771c73/m/1/55680c43-e3ed-4492-9ffd-c9a34cc26480.png&quot; alt=&quot;&quot; height=&quot;45&quot; width=&quot;38&quot; style=&quot;display: block; padding: 0px; text-align: center; height: 45px; width: 38px; border: 0px;&quot;&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: #F3F3F3; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 25px 40px 0px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;div style=&quot;text-align: center; background-color: #DAE9E7; padding-top: 15px; padding-bottom: 15px; margin-bottom:0px&quot;&gt;
+ &lt;br&gt;
+ &lt;span style=&quot;font-size:19px;&quot;&gt;&lt;span style=&quot;color:#017d94; &quot;&gt;&lt;b&gt;FALE CONOSCO&lt;/b&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: #F3F3F3; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 0px 40px 15px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot; style=&quot;width: 100%;&quot;&gt;&lt;tr&gt;&lt;td&gt;&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot; style=&quot;width: 100%;&quot;&gt;&lt;tr&gt;&lt;td valign=&quot;top&quot; class=&quot;responsive-td&quot; style=&quot;width: 35%; padding-right: 0px;&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: #DAE9E7; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 5px 0px 10px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;div class=&quot;nw&quot; style=&quot;height: 90px&quot;&gt;
+ &lt;div style=&quot;text-align: center;&quot;&gt;
+  &lt;span style=&quot;font-size:15px;&quot;&gt;&lt;b&gt;Atendimento&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;margin-top: 10px; text-align: center;&quot;&gt;
+  &lt;span style=&quot;font-size:85%;&quot;&gt;0800 729 0505&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;td valign=&quot;top&quot; class=&quot;responsive-td&quot; style=&quot;width: 5%; padding-left: 0px; padding-right: 0px;&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: #DAE9E7; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper mobile-hidden&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 0px 0px 17px; &quot; class=&quot;stylingblock-content-wrapper mobile-hidden camarker-inner&quot;&gt;&lt;div class=&quot;ajuste&quot; style=&quot;height: 88px&quot;&gt;
+&lt;div style=&quot;height: 40px; border-left: 1px solid grey; margin-right: 50%;&quot;&gt; &lt;/div&gt;
+&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;td valign=&quot;top&quot; class=&quot;responsive-td&quot; style=&quot;width: 20%; padding-left: 0px; padding-right: 0px;&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: #DAE9E7; border: 0px; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 5px 0px 10px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;style type=&quot;text/css&quot;&gt;
+@media only screen and  (max-width: 650px) and (min-width: 480px)   {
+
+            .nw {
+                width: 181px;
+
+            }
+        }&lt;/style&gt;&lt;div class=&quot;nw&quot; style=&quot;height: 90px&quot;&gt;
+ &lt;div style=&quot;text-align: center;&quot;&gt;
+  &lt;span style=&quot;font-size:15px;&quot;&gt;&lt;b&gt;Ouvidoria&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;margin-top: 10px; text-align: center;&quot;&gt;
+  &lt;span style=&quot;font-size:85%;&quot;&gt;0800 729 0303&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;td valign=&quot;top&quot; class=&quot;responsive-td&quot; style=&quot;width: 5%; padding-left: 0px; padding-right: 0px;&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: #DAE9E7; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper mobile-hidden&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 0px 0px 17px; &quot; class=&quot;stylingblock-content-wrapper mobile-hidden camarker-inner&quot;&gt;&lt;div class=&quot;ajuste&quot; style=&quot;height: 88px&quot;&gt;
+&lt;div style=&quot;height: 40px; border-right: 1px solid grey; margin-left: 50%;&quot;&gt; &lt;/div&gt;
+&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;td valign=&quot;top&quot; class=&quot;responsive-td&quot; style=&quot;width: 35%; padding-left: 0px;&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: #DAE9E7; border: 0px; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 5px 0px 10px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;div class=&quot;nw&quot; style=&quot;height: 90px&quot;&gt;
+ &lt;div style=&quot;text-align: center;&quot;&gt;
+  &lt;span style=&quot;font-size:15px;&quot;&gt;&lt;b&gt;Den&amp;uacute;ncia&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;margin-top: 10px; text-align: center;&quot;&gt;
+  &lt;span style=&quot;font-size:85%;&quot;&gt;0800 515 0001&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: #F3F3F3; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 15px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;div style=&quot;text-align: center;&quot;&gt;
+ &lt;span style=&quot;font-family:Arial,Helvetica,sans-serif;&quot;&gt;&lt;span style=&quot;font-size:12px;&quot;&gt;&lt;b&gt;%%Member_Busname%% - Caixa de Previd&amp;ecirc;ncia dos Funcion&amp;aacute;rios do Banco do Brasil&lt;/b&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: center;&quot;&gt;
+ &lt;span style=&quot;font-size:12px;&quot;&gt;Condom&amp;iacute;nio do Edif&amp;iacute;cio Centro Empresarial Mourisco&lt;br&gt;
+ 3&amp;ordm; e 4&amp;ordm; Andar, %%Member_Addr%% - Botafogo, %%Member_City%% - %%Member_State%%, %%Member_PostalCode%% - %%Member_Country%%&lt;/span&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: #FFFFFF; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 10px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot; style=&quot;width: 100%;&quot;&gt;&lt;tr&gt;&lt;td&gt;&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot; style=&quot;width: 100%;&quot;&gt;&lt;tr&gt;&lt;td valign=&quot;top&quot; style=&quot;width: 10%; padding-right: 3px;&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;!----&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;td valign=&quot;top&quot; style=&quot;width: 28%; padding-left: 3px; padding-right: 3px;&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;div style=&quot;text-align: center;&quot;&gt;
+ &lt;span style=&quot;font-size:11px;&quot;&gt;&lt;a alias=&quot;Update Profile&quot; href=&quot;%%subscription_center_url%%&quot; style=&quot;text-decoration:none&quot;&gt;&lt;span style=&quot;color:#737373;&quot;&gt;Gerenciar assinatura&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;td valign=&quot;top&quot; style=&quot;width: 24%; padding-left: 3px; padding-right: 3px;&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: transparent; min-width: 100%; border-top: 0px; border-right: 2px solid #E4E4E4; border-bottom: 0px; border-left: 2px solid #E4E4E4; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 0px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;div style=&quot;text-align: center;&quot;&gt;
+ &lt;span style=&quot;font-size:11px;&quot;&gt;&lt;a alias=&quot;Update Profile&quot; href=&quot;%%profile_center_url%%&quot; style=&quot;text-decoration:none;&quot;&gt;&lt;span style=&quot;color:#737373;&quot;&gt;Atualizar perfil&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;td valign=&quot;top&quot; style=&quot;width: 28%; padding-left: 3px; padding-right: 3px;&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;div style=&quot;text-align: center;&quot;&gt;
+ &lt;span style=&quot;font-size:11px;&quot;&gt;&lt;a alias=&quot;Unsubscribe&quot; href=&quot;%%unsub_center_url%%&quot; style=&quot;text-decoration:none&quot;&gt;&lt;span style=&quot;color:#737373;&quot;&gt;Descadastre-se&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;td valign=&quot;top&quot; style=&quot;width: 10%; padding-left: 3px;&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;!----&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+                                                &lt;/td&gt;
+                                              &lt;/tr&gt;
+                                              &lt;/tbody&gt;
+                                            &lt;/table&gt;
+                                          &lt;/td&gt;
+                                        &lt;/tr&gt;
+                                    &lt;/tbody&gt;
+                                  &lt;/table&gt;
+                                &lt;/td&gt;
+                              &lt;/tr&gt;
+                            &lt;/table&gt;
+                          &lt;/td&gt;
+                        &lt;/tr&gt;
+                      &lt;/table&gt;
+                    &lt;/td&gt;
+                  &lt;/tr&gt;
+                &lt;/table&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/table&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td valign=&quot;top&quot;&gt;
+          &lt;custom type=&quot;footer&quot; /&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</text>
+    </textTemplates>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -19,7 +19,7 @@ public class CaseTriggerTest {
         newSub.Producty__c = 'Canais de Relacionamento';
         newSub.Service__c ='Acesso/Navegação';
         newSub.Sub_Service__c='Aplicativo - A/N';
-        //newSub.Occupation_area__c = 'Ouvir';
+        newSub.Occupation_area__c = 'Ouvir';
         insert newSub;
         
         Test.startTest();

@@ -7,7 +7,7 @@ private class MilestoneTest {
         Account myAcc = new Account(Name='Suporte SLA', phone='1001231234',Registration__c='600');
         acts.add(myAcc);
         
-        Account busAcc = new Account(Name = 'Suporte SLB', phone='1001231232', Registration__c='601');
+        Account busAcc = new Account(Name = 'Suporte SLA', phone='1001231234', Registration__c='600');
         acts.add(busAcc);
         insert acts;
         Contact cont = new Contact(FirstName = 'Test', LastName = 'LastName', phone='4567890999', accountid = busAcc.id);
@@ -44,7 +44,7 @@ private class MilestoneTest {
         Account myAcc = new Account(Name='Suporte SLA', phone='1001231234', Registration__c='600');
         acts.add(myAcc);
         
-        Account busAcc = new Account(Name = 'Suporte SLf', phone='1001231235', Registration__c='604');
+        Account busAcc = new Account(Name = 'Suporte SLA', phone='1001231234', Registration__c='600');
         acts.add(busAcc);
         insert acts;
         Contact cont = new Contact(FirstName = 'Test', LastName = 'LastName', phone='4567890999', accountid = busAcc.id);

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Senha</name>
+    <queueMembers>
+        <publicGroups>
+            <publicGroup>Gerat</publicGroup>
+        </publicGroups>
+        <users>
+            <user>erick.vasques@previ.ilia.digital</user>
+            <user>heder.baeta.previ@ilia.digital</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>Senha</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>Incident</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>Problem</sobjectType>
+    </queueSobject>
+</Queue>

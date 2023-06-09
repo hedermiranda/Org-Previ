@@ -42,11 +42,10 @@ private class BillingAddressCustomControllerTest {
         cadastro.BillingCity = null; 
         cadastro.BillingState = null;       
         cadastro.BillingPostalCode = contato.Account.BillingPostalCode;       
-        cadastro.BillingCountry = null; 
+        cadastro.BillingCountry = contato.Account.BillingCountry; 
         cadastro.Registration = contato.Account.Registration__c; 
         cadastro.AccountId = contato.AccountId;   
         BillingAddressCustomController.Response retorno = BillingAddressCustomController.sendEndereco(cadastro);
-        
         
         System.assert(retorno.result == null);
         

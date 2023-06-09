@@ -13,21 +13,44 @@
         <restricted>true</restricted>
         <valueSetName>Service</valueSetName>
         <valueSettings>
+            <controllingFieldValue>Reclamatória Trabalhista</controllingFieldValue>
+            <valueName>Reclamatória Trabalhista</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reservas/Contribuição</controllingFieldValue>
+            <valueName>Definição/Prévia opção/Saldo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reservas/Contribuição</controllingFieldValue>
+            <valueName>Demonstrativo IR</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reservas/Contribuição</controllingFieldValue>
+            <valueName>Portabilidade</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reservas/Contribuição</controllingFieldValue>
+            <valueName>Preservação Nível de Contribuição</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reservas/Contribuição</controllingFieldValue>
+            <valueName>Resgate solicitado/pago</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reservas/Contribuição</controllingFieldValue>
+            <valueName>Vinculação ao Plano</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reservas/Contribuição</controllingFieldValue>
+            <valueName>Outros R/C</valueName>
+        </valueSettings>
+        <valueSettings>
             <controllingFieldValue>Senha</controllingFieldValue>
             <valueName>2ª via</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Senha</controllingFieldValue>
             <valueName>Outros S</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Atendimento de 1ª instância</controllingFieldValue>
-            <valueName>Qualidade do Atendimento de 1ª instância</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Indicativo de Melhoria</controllingFieldValue>
-            <controllingFieldValue>N/A</controllingFieldValue>
-            <valueName>N/A</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Relação do fornecedor com a Previ</controllingFieldValue>
@@ -85,6 +108,11 @@
         <valueSettings>
             <controllingFieldValue>Relação do funcionário com a Previ</controllingFieldValue>
             <valueName>Vale Transporte</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>N/A</controllingFieldValue>
+            <controllingFieldValue>Indicativo de Melhoria</controllingFieldValue>
+            <valueName>N/A</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Documentos e Formulários</controllingFieldValue>
@@ -335,204 +363,6 @@
             <valueName>Termo De Opção Plano 2 (Modelo) @</valueName>
         </valueSettings>
         <valueSettings>
-            <controllingFieldValue>Indícios de Discriminação</controllingFieldValue>
-            <valueName>Etário</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Indícios de Discriminação</controllingFieldValue>
-            <valueName>Gênero</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Indícios de Discriminação</controllingFieldValue>
-            <valueName>Orientação sexual</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Indícios de Discriminação</controllingFieldValue>
-            <controllingFieldValue>Indídios de Fraude</controllingFieldValue>
-            <controllingFieldValue>Insatisfação com as regras/políticas da Previ</controllingFieldValue>
-            <valueName>Outros</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Indícios de Discriminação</controllingFieldValue>
-            <valueName>Racial</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Indídios de Fraude</controllingFieldValue>
-            <valueName>Fraude financeira</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Indídios de Fraude</controllingFieldValue>
-            <valueName>Fraude operacional</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Indícios de Quebra de Dados/Informações</controllingFieldValue>
-            <valueName>Quebra de Dados/Informações Confidenciais</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Indícios de Quebra de Dados/Informações</controllingFieldValue>
-            <valueName>Quebra de Dados/Informações Interna</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Indícios de Violação de Normas</controllingFieldValue>
-            <valueName>Violação de Leis</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Indícios de Violação de Normas</controllingFieldValue>
-            <valueName>Violação de Políticas internas</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Indícios de Violação de Normas</controllingFieldValue>
-            <valueName>Violação de Regulamentos</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Cartão PREVI</controllingFieldValue>
-            <valueName>Clube de Benefícios</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Cartão PREVI</controllingFieldValue>
-            <valueName>Solicitação</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Aposentadoria</controllingFieldValue>
-            <valueName>Concessão</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Aposentadoria</controllingFieldValue>
-            <valueName>Manutenção</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Pensão</controllingFieldValue>
-            <valueName>Concessão Pensão</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Pensão</controllingFieldValue>
-            <valueName>Manutenção Pensão</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Cadastro</controllingFieldValue>
-            <valueName>Dados</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Reclamatória Trabalhista</controllingFieldValue>
-            <valueName>Reclamatória Trabalhista</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Folha de Pagamentos</controllingFieldValue>
-            <valueName>Espelho</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Folha de Pagamentos</controllingFieldValue>
-            <valueName>Fopag</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Folha de Pagamentos</controllingFieldValue>
-            <valueName>Imposto de Renda</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Folha de Pagamentos</controllingFieldValue>
-            <valueName>Pensão Alimentícia</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Folha de Pagamentos</controllingFieldValue>
-            <valueName>Outros F/P</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Outros</controllingFieldValue>
-            <valueName>Documentos Microfilmados</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Outros</controllingFieldValue>
-            <valueName>Institucional</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Outros</controllingFieldValue>
-            <valueName>LGPD</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Outros</controllingFieldValue>
-            <valueName>Outros O</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Empréstimo Simples</controllingFieldValue>
-            <valueName>Informações/Serviços ES</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Financiamento Imobiliário</controllingFieldValue>
-            <valueName>Informações/Serviços FI</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Previ Família</controllingFieldValue>
-            <valueName>Benefícios</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Previ Família</controllingFieldValue>
-            <valueName>Cadastro</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Previ Família</controllingFieldValue>
-            <valueName>Canais/Senha</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Previ Família</controllingFieldValue>
-            <valueName>Contribuições</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Previ Família</controllingFieldValue>
-            <valueName>Institutos</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Previ Família</controllingFieldValue>
-            <valueName>Vinculação ao Plano - P/F</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Previ Família</controllingFieldValue>
-            <valueName>Outros P/F</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Reservas/Contribuição</controllingFieldValue>
-            <valueName>Definição/Prévia opção/Saldo</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Reservas/Contribuição</controllingFieldValue>
-            <valueName>Demonstrativo IR</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Reservas/Contribuição</controllingFieldValue>
-            <valueName>Portabilidade</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Reservas/Contribuição</controllingFieldValue>
-            <valueName>Preservação Nível de Contribuição</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Reservas/Contribuição</controllingFieldValue>
-            <valueName>Resgate solicitado/pago</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Reservas/Contribuição</controllingFieldValue>
-            <valueName>Vinculação ao Plano</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Reservas/Contribuição</controllingFieldValue>
-            <valueName>Outros R/C</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Behavioral_Issues</controllingFieldValue>
-            <valueName>Clima organizacional - Q/C</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Behavioral_Issues</controllingFieldValue>
-            <valueName>Comunicação</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Behavioral_Issues</controllingFieldValue>
-            <valueName>Cultura</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Behavioral_Issues</controllingFieldValue>
-            <valueName>Relacionamentos</valueName>
-        </valueSettings>
-        <valueSettings>
             <controllingFieldValue>Indícios de Corrupção</controllingFieldValue>
             <valueName>Obtenção de vantagens indevidas</valueName>
         </valueSettings>
@@ -573,6 +403,104 @@
             <valueName>Utilização de Informações Privilegiadas</valueName>
         </valueSettings>
         <valueSettings>
+            <controllingFieldValue>Indícios de Discriminação</controllingFieldValue>
+            <valueName>Etário</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Indícios de Discriminação</controllingFieldValue>
+            <valueName>Gênero</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Indícios de Discriminação</controllingFieldValue>
+            <valueName>Orientação sexual</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Indícios de Discriminação</controllingFieldValue>
+            <controllingFieldValue>Indídios de Fraude</controllingFieldValue>
+            <controllingFieldValue>Insatisfação com as regras/políticas da Previ</controllingFieldValue>
+            <valueName>Outros</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Indícios de Discriminação</controllingFieldValue>
+            <valueName>Racial</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Indícios de Quebra de Dados/Informações</controllingFieldValue>
+            <valueName>Quebra de Dados/Informações Confidenciais</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Indícios de Quebra de Dados/Informações</controllingFieldValue>
+            <valueName>Quebra de Dados/Informações Interna</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Indícios de Violação de Normas</controllingFieldValue>
+            <valueName>Violação de Leis</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Indícios de Violação de Normas</controllingFieldValue>
+            <valueName>Violação de Políticas internas</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Indícios de Violação de Normas</controllingFieldValue>
+            <valueName>Violação de Regulamentos</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Indídios de Fraude</controllingFieldValue>
+            <valueName>Fraude financeira</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Indídios de Fraude</controllingFieldValue>
+            <valueName>Fraude operacional</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outros</controllingFieldValue>
+            <valueName>Documentos Microfilmados</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outros</controllingFieldValue>
+            <valueName>Institucional</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outros</controllingFieldValue>
+            <valueName>Investimentos e Participações</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outros</controllingFieldValue>
+            <valueName>LGPD</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Outros</controllingFieldValue>
+            <valueName>Outros O</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pecúlio</controllingFieldValue>
+            <valueName>Informações/Serviços CAPEC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pensão</controllingFieldValue>
+            <valueName>Concessão Pensão</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pensão</controllingFieldValue>
+            <valueName>Manutenção Pensão</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Aposentadoria</controllingFieldValue>
+            <valueName>Concessão</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Aposentadoria</controllingFieldValue>
+            <valueName>Manutenção</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Atendimento de 1ª instância</controllingFieldValue>
+            <valueName>Qualidade do Atendimento de 1ª instância</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cadastro</controllingFieldValue>
+            <valueName>Dados</valueName>
+        </valueSettings>
+        <valueSettings>
             <controllingFieldValue>Canais de Relacionamento</controllingFieldValue>
             <valueName>Acesso/Navegação</valueName>
         </valueSettings>
@@ -585,8 +513,84 @@
             <valueName>Protocolo</valueName>
         </valueSettings>
         <valueSettings>
-            <controllingFieldValue>Pecúlio</controllingFieldValue>
-            <valueName>Informações/Serviços CAPEC</valueName>
+            <controllingFieldValue>Cartão PREVI</controllingFieldValue>
+            <valueName>Clube de Benefícios</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cartão PREVI</controllingFieldValue>
+            <valueName>Solicitação</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Empréstimo Simples</controllingFieldValue>
+            <valueName>Informações/Serviços ES</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Financiamento Imobiliário</controllingFieldValue>
+            <valueName>Informações/Serviços FI</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Folha de Pagamentos</controllingFieldValue>
+            <valueName>Espelho</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Folha de Pagamentos</controllingFieldValue>
+            <valueName>Fopag</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Folha de Pagamentos</controllingFieldValue>
+            <valueName>Imposto de Renda</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Folha de Pagamentos</controllingFieldValue>
+            <valueName>Pensão Alimentícia</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Folha de Pagamentos</controllingFieldValue>
+            <valueName>Outros F/P</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Previ Família</controllingFieldValue>
+            <valueName>Benefícios</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Previ Família</controllingFieldValue>
+            <valueName>Cadastro</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Previ Família</controllingFieldValue>
+            <valueName>Canais/Senha</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Previ Família</controllingFieldValue>
+            <valueName>Contribuições</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Previ Família</controllingFieldValue>
+            <valueName>Institutos</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Previ Família</controllingFieldValue>
+            <valueName>Vinculação ao Plano - P/F</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Previ Família</controllingFieldValue>
+            <valueName>Outros P/F</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Behavioral_Issues</controllingFieldValue>
+            <valueName>Clima organizacional - Q/C</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Behavioral_Issues</controllingFieldValue>
+            <valueName>Comunicação</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Behavioral_Issues</controllingFieldValue>
+            <valueName>Cultura</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Behavioral_Issues</controllingFieldValue>
+            <valueName>Relacionamentos</valueName>
         </valueSettings>
     </valueSet>
 </CustomField>

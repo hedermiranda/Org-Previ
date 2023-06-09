@@ -33,7 +33,7 @@ public with sharing class BillingAddressCustomController {
             AtEnd.idMatricula = Integer.valueOf(conta.Registration);
             AtEnd.atualizar = atlz;
             
-            HTTPResponse retorno = IntegrationUtils.putEndereco(conta.Registration, Json.serialize(AtEnd));
+            HTTPResponse retorno = IntegrationUtils.PutEndereco(conta.Registration, Json.serialize(AtEnd));
             if(retorno.getStatusCode() == 200){   
                 Map<String,Object> responseBody = (Map<String,Object>)JSON.deserializeUntyped(retorno.getBody());
                 if(responseBody.containsKey('retorno')) {

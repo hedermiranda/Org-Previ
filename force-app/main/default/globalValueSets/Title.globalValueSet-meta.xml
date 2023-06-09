@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Accounting analyst</fullName>
+        <default>false</default>
+        <label>Accounting analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>Account Manager I</fullName>
+        <default>false</default>
+        <label>Account Manager I</label>
+    </customValue>
+    <customValue>
+        <fullName>Account Manager II</fullName>
+        <default>false</default>
+        <label>Account Manager II</label>
+    </customValue>
+    <customValue>
+        <fullName>Account Manager III</fullName>
+        <default>false</default>
+        <label>Account Manager III</label>
+    </customValue>
+    <customValue>
+        <fullName>Administrative Assistant</fullName>
+        <default>false</default>
+        <label>Administrative Assistant</label>
+    </customValue>
+    <customValue>
+        <fullName>Agile Coach</fullName>
+        <default>false</default>
+        <label>Agile Coach</label>
+    </customValue>
+    <customValue>
+        <fullName>Back-End Developer</fullName>
+        <default>false</default>
+        <label>Back-End Developer</label>
+    </customValue>
+    <customValue>
+        <fullName>Back-End Developer I</fullName>
+        <default>false</default>
+        <label>Back-End Developer I</label>
+    </customValue>
+    <customValue>
+        <fullName>Back-End Developer II</fullName>
+        <default>false</default>
+        <label>Back-End Developer II</label>
+    </customValue>
+    <customValue>
+        <fullName>Back-End Developer III</fullName>
+        <default>false</default>
+        <label>Back-End Developer III</label>
+    </customValue>
+    <customValue>
+        <fullName>Back-End Specialist II</fullName>
+        <default>false</default>
+        <label>Back-End Specialist II</label>
+    </customValue>
+    <customValue>
+        <fullName>Back-End Specialist III</fullName>
+        <default>false</default>
+        <label>Back-End Specialist III</label>
+    </customValue>
+    <customValue>
+        <fullName>Big Data Analyst</fullName>
+        <default>false</default>
+        <label>Big Data Analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>Business Analyst</fullName>
+        <default>false</default>
+        <label>Business Analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>Business Development Manager</fullName>
+        <default>false</default>
+        <label>Business Development Manager</label>
+    </customValue>
+    <customValue>
+        <fullName>Candidate Experience</fullName>
+        <default>false</default>
+        <label>Candidate Experience</label>
+    </customValue>
+    <customValue>
+        <fullName>CEO</fullName>
+        <default>false</default>
+        <label>CEO</label>
+    </customValue>
+    <customValue>
+        <fullName>Controlling Assistant</fullName>
+        <default>false</default>
+        <label>Controlling Assistant</label>
+    </customValue>
+    <customValue>
+        <fullName>CSO</fullName>
+        <default>false</default>
+        <label>CSO</label>
+    </customValue>
+    <customValue>
+        <fullName>CTO</fullName>
+        <default>false</default>
+        <label>CTO</label>
+    </customValue>
+    <customValue>
+        <fullName>Data Analyst</fullName>
+        <default>false</default>
+        <label>Data Analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>Data Analyst II</fullName>
+        <default>false</default>
+        <label>Data Analyst II</label>
+    </customValue>
+    <customValue>
+        <fullName>Data Assistant</fullName>
+        <default>false</default>
+        <label>Data Assistant</label>
+    </customValue>
+    <customValue>
+        <fullName>Data Engineer</fullName>
+        <default>false</default>
+        <label>Data Engineer</label>
+    </customValue>
+    <customValue>
+        <fullName>Data Engineer I</fullName>
+        <default>false</default>
+        <label>Data Engineer I</label>
+    </customValue>
+    <customValue>
+        <fullName>Data Engineer II</fullName>
+        <default>false</default>
+        <label>Data Engineer II</label>
+    </customValue>
+    <customValue>
+        <fullName>Data Engineer III</fullName>
+        <default>false</default>
+        <label>Data Engineer III</label>
+    </customValue>
+    <customValue>
+        <fullName>Data Scientist</fullName>
+        <default>false</default>
+        <label>Data Scientist</label>
+    </customValue>
+    <customValue>
+        <fullName>Desenvolvedor Fullstack</fullName>
+        <default>false</default>
+        <label>Desenvolvedor Fullstack</label>
+    </customValue>
+    <customValue>
+        <fullName>Desenvolvedor I</fullName>
+        <default>false</default>
+        <label>Desenvolvedor I</label>
+    </customValue>
+    <customValue>
+        <fullName>Desenvolvedor Java</fullName>
+        <default>false</default>
+        <label>Desenvolvedor Java</label>
+    </customValue>
+    <customValue>
+        <fullName>Design Specialist I</fullName>
+        <default>false</default>
+        <label>Design Specialist I</label>
+    </customValue>
+    <customValue>
+        <fullName>DevOps Engineer</fullName>
+        <default>false</default>
+        <label>DevOps Engineer</label>
+    </customValue>
+    <customValue>
+        <fullName>DevOps I</fullName>
+        <default>false</default>
+        <label>DevOps I</label>
+    </customValue>
+    <customValue>
+        <fullName>DevOps II</fullName>
+        <default>false</default>
+        <label>DevOps II</label>
+    </customValue>
+    <customValue>
+        <fullName>DevOps Specialist</fullName>
+        <default>false</default>
+        <label>DevOps Specialist</label>
+    </customValue>
+    <customValue>
+        <fullName>DevOps Specialist II</fullName>
+        <default>false</default>
+        <label>DevOps Specialist II</label>
+    </customValue>
+    <customValue>
+        <fullName>DevOps Specialist III</fullName>
+        <default>false</default>
+        <label>DevOps Specialist III</label>
+    </customValue>
+    <customValue>
+        <fullName>Employer Branding Assistant</fullName>
+        <default>false</default>
+        <label>Employer Branding Assistant</label>
+    </customValue>
+    <customValue>
+        <fullName>Engenheiro Machine Learning 1</fullName>
+        <default>false</default>
+        <label>Engenheiro Machine Learning 1</label>
+    </customValue>
+    <customValue>
+        <fullName>ERP Consultant</fullName>
+        <default>false</default>
+        <label>ERP Consultant</label>
+    </customValue>
+    <customValue>
+        <fullName>Experience Leader I</fullName>
+        <default>false</default>
+        <label>Experience Leader I</label>
+    </customValue>
+    <customValue>
+        <fullName>Experience Leader II</fullName>
+        <default>false</default>
+        <label>Experience Leader II</label>
+    </customValue>
+    <customValue>
+        <fullName>Finance Analyst</fullName>
+        <default>false</default>
+        <label>Finance Analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>Finance Analyst III</fullName>
+        <default>false</default>
+        <label>Finance Analyst III</label>
+    </customValue>
+    <customValue>
+        <fullName>Finance Assistant</fullName>
+        <default>false</default>
+        <label>Finance Assistant</label>
+    </customValue>
+    <customValue>
+        <fullName>Finance Director</fullName>
+        <default>false</default>
+        <label>Finance Director</label>
+    </customValue>
+    <customValue>
+        <fullName>Finance Manager</fullName>
+        <default>false</default>
+        <label>Finance Manager</label>
+    </customValue>
+    <customValue>
+        <fullName>Finance Specialist</fullName>
+        <default>false</default>
+        <label>Finance Specialist</label>
+    </customValue>
+    <customValue>
+        <fullName>Financial Planning Coordinator</fullName>
+        <default>false</default>
+        <label>Financial Planning Coordinator</label>
+    </customValue>
+    <customValue>
+        <fullName>FP&amp;A Coordinator</fullName>
+        <default>false</default>
+        <label>FP&amp;A Coordinator</label>
+    </customValue>
+    <customValue>
+        <fullName>Front-End Developer</fullName>
+        <default>false</default>
+        <label>Front-End Developer</label>
+    </customValue>
+    <customValue>
+        <fullName>Front-End Developer I</fullName>
+        <default>false</default>
+        <label>Front-End Developer I</label>
+    </customValue>
+    <customValue>
+        <fullName>Front-End Developer II</fullName>
+        <default>false</default>
+        <label>Front-End Developer II</label>
+    </customValue>
+    <customValue>
+        <fullName>Front-End Developer III</fullName>
+        <default>false</default>
+        <label>Front-End Developer III</label>
+    </customValue>
+    <customValue>
+        <fullName>Front-End Specialist I</fullName>
+        <default>false</default>
+        <label>Front-End Specialist I</label>
+    </customValue>
+    <customValue>
+        <fullName>Front-End Specialist II</fullName>
+        <default>false</default>
+        <label>Front-End Specialist II</label>
+    </customValue>
+    <customValue>
+        <fullName>Front-End Specialist III</fullName>
+        <default>false</default>
+        <label>Front-End Specialist III</label>
+    </customValue>
+    <customValue>
+        <fullName>Head of Data Science</fullName>
+        <default>false</default>
+        <label>Head of Data Science</label>
+    </customValue>
+    <customValue>
+        <fullName>Head Of Engineering</fullName>
+        <default>false</default>
+        <label>Head Of Engineering</label>
+    </customValue>
+    <customValue>
+        <fullName>Head of Experience</fullName>
+        <default>false</default>
+        <label>Head of Experience</label>
+    </customValue>
+    <customValue>
+        <fullName>Head of Talent Management</fullName>
+        <default>false</default>
+        <label>Head of Talent Management</label>
+    </customValue>
+    <customValue>
+        <fullName>HR Business Partner</fullName>
+        <default>false</default>
+        <label>HR Business Partner</label>
+    </customValue>
+    <customValue>
+        <fullName>Human Resources Analyst I</fullName>
+        <default>false</default>
+        <label>Human Resources Analyst I</label>
+    </customValue>
+    <customValue>
+        <fullName>Human Resources Analyst II</fullName>
+        <default>false</default>
+        <label>Human Resources Analyst II</label>
+    </customValue>
+    <customValue>
+        <fullName>Human Resources Assistant</fullName>
+        <default>false</default>
+        <label>Human Resources Assistant</label>
+    </customValue>
+    <customValue>
+        <fullName>Human Resources Lead</fullName>
+        <default>false</default>
+        <label>Human Resources Lead</label>
+    </customValue>
+    <customValue>
+        <fullName>Information Security Analyst I</fullName>
+        <default>false</default>
+        <label>Information Security Analyst I</label>
+    </customValue>
+    <customValue>
+        <fullName>Intern</fullName>
+        <default>false</default>
+        <label>Intern</label>
+    </customValue>
+    <customValue>
+        <fullName>IT Infrastructure Analyst I</fullName>
+        <default>false</default>
+        <label>IT Infrastructure Analyst I</label>
+    </customValue>
+    <customValue>
+        <fullName>Legal Analyst</fullName>
+        <default>false</default>
+        <label>Legal Analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>Legal Assistant</fullName>
+        <default>false</default>
+        <label>Legal Assistant</label>
+    </customValue>
+    <customValue>
+        <fullName>Machine Learning Engineer I</fullName>
+        <default>false</default>
+        <label>Machine Learning Engineer I</label>
+    </customValue>
+    <customValue>
+        <fullName>Managing Director</fullName>
+        <default>false</default>
+        <label>Managing Director</label>
+    </customValue>
+    <customValue>
+        <fullName>Market Head</fullName>
+        <default>false</default>
+        <label>Market Head</label>
+    </customValue>
+    <customValue>
+        <fullName>Marketing Analyst I</fullName>
+        <default>false</default>
+        <label>Marketing Analyst I</label>
+    </customValue>
+    <customValue>
+        <fullName>Marketing Lead</fullName>
+        <default>false</default>
+        <label>Marketing Lead</label>
+    </customValue>
+    <customValue>
+        <fullName>Mobile Developer</fullName>
+        <default>false</default>
+        <label>Mobile Developer</label>
+    </customValue>
+    <customValue>
+        <fullName>Mobile Developer I</fullName>
+        <default>false</default>
+        <label>Mobile Developer I</label>
+    </customValue>
+    <customValue>
+        <fullName>Mobile Developer II</fullName>
+        <default>false</default>
+        <label>Mobile Developer II</label>
+    </customValue>
+    <customValue>
+        <fullName>Mobile Developer III</fullName>
+        <default>false</default>
+        <label>Mobile Developer III</label>
+    </customValue>
+    <customValue>
+        <fullName>Mobile Specialist I</fullName>
+        <default>false</default>
+        <label>Mobile Specialist I</label>
+    </customValue>
+    <customValue>
+        <fullName>Mobile Specialist II</fullName>
+        <default>false</default>
+        <label>Mobile Specialist II</label>
+    </customValue>
+    <customValue>
+        <fullName>Operations Manager</fullName>
+        <default>false</default>
+        <label>Operations Manager</label>
+    </customValue>
+    <customValue>
+        <fullName>People Consultant</fullName>
+        <default>false</default>
+        <label>People Consultant</label>
+    </customValue>
+    <customValue>
+        <fullName>People Director</fullName>
+        <default>false</default>
+        <label>People Director</label>
+    </customValue>
+    <customValue>
+        <fullName>People Operations Assistant</fullName>
+        <default>false</default>
+        <label>People Operations Assistant</label>
+    </customValue>
+    <customValue>
+        <fullName>People Operations Coordinator</fullName>
+        <default>false</default>
+        <label>People Operations Coordinator</label>
+    </customValue>
+    <customValue>
+        <fullName>Process Analyst</fullName>
+        <default>false</default>
+        <label>Process Analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>Product Designer</fullName>
+        <default>false</default>
+        <label>Product Designer</label>
+    </customValue>
+    <customValue>
+        <fullName>Product Designer I</fullName>
+        <default>false</default>
+        <label>Product Designer I</label>
+    </customValue>
+    <customValue>
+        <fullName>Product Designer II</fullName>
+        <default>false</default>
+        <label>Product Designer II</label>
+    </customValue>
+    <customValue>
+        <fullName>Product Designer III</fullName>
+        <default>false</default>
+        <label>Product Designer III</label>
+    </customValue>
+    <customValue>
+        <fullName>Product Designer Specialist I</fullName>
+        <default>false</default>
+        <label>Product Designer Specialist I</label>
+    </customValue>
+    <customValue>
+        <fullName>Product Marketing III</fullName>
+        <default>false</default>
+        <label>Product Marketing III</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Assistant</fullName>
+        <default>false</default>
+        <label>Project Assistant</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Coordinator I</fullName>
+        <default>false</default>
+        <label>Project Coordinator I</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Coordinator II</fullName>
+        <default>false</default>
+        <label>Project Coordinator II</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Coordinator III</fullName>
+        <default>false</default>
+        <label>Project Coordinator III</label>
+    </customValue>
+    <customValue>
+        <fullName>QA Lead</fullName>
+        <default>false</default>
+        <label>QA Lead</label>
+    </customValue>
+    <customValue>
+        <fullName>Quality Assurance Analyst</fullName>
+        <default>false</default>
+        <label>Quality Assurance Analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>Quality Assurance Analyst I</fullName>
+        <default>false</default>
+        <label>Quality Assurance Analyst I</label>
+    </customValue>
+    <customValue>
+        <fullName>Quality Assurance Analyst II</fullName>
+        <default>false</default>
+        <label>Quality Assurance Analyst II</label>
+    </customValue>
+    <customValue>
+        <fullName>Quality Assurance Analyst III</fullName>
+        <default>false</default>
+        <label>Quality Assurance Analyst III</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce Analyst</fullName>
+        <default>false</default>
+        <label>Salesforce Analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce Analyst I</fullName>
+        <default>false</default>
+        <label>Salesforce Analyst I</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce Analyst II</fullName>
+        <default>false</default>
+        <label>Salesforce Analyst II</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce Analyst III</fullName>
+        <default>false</default>
+        <label>Salesforce Analyst III</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce Developer</fullName>
+        <default>false</default>
+        <label>Salesforce Developer</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce Developer I</fullName>
+        <default>false</default>
+        <label>Salesforce Developer I</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce Developer II</fullName>
+        <default>false</default>
+        <label>Salesforce Developer II</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce Trainee</fullName>
+        <default>false</default>
+        <label>Salesforce Trainee</label>
+    </customValue>
+    <customValue>
+        <fullName>Scrum Master</fullName>
+        <default>false</default>
+        <label>Scrum Master</label>
+    </customValue>
+    <customValue>
+        <fullName>Talent Acquisition</fullName>
+        <default>false</default>
+        <label>Talent Acquisition</label>
+    </customValue>
+    <customValue>
+        <fullName>Talent Acquisition Analyst I</fullName>
+        <default>false</default>
+        <label>Talent Acquisition Analyst I</label>
+    </customValue>
+    <customValue>
+        <fullName>Talent Acquisition Analyst II</fullName>
+        <default>false</default>
+        <label>Talent Acquisition Analyst II</label>
+    </customValue>
+    <customValue>
+        <fullName>Talent Acquisition Analyst III</fullName>
+        <default>false</default>
+        <label>Talent Acquisition Analyst III</label>
+    </customValue>
+    <customValue>
+        <fullName>Talent Acquisition Coordinator</fullName>
+        <default>false</default>
+        <label>Talent Acquisition Coordinator</label>
+    </customValue>
+    <customValue>
+        <fullName>Talent Acquisition Manager</fullName>
+        <default>false</default>
+        <label>Talent Acquisition Manager</label>
+    </customValue>
+    <customValue>
+        <fullName>Talent Aquisition Analyst</fullName>
+        <default>false</default>
+        <label>Talent Aquisition Analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>Talent Manager Assistant</fullName>
+        <default>false</default>
+        <label>Talent Manager Assistant</label>
+    </customValue>
+    <customValue>
+        <fullName>Teacher</fullName>
+        <default>false</default>
+        <label>Teacher</label>
+    </customValue>
+    <customValue>
+        <fullName>Tech Lead</fullName>
+        <default>false</default>
+        <label>Tech Lead</label>
+    </customValue>
+    <customValue>
+        <fullName>Tech Leader I</fullName>
+        <default>false</default>
+        <label>Tech Leader I</label>
+    </customValue>
+    <customValue>
+        <fullName>Tech Leader II</fullName>
+        <default>false</default>
+        <label>Tech Leader II</label>
+    </customValue>
+    <customValue>
+        <fullName>Tech Leader III</fullName>
+        <default>false</default>
+        <label>Tech Leader III</label>
+    </customValue>
+    <customValue>
+        <fullName>Tech Recruiter</fullName>
+        <default>false</default>
+        <label>Tech Recruiter</label>
+    </customValue>
+    <customValue>
+        <fullName>Tech Recruiter II</fullName>
+        <default>false</default>
+        <label>Tech Recruiter II</label>
+    </customValue>
+    <customValue>
+        <fullName>Tech Sales Executive</fullName>
+        <default>false</default>
+        <label>Tech Sales Executive</label>
+    </customValue>
+    <customValue>
+        <fullName>Tech Sourcer</fullName>
+        <default>false</default>
+        <label>Tech Sourcer</label>
+    </customValue>
+    <customValue>
+        <fullName>Ux Research</fullName>
+        <default>false</default>
+        <label>Ux Research</label>
+    </customValue>
+    <customValue>
+        <fullName>UX - UI Designer</fullName>
+        <default>false</default>
+        <label>UX - UI Designer</label>
+    </customValue>
+    <customValue>
+        <fullName>UX Writer I</fullName>
+        <default>false</default>
+        <label>UX Writer I</label>
+    </customValue>
+    <customValue>
+        <fullName>UX Writer II</fullName>
+        <default>false</default>
+        <label>UX Writer II</label>
+    </customValue>
+    <customValue>
+        <fullName>UX Writer III</fullName>
+        <default>false</default>
+        <label>UX Writer III</label>
+    </customValue>
+    <customValue>
+        <fullName>Young Talent</fullName>
+        <default>false</default>
+        <label>Young Talent</label>
+    </customValue>
+    <masterLabel>Title</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

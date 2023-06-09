@@ -13,7 +13,7 @@ public with sharing class EmailMessageTriggerHandler {
         if (c.OwnerId != oc.Id && c.OwnerId != prev.Id && c.OwnerId != gerat.Id && c.OwnerId != web.Id && c.Status != 'Fechado'){  
             for (Integer i=0 ; i < newEmail.size() ; i++){ 
                       
-                if(/*!newEmail[0].Subject.contains('Re: Sandbox:') || (newEmail[0].Subject.contains('Re: Sandbox:') && */newEmail[0].Status == '3')/*)*/{
+                if(!newEmail[0].Subject.contains('Re: Sandbox:') || (newEmail[0].Subject.contains('Re: Sandbox:') && newEmail[0].Status == '3')){
                     c.Status = 'Aguardando Cliente';
                 }else if(newEmail[0].Status == '0'){
                     c.Status = 'Em Andamento';
@@ -47,7 +47,7 @@ public with sharing class EmailMessageTriggerHandler {
             System.debug('desc' + c);
         }
     }
-    }    
+    }  
     
 
         /*

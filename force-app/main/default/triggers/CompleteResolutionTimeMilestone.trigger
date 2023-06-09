@@ -1,5 +1,4 @@
-trigger CompleteResolutionTimeMilestone on Case (after update) {/*
-    System.debug('ENTROU NA TRIGGER CompleteResolutionTimeMilestone');
+trigger CompleteResolutionTimeMilestone on Case (after update) {
     if (UserInfo.getUserType() == 'Standard'){
         DateTime completionDate = System.now(); 
             List<Id> updateCases = new List<Id>();
@@ -10,5 +9,5 @@ trigger CompleteResolutionTimeMilestone on Case (after update) {/*
         }
     if (updateCases.isEmpty() == false)
         milestoneUtils.completeMilestone(updateCases, 'Resolution Time', completionDate);
-    }*/
+    }
 }

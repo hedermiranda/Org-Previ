@@ -1,5 +1,4 @@
-trigger DefaultEntitlement on Case (Before Insert, Before Update) {/*
-    System.debug('ENTROU NA TRIGGER DefaultEntitlement');
+trigger DefaultEntitlement on Case (Before Insert, Before Update) {
     Set<Id> contactIds = new Set<Id>();
     Set<Id> acctIds = new Set<Id>();
     for (Case c : Trigger.new) {
@@ -37,7 +36,6 @@ trigger DefaultEntitlement on Case (Before Insert, Before Update) {/*
                     for(Entitlement e:entls){
                         if(e.AccountId==c.AccountId){
                             c.EntitlementId = e.Id;
-                            System.debug('MEU START DATE = ' + e.StartDate);
                             if(c.AssetId==null && e.AssetId!=null)
                                 c.AssetId=e.AssetId;
                             break;
@@ -46,5 +44,5 @@ trigger DefaultEntitlement on Case (Before Insert, Before Update) {/*
                 }
             }
         }
-    }*/
+    }
 }

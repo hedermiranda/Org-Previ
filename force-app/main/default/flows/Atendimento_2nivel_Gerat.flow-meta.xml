@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>send_email</name>
+        <label>send email</label>
+        <locationX>50</locationX>
+        <locationY>1238</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Caso enviado para 2 Nivel</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Html</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>Get_Demanda.ContactEmail</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>56.0</apiVersion>
+    <decisions>
+        <description>Se a origem nao for carta e nem evento externo</description>
+        <name>Origem</name>
+        <label>Origem</label>
+        <locationX>182</locationX>
+        <locationY>1118</locationY>
+        <defaultConnectorLabel>Resultado padrão</defaultConnectorLabel>
+        <rules>
+            <name>Origem_Digital</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Demanda.Origin</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Carta</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Demanda.Origin</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Evento Externo</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>send_email</targetReference>
+            </connector>
+            <label>Origem Digital</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Sub_Status_Enviado</name>
+        <label>Sub-Status Enviado?</label>
+        <locationX>380</locationX>
+        <locationY>398</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>SubStatus_Enviado</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Enviado</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Case_Milestone_Data</targetReference>
+            </connector>
+            <label>Sub-Status Enviado</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Atendimento 2º nível Gerat {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Atendimento 2º nível Gerat</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>Get_AreaAtuacao_MetaData</name>
+        <label>Get AreaAtuacao MetaData</label>
+        <locationX>182</locationX>
+        <locationY>758</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Owner</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Occupation_area__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Demanda.Occupation_area__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>AreaAtuacaoxProprietario__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Case_Milestone_Data</name>
+        <label>Get Case Milestone Data</label>
+        <locationX>182</locationX>
+        <locationY>518</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Custom_Fields_Demanda</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>CaseId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Demanda.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>CaseMilestone</object>
+        <sortField>TargetDate</sortField>
+        <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Demanda</name>
+        <label>Get Demanda</label>
+        <locationX>380</locationX>
+        <locationY>278</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Sub_Status_Enviado</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Custom_Fields_Demanda</name>
+        <label>Update Custom Fields Demanda</label>
+        <locationX>182</locationX>
+        <locationY>638</locationY>
+        <connector>
+            <targetReference>Get_AreaAtuacao_MetaData</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Demanda.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Completed__c</field>
+            <value>
+                <elementReference>Get_Case_Milestone_Data.IsCompleted</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Sub_Status__c</field>
+            <value>
+                <stringValue>Enviado</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Target_Date__c</field>
+            <value>
+                <elementReference>Get_Case_Milestone_Data.TargetDate</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Owner</name>
+        <label>Update Owner</label>
+        <locationX>182</locationX>
+        <locationY>878</locationY>
+        <connector>
+            <targetReference>Atendimento_2_Nivel</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Demanda.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Occupation_area__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_AreaAtuacao_MetaData.Occupation_area__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>Get_AreaAtuacao_MetaData.OwnerId__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <screens>
+        <name>Atendimento_2_Nivel</name>
+        <label>Atendimento 2º Nível</label>
+        <locationX>182</locationX>
+        <locationY>998</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Origem</targetReference>
+        </connector>
+        <fields>
+            <name>Demanda_Transferida</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Demanda Transferida com sucesso para a Área!&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <nextOrFinishButtonLabel>Concluído</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>SubStatusEnviado</name>
+        <label>Sub-Status Enviado ?</label>
+        <locationX>380</locationX>
+        <locationY>158</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Get_Demanda</targetReference>
+        </connector>
+        <fields>
+            <name>Enviado</name>
+            <dataType>Boolean</dataType>
+            <fieldText>Enviado</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>254</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>SubStatusEnviado</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>Html</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+      ReadMsgBody{ width: 100%;}
+      .ExternalClass {width: 100%;}
+      .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+      body {-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;margin:0 !important;}
+      p { margin: 1em 0;}
+      table td { border-collapse: collapse;}
+      img {outline:0;}
+      a img {border:none;}
+      @-ms-viewport{ width: device-width;}
+    &lt;/style&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+      @media only screen and (max-width: 480px) {
+        .container {width: 100% !important;}
+        .footer { width:auto !important; margin-left:0; }
+        .mobile-hidden { display:none !important; }
+        .logo { display:block !important; padding:0 !important; }
+        img { max-width:100% !important; height:auto !important; max-height:auto !important;}
+        .header img{max-width:100% !important;height:auto !important; max-height:auto !important;}
+        .photo img { width:100% !important; max-width:100% !important; height:auto !important;}
+        .drop { display:block !important; width: 100% !important; float:left; clear:both;}
+        .footerlogo { display:block !important; width: 100% !important; padding-top:15px; float:left; clear:both;}
+        .nav4, .nav5, .nav6 { display: none !important; }
+        .tableBlock {width:100% !important;}
+        .responsive-td {width:100% !important; display:block !important; padding:0 !important; }
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        /* MOBILE GLOBAL STYLES - DO NOT CHANGE */
+        body { padding: 0px !important; font-size: 16px !important; line-height: 150% !important;}
+        h1 { font-size: 22px !important; line-height: normal !important;}
+        h2 { font-size: 20px !important; line-height: normal !important;}
+        h3 { font-size: 18px !important; line-height: normal !important;}
+        .buttonstyles {
+          font-family:arial,helvetica,sans-serif !important;
+          font-size: 16px !important;
+          color: #FFFFFF !important;
+          padding: 10px !important;
+        }
+        /* END OF MOBILE GLOBAL STYLES - DO NOT CHANGE */
+      }
+      @media only screen and (max-width: 640px) {
+        .container { width:100% !important; }
+        .mobile-hidden { display:none !important; }
+        .logo { display:block !important; padding:0 !important; }
+        .photo img { width:100% !important; height:auto !important;}
+        .nav5, .nav6 { display: none !important;}
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+      }
+    &lt;/style&gt;
+    &lt;!--[if mso]&gt;
+      &lt;style type=&quot;text/css&quot;&gt;
+          /* Begin Outlook Font Fix */
+              body, table, td {
+                 font-family : Arial, helvetica, sans-serif;
+                 line-height : 100%;
+                 font-size : 16px;
+                 color : #000000;
+              }
+          /* End Outlook Font Fix */
+      &lt;/style&gt;
+    &lt;![endif]--&gt;
+  &lt;/head&gt;
+  &lt;body bgcolor=&quot;#FFFFFF&quot; text=&quot;#000000&quot; style=&quot;-webkit-text-size-adjust:none;background-color : #FFFFFF; font-family : Arial, helvetica, sans-serif; line-height : 100%; font-size : 16px; color : #000000; padding : 0px; &quot;&gt;
+    &lt;div style=&quot;font-size:0; line-height:0;&quot;&gt;&lt;custom name=&quot;opencounter&quot; type=&quot;tracking&quot;&gt;&lt;custom name=&quot;usermatch&quot; type=&quot;tracking&quot; /&gt;&lt;/div&gt;
+    &lt;table width=&quot;100%&quot; border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; align=&quot;center&quot;&gt;
+      &lt;tr&gt;
+        &lt;td align=&quot;center&quot; valign=&quot;top&quot;&gt;
+          &lt;custom type=&quot;header&quot;/&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td align=&quot;center&quot;&gt;
+          &lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; width=&quot;600&quot; class=&quot;container&quot; align=&quot;center&quot;&gt;
+            &lt;tr&gt;
+              &lt;td&gt;
+                &lt;table class=&quot;tb_properties border_style&quot; style=&quot;font-size : 16px; font-family : Arial, helvetica, sans-serif; color : #000000;background-color : transparent; border : 0px; line-height : 100%; &quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; bgcolor=&quot;transparent&quot; width=&quot;100%&quot;&gt;
+                  &lt;tr&gt;
+                    &lt;td align=&quot;center&quot; valign=&quot;top&quot;&gt;
+                      &lt;table align=&quot;left&quot; border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+                        &lt;tr&gt;
+                          &lt;!-- added padding here --&gt;
+                          &lt;td class=&quot;content_padding&quot; style=&quot;padding : 0px 0px 0px 0px; &quot;&gt;
+                            &lt;!-- end of comment --&gt;
+                            &lt;table border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+                              &lt;tr&gt; &lt;!-- top slot --&gt;
+                                &lt;td align=&quot;center&quot; class=&quot;header&quot; valign=&quot;top&quot;&gt;
+                                  &lt;table align=&quot;left&quot; border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+                                    &lt;tbody&gt;
+                                        &lt;tr&gt;
+                                          &lt;td align=&quot;left&quot; valign=&quot;top&quot;&gt;
+                                            &lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+                                              &lt;tbody&gt;
+                                              &lt;tr&gt;
+                                                &lt;td class=&quot;responsive-td&quot; valign=&quot;top&quot; style=&quot;width: 100%;&quot;&gt;
+                                                  &lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: #FFFFFF; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 0px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: transparent; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 0px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot; style=&quot;width: 100%;&quot;&gt;&lt;tr&gt;&lt;td&gt;&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot; style=&quot;width: 100%;&quot;&gt;&lt;tr&gt;&lt;td valign=&quot;top&quot; class=&quot;responsive-td&quot; style=&quot;width: 100%; padding-bottom: 3px;&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: transparent; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 0px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;div style=&quot;text-align: center;&quot;&gt;
+ &lt;span style=&quot;font-size:12px;&quot;&gt;&lt;span style=&quot;color:#999999;&quot;&gt;Caso n&amp;atilde;o esteja visualizando corretamente esta mensagem, &lt;/span&gt;&lt;a href=&quot;%%view_email_url%%&quot;&gt;&lt;span style=&quot;color:#999999;&quot;&gt;&lt;u&gt;acesse este link&lt;/u&gt;.&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot; style=&quot;width: 100%;&quot;&gt;&lt;tr&gt;&lt;td valign=&quot;top&quot; class=&quot;responsive-td&quot; style=&quot;width: 100%; padding-top: 3px;&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; role=&quot;presentation&quot;&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;img data-assetid=&quot;3007&quot; src=&quot;https://image.relacionamento.previ.com.br/lib/fe31117371640478771c73/m/1/31bee5dd-1981-4029-835b-0fe6e569e284.png&quot; alt=&quot;&quot; width=&quot;600&quot; style=&quot;display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; class=&quot;stylingblock-content-wrapper&quot; style=&quot;min-width: 100%; &quot;&gt;&lt;tr&gt;&lt;td class=&quot;stylingblock-content-margin-cell&quot; style=&quot;padding: 20px 0px 0px 20px; &quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; role=&quot;presentation&quot; style=&quot;background-color: transparent; min-width: 100%; &quot; class=&quot;stylingblock-content-wrapper&quot;&gt;&lt;tr&gt;&lt;td style=&quot;padding: 0px 10px; &quot; class=&quot;stylingblock-content-wrapper camarker-inner&quot;&gt;&lt;p&gt;
+ Protocolo: {!Get_Demanda.CaseNumber} &lt;br&gt;
+ E-mail:&amp;nbsp;{!Get_Demanda.ContactEmail}&lt;br&gt;
+ Matr&amp;iacute;cula: {!Get_Demanda.MatriculaFormula__c}&lt;br&gt;
+ &lt;br&gt;
+ Nome:&amp;nbsp;{!Get_Demanda.Account.Name}&lt;br&gt;
+ &lt;br&gt;
+ Obrigado por entrar em contato com a Previ.&lt;br&gt;
+Sua solicitação encontra-se em análise e o prazo para atendimento  é até {!Get_Demanda.Dia_de_prazo__c}.
+ &lt;br&gt; &lt;br&gt;
+ Ger&amp;ecirc;ncia de Atendimento&lt;br&gt;
+ PREVI&lt;br&gt;
+ ________________________________________&lt;br&gt;
+ &lt;br&gt;
+ Data: {!Get_Demanda.LastModifiedDate}&lt;br&gt;
+ Assunto: {!Get_Demanda.Subject}&lt;br&gt;
+ Tipo:{!Get_Demanda.Type}</text>
+    </textTemplates>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

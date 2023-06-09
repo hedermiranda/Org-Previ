@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Chama a classe ChangeBaseAPI.FieldsAlter.</description>
+        <name>FieldsAlterados</name>
+        <label>FieldsAlterados</label>
+        <locationX>671</locationX>
+        <locationY>719</locationY>
+        <actionName>ChangeBaseAPI</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>LtsContact</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>matricula</name>
+            <value>
+                <elementReference>$Record.Account.Registration__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>TypeAPISession</name>
+            <value>
+                <elementReference>TypeAPISession</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>56.0</apiVersion>
+    <assignments>
+        <description>Mocando o valor de onde foi editado na variavel TypeAPISession.</description>
+        <name>AssignVariablesToPickList</name>
+        <label>AssignVariablesToPickList</label>
+        <locationX>673</locationX>
+        <locationY>557</locationY>
+        <assignmentItems>
+            <assignToReference>TypeAPISession</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>EmailInfoAdd</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>TypeAPISession</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>TelefoneInfoAdd</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>FieldsAlterados</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>TrueInformation</name>
+        <label>TrueInformation</label>
+        <locationX>661</locationX>
+        <locationY>389</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>VerificateInformation</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>IsEmail</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>isTelefone</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AssignVariablesToPickList</targetReference>
+            </connector>
+            <label>VerificateInformation</label>
+        </rules>
+    </decisions>
+    <description>No detalhe da Página de registro ao alterar alguns campos especificos deverá chamar um serviço e passar os valores da alteração.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>EmailInfoAdd</name>
+        <dataType>String</dataType>
+        <expression>IF({!IsEmail}, &quot;Email;&quot;, &quot; &quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>Verifica se houve alteração no detalhe do contato no campo email.</description>
+        <name>IsEmail</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(ISCHANGED( {!$Record.Email}),true,false)</expression>
+    </formulas>
+    <formulas>
+        <description>Verifica se houve alteração no detalhe do contato nos campos abaixo.</description>
+        <name>isTelefone</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(OR( ISCHANGED( {!$Record.MobilePhone }),ISCHANGED( {!$Record.Phone }),ISCHANGED( {!$Record.Fax })),true,false)</expression>
+    </formulas>
+    <formulas>
+        <name>TelefoneInfoAdd</name>
+        <dataType>String</dataType>
+        <expression>IF({!isTelefone}, &quot;Telefone;&quot;, &quot; &quot;)</expression>
+    </formulas>
+    <interviewLabel>Envia para API os campos alterados de contato {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Envia para o servico os campos alterados de contato</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>543</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>TrueInformation</targetReference>
+        </connector>
+        <filterFormula>IF(OR( ISCHANGED( {!$Record.Email}), ISCHANGED( {!$Record.Phone}),ISCHANGED( {!$Record.Fax}), ISCHANGED( {!$Record.MobilePhone})),true,false)</filterFormula>
+        <object>Contact</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Variavel criada para salvar o local da edição. Podendo ser Telefone ou Email.</description>
+        <name>TypeAPISession</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

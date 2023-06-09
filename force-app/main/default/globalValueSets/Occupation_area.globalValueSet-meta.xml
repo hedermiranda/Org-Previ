@@ -136,22 +136,16 @@
         <label>Secex</label>
     </customValue>
     <customValue>
-        <fullName>Gecot</fullName>
-        <default>false</default>
-        <isActive>false</isActive>
-        <label>Gecot</label>
-    </customValue>
-    <customValue>
         <fullName>Gepab</fullName>
         <default>false</default>
         <isActive>false</isActive>
         <label>Gepab</label>
     </customValue>
     <customValue>
-        <fullName>Gevar</fullName>
+        <fullName>Gecot</fullName>
         <default>false</default>
         <isActive>false</isActive>
-        <label>Gevar</label>
+        <label>Gecot</label>
     </customValue>
     <customValue>
         <fullName>Ascom</fullName>
@@ -159,7 +153,13 @@
         <isActive>false</isActive>
         <label>Ascom</label>
     </customValue>
+    <customValue>
+        <fullName>Gevar</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Gevar</label>
+    </customValue>
     <description>Campo para informar área de atuação.</description>
     <masterLabel>Área de atuação</masterLabel>
-    <sorted>true</sorted>
+    <sorted>false</sorted>
 </GlobalValueSet>

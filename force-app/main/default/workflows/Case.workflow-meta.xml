@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Alcan_ou_metade_do_SLA</fullName>
+        <description>Alcançou metade do SLA</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Avisar_tempo_restante</template>
+    </alerts>
+    <alerts>
+        <fullName>Aviso_de_2_minutos_antes_que_o_marco_expire</fullName>
+        <description>Aviso de 2 minutos antes que o marco expire</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>romao.freitas.previ@ilia.digital</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/SUPPORTCaseescalationnotificationSAMPLE</template>
+    </alerts>
+    <alerts>
+        <fullName>Notifica_Analistas</fullName>
+        <description>Notifica Analistas</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Ouvidoria</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Previ/Case_Open</template>
+    </alerts>
+    <alerts>
+        <fullName>Notifica_Ouvidora</fullName>
+        <description>Notifica Ouvidora</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Ouvidoria</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Previ/Ouvidora_Mail</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Atualiza_Owner</fullName>
+        <description>Após a aprovação alterr o proprietário para o mesmo usuário que aprovou o Caso.</description>
+        <field>OwnerId</field>
+        <lookupValue>Aprovadores_Gerat</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Atualiza Owner</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Atualiza_Owner_Conin</fullName>
+        <description>Após a aprovação alterr o proprietário para o mesmo usuário que aprovou o Caso.</description>
+        <field>OwnerId</field>
+        <lookupValue>Aprovadores_Conin</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Atualiza Owner Conin</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Atualiza_Owner_Diseg</fullName>
+        <description>Após a aprovação alterr o proprietário para o mesmo usuário que aprovou o Caso.</description>
+        <field>OwnerId</field>
+        <lookupValue>Aprovadores_Diseg</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Atualiza Owner Diseg</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Atualiza_Owner_Gabin</fullName>
+        <description>Após a aprovação alterr o proprietário para o mesmo usuário que aprovou o Caso.</description>
+        <field>OwnerId</field>
+        <lookupValue>Aprovadores_Gabin</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Atualiza Owner Gabin</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Atualiza_Owner_Geben</fullName>
+        <description>Após a aprovação alterr o proprietário para o mesmo usuário que aprovou o Caso.</description>
+        <field>OwnerId</field>
+        <lookupValue>Aprovadores_Geben</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Atualiza Owner Geben</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Atualiza_Owner_Gecat</fullName>
+        <description>Após a aprovação alterr o proprietário para o mesmo usuário que aprovou o Caso.</description>
+        <field>OwnerId</field>
+        <lookupValue>Aprovadores_Gecat</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Atualiza Owner Gecat</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Atualiza_Owner_Gecon</fullName>
+        <description>Após a aprovação alterr o proprietário para o mesmo usuário que aprovou o Caso.</description>
+        <field>OwnerId</field>
+        <lookupValue>Aprovadores_Gecon</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Atualiza Owner Gecon</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Atualiza_Owner_Gecot</fullName>
+        <description>Após a aprovação alterr o proprietário para o mesmo usuário que aprovou o Caso.</description>
+        <field>OwnerId</field>
+        <lookupValue>Aprovadores_Gecot</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Atualiza Owner Gecot</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Atualiza_Owner_Gepab</fullName>
+        <description>Após a aprovação alterr o proprietário para o mesmo usuário que aprovou o Caso.</description>
+        <field>OwnerId</field>
+        <lookupValue>Aprovadores_Gepab</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Atualiza Owner Gepab</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Atualiza_Owner_Gepar</fullName>
+        <description>Após a aprovação alterr o proprietário para o mesmo usuário que aprovou o Caso.</description>
+        <field>OwnerId</field>
+        <lookupValue>Aprovadores_Gepar</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Atualiza Owner Gepar</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Atualiza_Owner_Gepoc</fullName>
+        <description>Após a aprovação alterr o proprietário para o mesmo usuário que aprovou o Caso.</description>
+        <field>OwnerId</field>
+        <lookupValue>Aprovadores_Gepoc</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Atualiza Owner Gepoc</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Atualiza_Owner_Gerat</fullName>
+        <description>Após a aprovação alterr o proprietário para o mesmo usuário que aprovou o Caso.</description>
+        <field>OwnerId</field>
+        <lookupValue>Aprovadores_Gerat</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Atualiza Owner Gerat</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Atualiza_Owner_Gesop</fullName>
+        <description>Após a aprovação alterr o proprietário para o mesmo usuário que aprovou o Caso.</description>
+        <field>OwnerId</field>
+        <lookupValue>Aprovadores_Gesop</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Atualiza Owner Gesop</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Atualiza_Owner_Gevar</fullName>
+        <description>Após a aprovação alterr o proprietário para o mesmo usuário que aprovou o Caso.</description>
+        <field>OwnerId</field>
+        <lookupValue>Aprovadores_Gevar</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Atualiza Owner Gevar</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Atualiza_Sub_Status</fullName>
+        <description>Se aprovado, atualiza o Sub-Status para &quot;Revisado&quot;.</description>
+        <field>Sub_Status__c</field>
+        <literalValue>Revisado</literalValue>
+        <name>Atualiza Sub-Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ChangePriorityToHigh</fullName>
+        <field>Priority</field>
+        <literalValue>High</literalValue>
+        <name>Altera a prioridade do caso para alta.</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

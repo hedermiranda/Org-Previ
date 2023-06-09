@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Gecon</label>
+    <protected>false</protected>
+    <values>
+        <field>Occupation_area__c</field>
+        <value xsi:type="xsd:string">Gecon</value>
+    </values>
+    <values>
+        <field>OwnerId__c</field>
+        <value xsi:type="xsd:string">00G5C000003vvT6UAI</value>
+    </values>
+    <values>
+        <field>Owner__c</field>
+        <value xsi:type="xsd:string">Atendimento Gecon</value>
+    </values>
+</CustomMetadata>

@@ -34,11 +34,11 @@ public class CaseTriggerHandler {
     
     public static void getContact(String accId, List<Case> newCase) {
         try{
-            //Account acc = [SELECT Id FROM Account WHERE Id =: accId];
-            List<Contact> con = [SELECT Id FROM Contact WHERE AccountId =: accId];
+            Account acc = [SELECT Id FROM Account WHERE Id =: accId];
+            Contact con = [SELECT Id FROM Contact WHERE AccountId =: accId];
             List<Case> lstCaseUpdate = new List<Case>();
             for(Case cas : newCase){
-                cas.ContactId = con[0].Id;
+                cas.ContactId = con.Id;
                 lstCaseUpdate.add(cas);
             }
             update lstCaseUpdate;

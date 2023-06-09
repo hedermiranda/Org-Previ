@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>true</active>
+    <entryStartDateField>Case.Data_de_Protocolo__c</entryStartDateField>
+    <exitCriteriaBooleanFilter>1 OR 2</exitCriteriaBooleanFilter>
+    <exitCriteriaFilterItems>
+        <field>Case.Status</field>
+        <operation>equals</operation>
+        <value>Fechado</value>
+    </exitCriteriaFilterItems>
+    <exitCriteriaFilterItems>
+        <field>Case.Status</field>
+        <operation>equals</operation>
+        <value>Cancelado</value>
+    </exitCriteriaFilterItems>
+    <milestones>
+        <businessHours>Default</businessHours>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Fale Conosco, Atendimento</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Status</field>
+            <operation>notEqual</operation>
+            <value>Fechado</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Service__c</field>
+            <operation>notEqual</operation>
+            <value>LGPD</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Atendimento Prazo Legal</milestoneName>
+        <minutesToComplete>43200</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>Default</businessHours>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Status</field>
+            <operation>notEqual</operation>
+            <value>Fechado</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Type</field>
+            <operation>equals</operation>
+            <value>Comunicado, Elogio, Pós-Atendimento, Reclamação, Solicitação, Sugestão</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Producty__c</field>
+            <operation>equals</operation>
+            <value>Outros</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Service__c</field>
+            <operation>equals</operation>
+            <value>LGPD</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>equals</operation>
+            <value>Solicitação</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Atendimento Prazo Legal</milestoneName>
+        <minutesToComplete>21600</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>Atendimento Gerat</businessHours>
+        <criteriaBooleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6</criteriaBooleanFilter>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Fale Conosco, Atendimento</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Producty__c</field>
+            <operation>equals</operation>
+            <value>Aposentadoria, Cadastro, Empréstimo Simples, Financiamento Imobiliário, Folha de Pagamentos, Senha</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Service__c</field>
+            <operation>equals</operation>
+            <value>2ª via, Concessão, Dados, Espelho, Informações/Serviços ES, Informações/Serviços FI</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>equals</operation>
+            <value>2ª via, Agendamento Assessoria, Assessoria - Esclarecimentos, Autorização p/cadastrar URA, Demonstrativo IR - I/S ES, Demonstrativo IR -  I/S FI, Dependentes Previ, Identificação p/cadastrar  URA</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Aguardando 2° nível</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Status__c</field>
+            <operation>equals</operation>
+            <value>Enviado, Revisado, Em Análise, Análise Concluída, Devolvido, Reenviado</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Atendimento Área 2 dias</milestoneName>
+        <minutesToComplete>1200</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>Atendimento Gerat</businessHours>
+        <criteriaBooleanFilter>1 AND 2 AND (3 OR 7) AND 4 AND 5 AND 6</criteriaBooleanFilter>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Fale Conosco, Atendimento</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Producty__c</field>
+            <operation>equals</operation>
+            <value>Empréstimo Simples, Financiamento Imobiliário, Folha de Pagamentos, Previ Família, Documentos e Formulários</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Service__c</field>
+            <operation>equals</operation>
+            <value>Espelho, Fopag, Informações/Serviços ES, Informações/Serviços FI, Pensão Alimentícia, Canais/Senha</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>equals</operation>
+            <value>13º salário - P/A, Altera Cadastro, Cancelamento -  I/S ES, Crédito, Esclarecimentos - E, Pagamento Prestações - Boleto, Recebimento do Ofício, Remessa, Termo de Adesão, Central de Vendas, -, --, ---, ----</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Aguardando 2° nível</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Status__c</field>
+            <operation>equals</operation>
+            <value>Enviado, Revisado, Em Análise, Análise Concluída, Devolvido, Reenviado</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Service__c</field>
+            <operation>equals</operation>
+            <value>Acordo BB/Previ – Grupo de 67, Atualização Dados Participante @, Atualização Cadastral de Pensionistas @, Capec - Regulamento @, Declaração Cancelamento - Previ Futuro, DR - Comprovante IR (Antes de 99), DR - Comprovante IR (A Partir de 99)</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Atendimento Área 3 dias</milestoneName>
+        <minutesToComplete>1800</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>Atendimento Gerat</businessHours>
+        <criteriaBooleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6</criteriaBooleanFilter>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Fale Conosco, Atendimento</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Producty__c</field>
+            <operation>equals</operation>
+            <value>Aposentadoria, Canais de Relacionamento, Folha de Pagamentos, Pensão</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Service__c</field>
+            <operation>equals</operation>
+            <value>Imposto de Renda, Manutenção, Manutenção Pensão, Pensão Alimentícia, Protocolo</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>equals</operation>
+            <value>Autoatendimento - P, Comunicação de óbito, Comunicação de óbito - M/P, Demonstrativo IR - P/A, Dependentes, Isenção</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Aguardando 2° nível</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Status__c</field>
+            <operation>equals</operation>
+            <value>Enviado, Revisado, Em Análise, Análise Concluída, Devolvido, Reenviado</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Atendimento Área 4 Dias</milestoneName>
+        <minutesToComplete>2400</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>Atendimento Gerat</businessHours>
+        <criteriaBooleanFilter>1 AND 2 AND (3 OR 4) AND (5 OR 6 OR 7 OR 8 OR 9) AND 10 AND 11</criteriaBooleanFilter>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Fale Conosco, Atendimento</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Producty__c</field>
+            <operation>equals</operation>
+            <value>Aposentadoria, Cadastro, Canais de Relacionamento, Cartão PREVI, Empréstimo Simples, Financiamento Imobiliário, Folha de Pagamentos, Outros, Pecúlio, Pensão, Previ Família, Reservas/Contribuição</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Service__c</field>
+            <operation>equals</operation>
+            <value>Acesso/Navegação, Concessão, Concessão Pensão, Dados, Imposto de Renda, Informações/Serviços CAPEC, Institucional, Manutenção, Manutenção Pensão, Notícias e Publicações, Outros, Pensão Alimentícia, Solicitação</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Service__c</field>
+            <operation>equals</operation>
+            <value>Cadastro, Canais/Senha, Contribuições, Demonstrativo IR, Informações/Serviços ES, Informações/Serviços FI, Preservação Nível de Contribuição, Vinculação ao Plano, Vinculação ao Plano - P/F</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>equals</operation>
+            <value>13º salário, Convênio INSS - Exclusão, Convênio INSS - Exclusão - M/P, Convênio INSS - Inclusão, Convênio INSS - Inclusão - M/P, Informação/2ª via, Meu benefício, Reajuste, Reajuste - M/P, Recadastramento</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>equals</operation>
+            <value>13º salário -M/P, Agência/Conta Corrente, Aplicativo - A/N, Aplicativo - N/P, Cálculo - I/R, Cálculo P-A, Confirma crédito, Demonstrativo IR - I/S, Pessoais, Recadastramento - M/P, Tempo de INSS</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>equals</operation>
+            <value>Agência/Conta, Atendimento, Beneficiários, Concessão, ES-FINIMOB, FGTS, Liquidação/Amortização - F/I FI, Liquidação/Amortização - I/S ES, Prestação, Processo Eleitoral Previ, Seleção de Conselheiros</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>equals</operation>
+            <value>Aplicativo, Cancelamento - P/N/C, Cancelamento -  V/P, Demonstrativo IR - V/P, Encaminhamento/Esclarecimentos, Endereço/Pessoais, Inscrição - V/P, IR-Opção Tabela Regressiva, Modalidades, Pagamento, Perfil de Investimentos</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>equals</operation>
+            <value>Autoadesão, Substituição de Garantia, Suspensão, Transferência Bancos x Previ</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Aguardando 2° nível</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Status__c</field>
+            <operation>equals</operation>
+            <value>Enviado, Revisado, Em Análise, Análise Concluída, Devolvido, Reenviado</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Atendimento Área 5 dias</milestoneName>
+        <minutesToComplete>3000</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>Atendimento Gerat</businessHours>
+        <criteriaBooleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6</criteriaBooleanFilter>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Fale Conosco, Atendimento</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Producty__c</field>
+            <operation>equals</operation>
+            <value>Financiamento Imobiliário, Folha de Pagamentos</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Service__c</field>
+            <operation>equals</operation>
+            <value>Fopag, Imposto de Renda, Informações/Serviços FI, Pensão Alimentícia</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>equals</operation>
+            <value>Contrato - I/S FI, Demonstrativo IR - Valores, Dívidas/Liquidação, Fora do Convênio</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Aguardando 2° nível</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Status__c</field>
+            <operation>equals</operation>
+            <value>Enviado, Revisado, Em Análise, Análise Concluída, Devolvido, Reenviado</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Atendimento Área 6 dias</milestoneName>
+        <minutesToComplete>3600</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>Atendimento Gerat</businessHours>
+        <criteriaBooleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6</criteriaBooleanFilter>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Fale Conosco, Atendimento</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Producty__c</field>
+            <operation>equals</operation>
+            <value>Financiamento Imobiliário, Folha de Pagamentos</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Service__c</field>
+            <operation>equals</operation>
+            <value>Espelho, Informações/Serviços FI</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>equals</operation>
+            <value>Consignação de Entidades, Transferência Previ x Previ</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Aguardando 2° nível</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Status__c</field>
+            <operation>equals</operation>
+            <value>Enviado, Revisado, Em Análise, Análise Concluída, Devolvido, Reenviado</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Atendimento Área 7 dias</milestoneName>
+        <minutesToComplete>4200</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>Atendimento Gerat</businessHours>
+        <criteriaBooleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6</criteriaBooleanFilter>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Fale Conosco, Atendimento</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Producty__c</field>
+            <operation>equals</operation>
+            <value>Canais de Relacionamento, Empréstimo Simples, Outros, Previ Família, Cadastro</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Service__c</field>
+            <operation>equals</operation>
+            <value>Acesso/Navegação, Benefícios, Canais/Senha, Informações/Serviços ES, Institutos, LGPD, Vinculação ao Plano - P/F, Dados</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>equals</operation>
+            <value>Autoatendimento, Autoatendimento - A/N, Benefício Temporário, Cancelamento -  V/P, Concessão/Renovação, Fale Conosco, Portabilidade de Entrada, Regimes de Tributação, Rendas, Resgate Parcial, Site, Solicitação, URA, Endereço</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Aguardando 2° nível</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Status__c</field>
+            <operation>equals</operation>
+            <value>Enviado, Revisado, Em Análise, Análise Concluída, Devolvido, Reenviado</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Atendimento Área 8 dias</milestoneName>
+        <minutesToComplete>4800</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>Atendimento Gerat</businessHours>
+        <criteriaBooleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6</criteriaBooleanFilter>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Fale Conosco, Atendimento</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Producty__c</field>
+            <operation>equals</operation>
+            <value>Empréstimo Simples</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Service__c</field>
+            <operation>equals</operation>
+            <value>Informações/Serviços ES</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>equals</operation>
+            <value>Contrato - I/S ES</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Aguardando 2° nível</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Status__c</field>
+            <operation>equals</operation>
+            <value>Enviado, Revisado, Em Análise, Análise Concluída, Devolvido, Reenviado</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Atendimento Área 9 dias</milestoneName>
+        <minutesToComplete>5400</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>Atendimento Gerat</businessHours>
+        <criteriaBooleanFilter>1 AND 2 AND (3 OR 4) AND (5 OR 6 OR 7) AND 8 AND 9</criteriaBooleanFilter>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Fale Conosco, Atendimento</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Producty__c</field>
+            <operation>equals</operation>
+            <value>Aposentadoria, Canais de Relacionamento, Cartão PREVI, Financiamento Imobiliário, Folha de Pagamentos, Outros, Pecúlio, Pensão, Previ Família, Reservas/Contribuição, Senha</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Service__c</field>
+            <operation>equals</operation>
+            <value>2ª via, Acesso/Navegação, Clube de Benefícios, Concessão, Concessão Pensão, Documentos Microfilmados, Informações/Serviços CAPEC, Manutenção, Manutenção Pensão, Notícias e Publicações, Outros, Pensão Alimentícia</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Service__c</field>
+            <operation>equals</operation>
+            <value>Canais/Senha, Informações/Serviços FI, Institutos, Vinculação ao Plano, Vinculação ao Plano - P/F</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>equals</operation>
+            <value>Concessão, Convênio INSS - Outros, Convênio INSS - Outros -M/P, Esclarecimentos - C/B, Recadastramento - P/A, Site - A/N, URA -A/N</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>equals</operation>
+            <value>Beneficiários, Esclarecimentos - 2Via, Extrato, Inscrição - I/S CAPEC, Outros, Planos/Valores, Relatório Anual, Requisição de cópias, Resenha Previ, Site - N/P</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>equals</operation>
+            <value>Outros, Perfis de Investimento, Portabilidade de Saída, Reingresso, Resgate, Senha, Pagamento - processo, Pagamento - requerimento, Situação do Processo, Situação do Processo C/P</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Aguardando 2° nível</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Status__c</field>
+            <operation>equals</operation>
+            <value>Enviado, Revisado, Em Análise, Análise Concluída, Devolvido, Reenviado</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Atendimento Área 10 dias</milestoneName>
+        <minutesToComplete>6000</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>Atendimento Gerat</businessHours>
+        <criteriaBooleanFilter>1 AND 2 AND 3 AND 4 AND 5 AND 6</criteriaBooleanFilter>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Fale Conosco, Atendimento</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Producty__c</field>
+            <operation>equals</operation>
+            <value>Aposentadoria, Pensão</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Service__c</field>
+            <operation>equals</operation>
+            <value>Concessão, Concessão Pensão</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>equals</operation>
+            <value>Condições e cálculo 1, Condições e cálculo 1 -C/P, Condições e cálculo 2, Condições e cálculo 2 -C/P</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Aguardando 2° nível</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Status__c</field>
+            <operation>equals</operation>
+            <value>Enviado, Revisado, Em Análise, Análise Concluída, Devolvido, Reenviado</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Atendimento Área 11 dias</milestoneName>
+        <minutesToComplete>6600</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>Atendimento Gerat</businessHours>
+        <criteriaBooleanFilter>1 AND 2 AND (3 OR 4) AND (5 OR 6 OR 7 OR 8) AND 9 AND 10</criteriaBooleanFilter>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Fale Conosco, Atendimento</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Producty__c</field>
+            <operation>equals</operation>
+            <value>Aposentadoria, Cadastro, Empréstimo Simples, Financiamento Imobiliário, Folha de Pagamentos, Outros, Pecúlio, Pensão, Previ Família, Reclamatória Trabalhista, Reservas/Contribuição</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Service__c</field>
+            <operation>equals</operation>
+            <value>Concessão, Concessão Pensão, Dados, Fopag, Imposto de Renda, Informações/Serviços CAPEC, Informações/Serviços ES, Informações/Serviços FI, Institucional, Manutenção, Manutenção Pensão, Outros, Reclamatória Trabalhista</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Service__c</field>
+            <operation>equals</operation>
+            <value>Definição/Prévia opção/Saldo, Portabilidade, Preservação Nível de Contribuição, Resgate solicitado/pago, Vinculação ao Plano</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>equals</operation>
+            <value>Declaração, Declaração - M/P, Demonstrativo IR - Remessa, Dívidas/Informações, Imposto de Renda, Outros, Reservas/Contribuições, Revisão, Revisão - C/P, Revisão do Benefício, Tempo de Previ</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>equals</operation>
+            <value>Baixa de Hipoteca, Cancelamento - I/S CAPEC, Dados Previ/BB/Outros, Débito/crédito conta corrente, Governança Previ, Inadimplência/Jurídico - I/S ES, Inadimplência/Jurídico  - I/S FI, Investimentos e Participações, Repactuação</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>equals</operation>
+            <value>Condições e Pagamento, Contribuições, Entrada de Recursos, Esclarecimentos, Esclarecimentos/Valores 1, Esclarecimentos/Valores 2, Esclarecimentos - P/N/C, Processo, Renda Certa/Renda Mensal Temp., Saída de Recursos</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>equals</operation>
+            <value>Inscrição - V/P, Saldo Individual BET</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Aguardando 2° nível</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Status__c</field>
+            <operation>equals</operation>
+            <value>Enviado, Revisado, Em Análise, Análise Concluída, Devolvido, Reenviado</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Atendimento Área 15 dias</milestoneName>
+        <minutesToComplete>9000</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>Atendimento Gerat</businessHours>
+        <milestoneCriteriaFilterItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Fale Conosco, Atendimento</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Producty__c</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Service__c</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Sub_Service__c</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Aguardando Retorno</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Atendimento Sub-Status Devolvido</milestoneName>
+        <minutesToComplete>1200</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+</EntitlementProcess>

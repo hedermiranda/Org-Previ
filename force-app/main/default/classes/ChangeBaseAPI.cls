@@ -138,15 +138,15 @@ public class ChangeBaseAPI {
         
         switch on metodoName {
             when 'PostEmail' {		
-                retorno = IntegrationUtils.postEmail(registration, body);
+                retorno = IntegrationUtils.PostEmail(registration, body);
             }  
             
             when 'PutTelefone' {
-                retorno = IntegrationUtils.putTelefone(registration, body); 
+                retorno = IntegrationUtils.PutTelefone(registration, body); 
             }
             
             when 'PostOpcaoCorrespondencia' {		                   
-                retorno = IntegrationUtils.postOpcaoCorrespondencia(registration, body);
+                retorno = IntegrationUtils.PostOpcaoCorrespondencia(registration, body);
             }
         }
         system.debug('return integration ' + retorno);

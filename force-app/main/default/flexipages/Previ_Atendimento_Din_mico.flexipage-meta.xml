@@ -7,6 +7,9 @@
                     <name>actionNames</name>
                     <valueList>
                         <valueListItems>
+                            <value>RecordShareHierarchy</value>
+                        </valueListItems>
+                        <valueListItems>
                             <value>Submit</value>
                         </valueListItems>
                         <valueListItems>
@@ -21,12 +24,6 @@
                         <valueListItems>
                             <value>Case.Clonar_Caso</value>
                         </valueListItems>
-                        <valueListItems>
-                            <value>Global.NewTask</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Global.LogACall</value>
-                        </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
@@ -37,10 +34,10 @@
                     <name>enableActionsConfiguration</name>
                     <value>true</value>
                 </componentInstanceProperties>
-                <!-- <componentInstanceProperties>
+                <componentInstanceProperties>
                     <name>enableActionsInNative</name>
                     <value>false</value>
-                </componentInstanceProperties> -->
+                </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>hideChatterActions</name>
                     <value>true</value>
@@ -668,10 +665,6 @@
                     <value>Facet-625b0077-9efe-45c7-9d3c-3256b71d837d</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>horizontalAlignment</name>
-                    <value>false</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
                     <name>label</name>
                     <value>Dados do Caso</value>
                 </componentInstanceProperties>
@@ -684,10 +677,6 @@
                 <componentInstanceProperties>
                     <name>columns</name>
                     <value>Facet-c41d6702-f852-4ce3-a38f-a584ec3bac34</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>horizontalAlignment</name>
-                    <value>false</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
@@ -704,10 +693,6 @@
                     <value>Facet-110fa18a-2c31-4d24-a5b6-307e68832dbf</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>horizontalAlignment</name>
-                    <value>false</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
                     <name>label</name>
                     <value>Descrição</value>
                 </componentInstanceProperties>
@@ -722,10 +707,6 @@
                     <value>Facet-f337b12f-bbc8-4de5-8ebc-c4e6340f3838</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>horizontalAlignment</name>
-                    <value>false</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
                     <name>label</name>
                     <value>Detalhes do Contato</value>
                 </componentInstanceProperties>
@@ -738,10 +719,6 @@
                 <componentInstanceProperties>
                     <name>columns</name>
                     <value>Facet-ad04d7d5-906a-4727-9d06-2c001040e04d</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>horizontalAlignment</name>
-                    <value>false</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
@@ -833,12 +810,12 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>richTextValue</name>
-                    <value>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong style=&quot;color: rgb(23, 43, 77); font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, &amp;quot;Fira Sans&amp;quot;, &amp;quot;Droid Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 36px;&quot;&gt;ATENÇÃO!                                                         &lt;/strong&gt;&lt;strong style=&quot;color: rgb(23, 43, 77); font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, &amp;quot;Fira Sans&amp;quot;, &amp;quot;Droid Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 28px;&quot;&gt; &lt;/strong&gt;&lt;span style=&quot;color: rgb(23, 43, 77); font-family: serif; font-size: 28px;&quot;&gt;Há retorno pendente!&lt;/span&gt;&lt;/p&gt;</value>
+                    <value>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong style=&quot;color: rgb(23, 43, 77); font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, &amp;quot;Fira Sans&amp;quot;, &amp;quot;Droid Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 36px;&quot;&gt;⚠ &lt;/strong&gt;&lt;strong style=&quot;color: rgb(255, 0, 0); font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, &amp;quot;Fira Sans&amp;quot;, &amp;quot;Droid Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 36px;&quot;&gt;ATENÇÃO &lt;/strong&gt;&lt;strong style=&quot;color: rgb(23, 43, 77); font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, &amp;quot;Fira Sans&amp;quot;, &amp;quot;Droid Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 36px;&quot;&gt;⚠&lt;/strong&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong style=&quot;color: rgb(23, 43, 77); font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, &amp;quot;Fira Sans&amp;quot;, &amp;quot;Droid Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 28px;&quot;&gt; &lt;/strong&gt;&lt;strong style=&quot;color: rgb(255, 0, 0); font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, &amp;quot;Fira Sans&amp;quot;, &amp;quot;Droid Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 28px;&quot;&gt;Há retorno pendente!&lt;/strong&gt;&lt;/p&gt;</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:richText</componentName>
                 <identifier>flexipage_richText</identifier>
                 <visibilityRule>
-                    <booleanFilter>1 AND( 2 OR 3) AND ((4 AND 6) OR 5)</booleanFilter>
+                    <booleanFilter>1 AND( 2 OR 3) AND (5 OR 7 OR 8 OR (4 AND 6))</booleanFilter>
                     <criteria>
                         <leftValue>{!Record.Contact.Quantidade_de_Casos__c}</leftValue>
                         <operator>GT</operator>
@@ -862,12 +839,22 @@
                     <criteria>
                         <leftValue>{!Record.Status}</leftValue>
                         <operator>EQUAL</operator>
-                        <rightValue>Aguardando Retorno</rightValue>
+                        <rightValue>New</rightValue>
                     </criteria>
                     <criteria>
                         <leftValue>{!Record.Sub_Status__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>Revisado</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!Record.Status}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Em Andamento</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!Record.Status}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Aguardando Retorno</rightValue>
                     </criteria>
                 </visibilityRule>
             </componentInstance>
@@ -1184,7 +1171,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>hideMarkCompleteButton</name>
-                    <value>false</value>
+                    <value>true</value>
                 </componentInstanceProperties>
                 <componentName>support:milestones</componentName>
                 <identifier>support_milestones</identifier>
@@ -1195,10 +1182,6 @@
                 <componentInstanceProperties>
                     <name>columns</name>
                     <value>Facet-a98d65b1-efab-4b75-af36-36bcb1d813fe</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>horizontalAlignment</name>
-                    <value>false</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
